@@ -34,13 +34,13 @@ com_crashlytics_export_strings.xml
 gradle-app.setting
 
 ### Unity ###
-[Ll]ibrary/
-[Tt]emp/
-[Oo]bj/
-[Bb]uild/
-[Bb]uilds/
-/[Ll]ogs/
-/[Uu]ser[Ss]ettings/
+/Last Weapon Stand Stand/[Ll]ibrary/
+/Last Weapon Stand Stand/[Tt]emp/
+/Last Weapon Stand Stand/[Oo]bj/
+/Last Weapon Stand Stand/[Bb]uild/
+/Last Weapon Stand Stand/[Bb]uilds/
+/Last Weapon Stand Stand/[Ll]ogs/
+/Last Weapon Stand Stand/[Uu]ser[Ss]ettings/
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
