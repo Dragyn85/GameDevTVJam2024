@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.davidhopetech.tools.dependency": {
+      "version": "https://github.com/DavidJH2/_Daves_Custom_Packages.git?path=/Daves Custom Packages/Assets/com.davidhopetech.tools#main",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "d25792fc1bc88ef5f4a126d2d57f248a955b4038"
+    },
     "com.unity.bindings.openimageio": {
       "version": "1.0.0",
       "depth": 1,
