@@ -5,7 +5,17 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "d25792fc1bc88ef5f4a126d2d57f248a955b4038"
+      "hash": "31f50d703396c779badadc889ac038850db73811"
+    },
+    "com.unity.animation.rigging": {
+      "version": "1.3.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.burst": "1.4.1",
+        "com.unity.test-framework": "1.1.24"
+      },
+      "url": "https://packages.unity.com"
     },
     "com.unity.bindings.openimageio": {
       "version": "1.0.0",
