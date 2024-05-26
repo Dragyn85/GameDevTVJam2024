@@ -35,14 +35,6 @@ gradle-app.setting
 
 ### Unity ###
 
-# Ignore everything in the Assets folder
-/Last Weapon Stand Stand/Assets/*
-
-# But not this folder and its contents
-!/Last Weapon Stand Stand/Assets/Project/
-!/Last Weapon Stand Stand/Assets/Project/**
-
-
 /Last Weapon Stand Stand/[Ll]ibrary/
 /Last Weapon Stand Stand/[Tt]emp/
 /Last Weapon Stand Stand/[Oo]bj/
