@@ -34,6 +34,7 @@ public class AuthenticationManager : MonoBehaviour
 
     public bool IsAuthenticated()
     {
+        
         if (ugsAuthentication == null)
         {
             return false;

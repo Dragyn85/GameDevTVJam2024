@@ -1,10 +1,10 @@
-using System;
 using System.Threading.Tasks;
 using UnityEngine;
 
 public class LeaderboardDisplay : MonoBehaviour
 {
     [SerializeField] private HighScoreEntryDisplay _leaderboardDisplayPrefab;
+    [SerializeField] private Transform _leaderboardParent;
 
     [ContextMenu("Update Leaderboard")]
     private void UpdateLeadeboard()
@@ -23,7 +23,7 @@ public class LeaderboardDisplay : MonoBehaviour
     
     void ClearLeaderboard()
     {
-        foreach (Transform child in transform)
+        foreach (Transform child in _leaderboardParent)
         {
             Destroy(child.gameObject);
         } 
@@ -35,7 +35,7 @@ public class LeaderboardDisplay : MonoBehaviour
 
         foreach (var entry in entries)
         {
-            var leaderboardDisplay = Instantiate(_leaderboardDisplayPrefab, transform);
+            var leaderboardDisplay = Instantiate(_leaderboardDisplayPrefab, _leaderboardParent);
             leaderboardDisplay.SetTexts(entry.PlayerName, entry.Score);
         }
     }
