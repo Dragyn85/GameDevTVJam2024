@@ -49,30 +49,19 @@ public class AudioManager : MonoBehaviour
         onAnyVolumeChanged?.Invoke(obj, parameter);
         PlayerPrefs.SetFloat(parameter.Name, obj);
     }
-
-    public void incrMusicVolume()
+    
+    public void IncrParameterValue(string parameter)
     {
-        if (!audioMixerDict.ContainsKey(musicVolumeParameter)) return;
-        ChangeVolume(musicVolumeParameter, volumeChangeSpeed);
+        if (!audioMixerDict.ContainsKey(parameter)) return;
+
+        ChangeVolume(parameter, volumeChangeSpeed);
     }
 
-    public void decrMusicVolume()
+    public void DecrParameterValue(string parameter)
     {
-        if (!audioMixerDict.ContainsKey(musicVolumeParameter)) return;
-        ChangeVolume(musicVolumeParameter, -volumeChangeSpeed);
-    }
-    public void incrSFXVolume()
-    {
-        if (!audioMixerDict.ContainsKey(sfxVolumeParameter)) return;
+        if (!audioMixerDict.ContainsKey(parameter)) return;
 
-        ChangeVolume(sfxVolumeParameter, volumeChangeSpeed);
-    }
-
-    public void decrSFXVolume()
-    {
-        if (!audioMixerDict.ContainsKey(sfxVolumeParameter)) return;
-
-        ChangeVolume(sfxVolumeParameter, -volumeChangeSpeed);
+        ChangeVolume(parameter, -volumeChangeSpeed);
     }
 
     internal float GetVolume(string soundParameterName)
@@ -101,12 +90,7 @@ public class AudioManager : MonoBehaviour
         audioMixerDict[soundParameterName].SetVolume(pctValue);
     }
 
-    internal MixerParameter GetMixerParameter(string parameterName)
-    {
-        return audioMixerDict[parameterName];
-    }
-
-    protected void Initialize()
+    private void Initialize()
     {
         audioMixer.SetFloat(musicVolumeParameter, PlayerPrefs.GetFloat(musicVolumeParameter, 80) - 80);
         audioMixer.SetFloat(sfxVolumeParameter, PlayerPrefs.GetFloat(sfxVolumeParameter, 80) - 80);
