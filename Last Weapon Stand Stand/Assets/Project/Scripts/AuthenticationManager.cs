@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Unity.Android.Gradle.Manifest;
 using Unity.Services.Core;
 using UnityEditor;
 using UnityEngine;
@@ -28,7 +29,22 @@ public class AuthenticationManager : MonoBehaviour
 
     private async Task Initialize()
     {
-        await UnityServices.InitializeAsync();
+        try
+        {
+            await UnityServices.InitializeAsync();
+        }
+        catch (Exception e)
+        {
+            if (e is ServicesInitializationException initExeption)
+            {
+                Debug.LogError("Unity Services Initialization Failed with error: " + initExeption.Message);
+            }
+            else
+            {
+                Debug.LogError("Unity project not linked to a project " + e.Message);
+            }
+        }
+
         Debug.Log("Unity Services Initialized");
     }
 
@@ -57,7 +73,7 @@ public class AuthenticationManager : MonoBehaviour
             return true;
         }
 
-        return offlineMode;
+        return false;
     }
     
     UGSAuthentication ugsAuthentication;
