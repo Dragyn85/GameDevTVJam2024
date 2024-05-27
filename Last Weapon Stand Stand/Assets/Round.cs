@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Round : MonoBehaviour
@@ -14,5 +15,16 @@ public class Round : MonoBehaviour
     {
         if(rb.linearVelocity.magnitude<1)
             Destroy(this.gameObject);
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        Damageable damageable = other.gameObject.GetComponent<Damageable>();
+
+        if (damageable != null)
+        {
+            damageable.TakeDamage(10);
+            Destroy(this.gameObject);
+        }
     }
 }

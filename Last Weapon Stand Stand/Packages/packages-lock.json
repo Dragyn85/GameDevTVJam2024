@@ -19,6 +19,15 @@
       "dependencies": {},
       "hash": "6069ad19e6114b4592132fed6e65b7a67661cf44"
     },
+    "com.unity.ai.navigation": {
+      "version": "2.0.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.ai": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.animation.rigging": {
       "version": "1.3.0",
       "depth": 0,

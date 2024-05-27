@@ -2,9 +2,11 @@ using System;
 using com.davidhopetech.core.Run_Time.Scripts.Service_Locator;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private float                _jumpVelocity = 4;
     [SerializeField] private bool                 invertY;
     [SerializeField] private InputActionReference moouseLookAction;
     [SerializeField] private InputActionReference moouseLookButtonAction;
@@ -15,13 +17,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float                lookSensitivity = 20.0f;
     [SerializeField] private float                moveSpeed       = 4.0f;
     [SerializeField] private Transform            playerBody;
-    [SerializeField] private Transform            camera;
+    [SerializeField] private Transform            eyeCamera;
 
 
     private Rifle                   rifle;
     private DHTDebugPanel_1_Service debugPanel;
     private Vector2                 lookInput;
-
+    private Rigidbody               _rigidbody;
     
     private void OnEnable()
     {
@@ -32,7 +34,7 @@ public class PlayerController : MonoBehaviour
         fastAction.action.Enable();
         shootAction.action.Enable();
 
-        playerJumpAction.action.performed += PlayerJump;
+        playerJumpAction.action.started += PlayerJump;
     }
 
 
@@ -45,12 +47,14 @@ public class PlayerController : MonoBehaviour
         fastAction.action.Disable();
         shootAction.action.Disable();
     
-        playerJumpAction.action.performed += PlayerJump;
+        playerJumpAction.action.started -= PlayerJump;
     }
 
 
     private void Start()
     {
+        _rigidbody = playerBody.GetComponent<Rigidbody>();
+        
         Rifle[] rifles = FindObjectsByType<Rifle>(FindObjectsSortMode.None);
         rifle            = rifles[0];
         debugPanel       = DHTServiceLocator.Get<DHTDebugPanel_1_Service>();
@@ -80,7 +84,7 @@ public class PlayerController : MonoBehaviour
                 shootTimer = shootRate;
             }
 
-            Debug.Log("Player Shoot");
+            // Debug.Log("Player Shoot");
         }
         else
         {
@@ -91,10 +95,11 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerJump(InputAction.CallbackContext obj)
     {
-        Debug.Log("Player Jumped");
+        // Debug.Log("Player Jumped");
+        _rigidbody.linearVelocity += Vector3.up * _jumpVelocity;
     }
 
-    
+
     float mouseX = 0;
     float mouseY = 0;
 
@@ -106,7 +111,7 @@ public class PlayerController : MonoBehaviour
         mouseX += lookInput.x * lookSensitivity * Time.deltaTime;
         mouseY += lookInput.y * lookSensitivity * Time.deltaTime * (invertY ? -1.0f : 1.0f);
 
-        // camera.Rotate(Vector3.left * mouseY);
+        // eyeCamera.Rotate(Vector3.left * mouseY);
         playerBody.rotation = Quaternion.Euler(-mouseY, mouseX, 0f);
     }
 
@@ -114,9 +119,11 @@ public class PlayerController : MonoBehaviour
     private void HandlePlayerMove()
     {
         bool    isFast   = fastAction.action.ReadValue<float>()>0.1f;
-        Vector2 move      = playerMmoveAction.action.ReadValue<Vector2>() * moveSpeed * Time.deltaTime * (isFast ? 2.0f : 1.0f);
+        Vector2 move      = playerMmoveAction.action.ReadValue<Vector2>() * moveSpeed * (isFast ? 2.0f : 1.0f);
         Vector3 deltaMove = playerBody.right * move.x + playerBody.forward * move.y;
-        playerBody.transform.position += deltaMove;
+
+        deltaMove.y               = _rigidbody.linearVelocity.y;
+        _rigidbody.linearVelocity = deltaMove;
         
         debugPanel.SetElement(0, $"Keys: {move}", "");
         debugPanel.SetElement(1, $"deltaMove: {deltaMove}", "");
