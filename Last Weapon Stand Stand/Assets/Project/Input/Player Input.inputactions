@@ -15,6 +15,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "Mouse Look Button",
+                    "type": "Button",
+                    "id": "d5910b18-27f1-4863-a3fa-5a11cd244b15",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Player Move",
                     "type": "Value",
                     "id": "94d7b4a0-0ad2-4194-8247-937c0145d9c0",
@@ -22,6 +31,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Fast",
+                    "type": "Button",
+                    "id": "d5da13bb-7ba4-435b-ace0-08460ecec627",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Jump",
@@ -36,15 +54,6 @@
                     "name": "Shoot",
                     "type": "Button",
                     "id": "baf7bf1f-ef4c-4164-a308-b5608a3d9c44",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Fast",
-                    "type": "Button",
-                    "id": "d5da13bb-7ba4-435b-ace0-08460ecec627",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -143,11 +152,22 @@
                 {
                     "name": "",
                     "id": "43b7852e-144a-4afc-bbfe-2b4e03c08828",
-                    "path": "<Keyboard>/ctrl",
+                    "path": "<Keyboard>/leftShift",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Fast",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3c5e1812-423a-4217-a16e-1eb5cc4a6f7a",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Mouse Look Button",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

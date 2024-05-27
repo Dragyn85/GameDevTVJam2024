@@ -7,12 +7,14 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private bool                 invertY;
     [SerializeField] private InputActionReference moouseLookAction;
+    [SerializeField] private InputActionReference moouseLookButtonAction;
     [SerializeField] private InputActionReference playerMmoveAction;
     [SerializeField] private InputActionReference playerJumpAction;
     [SerializeField] private InputActionReference fastAction;
     [SerializeField] private InputActionReference shootAction;
     [SerializeField] private float                lookSensitivity = 20.0f;
     [SerializeField] private float                moveSpeed       = 4.0f;
+    [SerializeField] private float                bulletVelocity  = 20f;
     [SerializeField] private Transform            playerBody;
     [SerializeField] private Transform            camera;
     [SerializeField] private GameObject           bulletPrefab;
@@ -26,6 +28,7 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         moouseLookAction.action.Enable();
+        moouseLookButtonAction.action.Enable();
         playerMmoveAction.action.Enable();
         playerJumpAction.action.Enable();
         fastAction.action.Enable();
@@ -38,6 +41,7 @@ public class PlayerController : MonoBehaviour
     private void OnDisable()
     {
         moouseLookAction.action.Disable();
+        moouseLookButtonAction.action.Disable();
         playerMmoveAction.action.Disable();
         playerJumpAction.action.Disable();
         fastAction.action.Disable();
@@ -49,7 +53,8 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        debugPanel = DHTServiceLocator.Get<DHTDebugPanel_1_Service>();
+        debugPanel     = DHTServiceLocator.Get<DHTDebugPanel_1_Service>();
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
 
@@ -85,7 +90,9 @@ public class PlayerController : MonoBehaviour
 
     private void ShootBullet()
     {
-        Instantiate(bulletPrefab, bulletSpawnPoint);
+        var go = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+        var rb = go.GetComponent<Rigidbody>();
+        rb.linearVelocity = rb.transform.forward * bulletVelocity;
     }
 
 
@@ -95,20 +102,25 @@ public class PlayerController : MonoBehaviour
     }
 
     
+    float mouseX = 0;
+    float mouseY = 0;
+
     void HandleMouseLook()
     {
+        if(moouseLookButtonAction.action.ReadValue<float>() < 0.1f)
+            return;
         lookInput = moouseLookAction.action.ReadValue<Vector2>();
-        float mouseX = lookInput.x * lookSensitivity * Time.deltaTime;
-        float mouseY = lookInput.y * lookSensitivity * Time.deltaTime * (invertY ? -1.0f : 1.0f);
+        mouseX += lookInput.x * lookSensitivity * Time.deltaTime;
+        mouseY += lookInput.y * lookSensitivity * Time.deltaTime * (invertY ? -1.0f : 1.0f);
 
-        playerBody.Rotate(Vector3.up * mouseX);
-        camera.Rotate(Vector3.left * mouseY);
+        // camera.Rotate(Vector3.left * mouseY);
+        playerBody.rotation = Quaternion.Euler(-mouseY, mouseX, 0f);
     }
 
     
     private void HandlePlayerMove()
     {
-        bool    isFast   = fastAction.action.ReadValue<bool>();
+        bool    isFast   = fastAction.action.ReadValue<float>()>0.1f;
         Vector2 move      = playerMmoveAction.action.ReadValue<Vector2>() * moveSpeed * Time.deltaTime * (isFast ? 2.0f : 1.0f);
         Vector3 deltaMove = playerBody.right * move.x + playerBody.forward * move.y;
         playerBody.transform.position += deltaMove;
