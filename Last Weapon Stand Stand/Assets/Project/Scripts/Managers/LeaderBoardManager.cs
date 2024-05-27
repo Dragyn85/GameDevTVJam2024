@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using Unity.Services.Authentication;
+using Unity.Services.Core;
 using UnityEngine;
 using Unity.Services.Leaderboards.Models;
 
@@ -15,7 +18,7 @@ public class LeaderBoardManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            Initialize();
+            
         }
         else
         {
@@ -24,16 +27,17 @@ public class LeaderBoardManager : MonoBehaviour
     }
 
     #endregion
-    
+
+    private void Start()
+    {
+        Initialize();
+    }
+
     ILeaderboard leaderboard;
     
     private void Initialize()
     {
-#if !UNITY_EDITOR
-    debugBoard = false;
-#endif
-
-        if (debugBoard)
+        if (AuthenticationManager.Instance.IsDebugModeActive())
         {
             leaderboard = new DebugLeaderboard();
         }
@@ -43,8 +47,7 @@ public class LeaderBoardManager : MonoBehaviour
         }
     }
     
-    [Tooltip("This will be inactivated in the build")]
-    [SerializeField] bool debugBoard = true;
+    
 
     [SerializeField] private double DebugScore;
     

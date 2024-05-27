@@ -196,6 +196,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!224 &692378912 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3272014767012669187, guid: 266c766ba2c7bda4badd85e1cf6d3855, type: 3}
+  m_PrefabInstance: {fileID: 3604770425912524562}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &868754437
 GameObject:
   m_ObjectHideFlags: 0
@@ -381,7 +386,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddad974acc0a45f0a6b7215688f71ecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugBoard: 0
   DebugScore: 10
 --- !u!1 &2088026300 stripped
 GameObject:
@@ -443,6 +447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c5e30476308405e9ef799dc32636361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugMode: 0
 --- !u!4 &2131549408
 Transform:
   m_ObjectHideFlags: 0
@@ -644,6 +649,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4943683126779289255, guid: 266c766ba2c7bda4badd85e1cf6d3855, type: 3}
+      propertyPath: _leaderboardParent
+      value: 
+      objectReference: {fileID: 692378912}
+    - target: {fileID: 4943683126779289255, guid: 266c766ba2c7bda4badd85e1cf6d3855, type: 3}
       propertyPath: _leaderboardDisplayPrefab
       value: 
       objectReference: {fileID: 1142147082923141250, guid: a3d0ab6493edfb243a9b0c5e6184c5e1, type: 3}
@@ -665,7 +674,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5224492986419062449, guid: 266c766ba2c7bda4badd85e1cf6d3855, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 455
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5224492986419062449, guid: 266c766ba2c7bda4badd85e1cf6d3855, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -701,7 +710,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9192720788173757413, guid: 266c766ba2c7bda4badd85e1cf6d3855, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 395
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9192720788173757413, guid: 266c766ba2c7bda4badd85e1cf6d3855, type: 3}
       propertyPath: m_AnchoredPosition.x

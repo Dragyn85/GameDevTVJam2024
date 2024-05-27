@@ -1,7 +1,9 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Unity.Services.Core;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class AuthenticationManager : MonoBehaviour
 {
@@ -13,9 +15,10 @@ public class AuthenticationManager : MonoBehaviour
     {
         if (Instance == null)
         {
+
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            Initialize();
+            await Initialize();
         }
         else
         {
@@ -23,18 +26,27 @@ public class AuthenticationManager : MonoBehaviour
         }
     }
 
-    private async void Initialize()
+    private async Task Initialize()
     {
         await UnityServices.InitializeAsync();
+        Debug.Log("Unity Services Initialized");
     }
 
     #endregion
 
-    private bool OfflineMode;
+    private bool offlineMode;
+    
+    [FormerlySerializedAs("debugBoard")]
+    [Tooltip("This will be inactivated in the build")]
+    [SerializeField] bool debugMode = true;
 
+    public bool IsDebugModeActive()
+    {
+        return debugMode;
+    }
+    
     public bool IsAuthenticated()
     {
-        
         if (ugsAuthentication == null)
         {
             return false;
@@ -45,14 +57,14 @@ public class AuthenticationManager : MonoBehaviour
             return true;
         }
 
-        return true;
+        return offlineMode;
     }
     
     UGSAuthentication ugsAuthentication;
 
     public void RequestOfflineMode()
     {
-        OfflineMode = true;
+        offlineMode = true;
     }
 
     public bool TryLogIn(string name)
@@ -75,4 +87,5 @@ public class AuthenticationManager : MonoBehaviour
     {
         return !string.IsNullOrEmpty(name);
     }
+
 }
