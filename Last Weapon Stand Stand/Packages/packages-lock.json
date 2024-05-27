@@ -1,11 +1,23 @@
 {
   "dependencies": {
+    "com.davidhopetech.core.dependency": {
+      "version": "https://github.com/DavidJH2/_Daves_Custom_Packages.git?path=/Daves Custom Packages/Assets/com.davidhopetech.core#main",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.xr.management": "4.3.3",
+        "com.unity.xr.openxr": "1.7.0",
+        "com.unity.xr.interaction.toolkit": "2.2.0",
+        "com.unity.animation.rigging": "1.1.1"
+      },
+      "hash": "0a647dea4eaffe5893aca7a8beea2318b0f29abc"
+    },
     "com.davidhopetech.tools.dependency": {
       "version": "https://github.com/DavidJH2/_Daves_Custom_Packages.git?path=/Daves Custom Packages/Assets/com.davidhopetech.tools#main",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "31f50d703396c779badadc889ac038850db73811"
+      "hash": "6069ad19e6114b4592132fed6e65b7a67661cf44"
     },
     "com.unity.animation.rigging": {
       "version": "1.3.0",
@@ -276,6 +288,65 @@
         "com.unity.shadergraph": "17.0.3",
         "com.unity.render-pipelines.core": "17.0.3"
       }
+    },
+    "com.unity.xr.core-utils": {
+      "version": "2.3.0",
+      "depth": 2,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.xr": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.xr.interaction.toolkit": {
+      "version": "3.0.3",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.inputsystem": "1.8.1",
+        "com.unity.mathematics": "1.2.6",
+        "com.unity.ugui": "1.0.0",
+        "com.unity.xr.core-utils": "2.2.3",
+        "com.unity.modules.audio": "1.0.0",
+        "com.unity.modules.imgui": "1.0.0",
+        "com.unity.modules.physics": "1.0.0",
+        "com.unity.modules.xr": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.xr.legacyinputhelpers": {
+      "version": "2.1.10",
+      "depth": 2,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.vr": "1.0.0",
+        "com.unity.modules.xr": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.xr.management": {
+      "version": "4.4.0",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.subsystems": "1.0.0",
+        "com.unity.modules.vr": "1.0.0",
+        "com.unity.modules.xr": "1.0.0",
+        "com.unity.xr.legacyinputhelpers": "2.1.7"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.xr.openxr": {
+      "version": "1.11.0",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.xr.management": "4.4.0",
+        "com.unity.xr.legacyinputhelpers": "2.1.2",
+        "com.unity.inputsystem": "1.6.3",
+        "com.unity.xr.core-utils": "2.1.1"
+      },
+      "url": "https://packages.unity.com"
     },
     "com.unity.modules.accessibility": {
       "version": "1.0.0",
