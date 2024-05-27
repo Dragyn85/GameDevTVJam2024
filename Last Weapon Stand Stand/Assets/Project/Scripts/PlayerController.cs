@@ -14,15 +14,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private InputActionReference shootAction;
     [SerializeField] private float                lookSensitivity = 20.0f;
     [SerializeField] private float                moveSpeed       = 4.0f;
-    [SerializeField] private float                bulletVelocity  = 20f;
     [SerializeField] private Transform            playerBody;
     [SerializeField] private Transform            camera;
-    [SerializeField] private GameObject           bulletPrefab;
-    [SerializeField] private Transform            bulletSpawnPoint;
 
 
+    private Rifle                   rifle;
     private DHTDebugPanel_1_Service debugPanel;
-    private Vector2 lookInput;
+    private Vector2                 lookInput;
 
     
     private void OnEnable()
@@ -53,7 +51,9 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        debugPanel     = DHTServiceLocator.Get<DHTDebugPanel_1_Service>();
+        Rifle[] rifles = FindObjectsByType<Rifle>(FindObjectsSortMode.None);
+        rifle            = rifles[0];
+        debugPanel       = DHTServiceLocator.Get<DHTDebugPanel_1_Service>();
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
             shootTimer -= Time.deltaTime;
             if (shootTimer <= 0)
             {
-                ShootBullet();
+                rifle.Fire();
                 shootTimer = shootRate;
             }
 
@@ -86,13 +86,6 @@ public class PlayerController : MonoBehaviour
         {
             shootTimer = 0;
         }
-    }
-
-    private void ShootBullet()
-    {
-        var go = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
-        var rb = go.GetComponent<Rigidbody>();
-        rb.linearVelocity = rb.transform.forward * bulletVelocity;
     }
 
 
