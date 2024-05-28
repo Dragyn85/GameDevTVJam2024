@@ -11,6 +11,7 @@ public class AlianSpawner : MonoBehaviour
     [SerializeField] private float      depth        = 50;
     [SerializeField] private GameObject alianPrefab;
 
+    private int _spawnCount = 0;
 
     private float timer = 0;
     private void OnDrawGizmos()
@@ -56,6 +57,8 @@ public class AlianSpawner : MonoBehaviour
         float   z             = Random.Range(-depth / 2, depth / 2);
         Vector3 spawnPosition = transform.TransformPoint(new Vector3(x, 0, z));
 
-        Instantiate(alianPrefab, spawnPosition, quaternion.identity);
+        GameObject go = Instantiate(alianPrefab, spawnPosition, quaternion.identity);
+        _spawnCount++;
+        go.name = $"Alien #{_spawnCount}";
     }
 }

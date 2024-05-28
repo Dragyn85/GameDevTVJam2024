@@ -1,5 +1,6 @@
 using System;
 using com.davidhopetech.core.Run_Time.Scripts.Service_Locator;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
@@ -24,6 +25,10 @@ public class PlayerController : MonoBehaviour
     private DHTDebugPanel_1_Service debugPanel;
     private Vector2                 lookInput;
     private Rigidbody               _rigidbody;
+    private int                     _score = 0;
+    TMP_Text                        scoreBoardTMP;
+    private GameObject              _weaponStand;
+
     
     private void OnEnable()
     {
@@ -53,7 +58,10 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        _rigidbody = playerBody.GetComponent<Rigidbody>();
+        _weaponStand = FindFirstObjectByType<WeaponStand>().gameObject;
+        _rigidbody   = playerBody.GetComponent<Rigidbody>();
+        var go  = FindFirstObjectByType<ScoreBoard>().gameObject;
+        scoreBoardTMP = go.GetComponent<TMP_Text>();
         
         Rifle[] rifles = FindObjectsByType<Rifle>(FindObjectsSortMode.None);
         rifle            = rifles[0];
@@ -93,6 +101,20 @@ public class PlayerController : MonoBehaviour
     }
 
 
+    public void AlianUnalived(GameObject alien)
+    {
+        var dist = Vector3.Distance(_weaponStand.transform.position, alien.transform.position);
+
+        int score = (int) MathF.Floor(dist / 10) * 10;
+        UpdateScore(score);
+    }
+
+    public void UpdateScore(int scoreDelta)
+    {
+        _score         += scoreDelta;
+        scoreBoardTMP.text =  _score.ToString(); 
+    }
+    
     private void PlayerJump(InputAction.CallbackContext obj)
     {
         // Debug.Log("Player Jumped");
@@ -105,22 +127,25 @@ public class PlayerController : MonoBehaviour
 
     void HandleMouseLook()
     {
-        if(moouseLookButtonAction.action.ReadValue<float>() < 0.1f)
+        if (!Cursor.visible)
             return;
+        
         lookInput = moouseLookAction.action.ReadValue<Vector2>();
         mouseX += lookInput.x * lookSensitivity * Time.deltaTime;
         mouseY += lookInput.y * lookSensitivity * Time.deltaTime * (invertY ? -1.0f : 1.0f);
 
         // eyeCamera.Rotate(Vector3.left * mouseY);
-        playerBody.rotation = Quaternion.Euler(-mouseY, mouseX, 0f);
+        eyeCamera.rotation = Quaternion.Euler(-mouseY, mouseX, 0f);
     }
 
     
     private void HandlePlayerMove()
     {
-        bool    isFast   = fastAction.action.ReadValue<float>()>0.1f;
-        Vector2 move      = playerMmoveAction.action.ReadValue<Vector2>() * moveSpeed * (isFast ? 2.0f : 1.0f);
-        Vector3 deltaMove = playerBody.right * move.x + playerBody.forward * move.y;
+        var     moveDirection = Quaternion.Euler(0, mouseX, 0);
+        
+        bool    isFast        = fastAction.action.ReadValue<float>()>0.1f;
+        Vector2 move          = playerMmoveAction.action.ReadValue<Vector2>() * moveSpeed * (isFast ? 2.0f : 1.0f);
+        Vector3 deltaMove     = moveDirection*Vector3.right * move.x + moveDirection*Vector3.forward * move.y;
 
         deltaMove.y               = _rigidbody.linearVelocity.y;
         _rigidbody.linearVelocity = deltaMove;

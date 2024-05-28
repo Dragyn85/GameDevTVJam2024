@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Round : MonoBehaviour
 {
+    [SerializeField] private int _damage = 10;
+    
     private Rigidbody rb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,7 +25,7 @@ public class Round : MonoBehaviour
 
         if (damageable != null)
         {
-            damageable.TakeDamage(10);
+            damageable.TakeDamage(_damage);
             Destroy(this.gameObject);
         }
     }

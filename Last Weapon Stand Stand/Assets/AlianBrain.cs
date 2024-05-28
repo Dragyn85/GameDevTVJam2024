@@ -4,32 +4,82 @@ using UnityEngine.AI;
 
 public class AlianBrain : MonoBehaviour, Damageable
 {
-    private NavMeshAgent _navMeshAgent;
-    private GameObject   _player;
+    private NavMeshAgent     _navMeshAgent;
+    private PlayerController _player;
+    private GameObject       _playerGO;
+    private Animator         _animator;
+    private BoxCollider      _boxCollider;
+    private ParticleSystem   _particleSystem;
+    private GameObject       _weaponStandGO;
 
     private int Health = 100;
-    
+
     void Start()
     {
-        _navMeshAgent = GetComponent<NavMeshAgent>();
-        _player       = GameObject.FindAnyObjectByType<PlayerController>().gameObject;
+        _navMeshAgent   = GetComponent<NavMeshAgent>();
+        _player         = FindAnyObjectByType<PlayerController>();
+        _playerGO       = _player.gameObject;
+        _animator       = GetComponent<Animator>();
+        _boxCollider    = GetComponent<BoxCollider>();
+        _particleSystem = GetComponentInChildren<ParticleSystem>();
+        _weaponStandGO    = FindFirstObjectByType<WeaponStand>().gameObject;
     }
 
-    
+
     void Update()
     {
-        _navMeshAgent.destination = _player.transform.position;
+        if (_navMeshAgent.enabled)
+        {
+            _navMeshAgent.destination = _weaponStandGO.transform.position;
+        }
     }
-    
+
 
     public void TakeDamage(int damage)
     {
-        Health -= damage;
-        if (Health < 0)
+        _particleSystem.Play();
+        if (isAlive)
         {
-            Health = 0;
-            Destroy(this.gameObject);
+            Debug.Log("Alian hit!");
+            Health -= damage;
+
+            if (Health<=0)
+            {
+                UnaliveAlien();
+                _player.AlianUnalived(this.gameObject);
+            }
         }
-        Debug.Log("Alian hit!");
+        else
+        {
+            Debug.Log($"{name} collider hit");
+        }
+    }
+    
+    
+    void UnaliveAlien()
+    {
+        var size   = _boxCollider.size;
+        var center = _boxCollider.center;
+
+        size.y   = .8f;
+
+        center.x = .67f;
+        center.y = .4f;
+
+        _boxCollider.size   = size;
+        _boxCollider.center = center;
+
+        _boxCollider.enabled = false;
+        
+        Health = 0;
+        _animator.SetBool("Alive", false);
+        _navMeshAgent.enabled = false;
+        Debug.Log($"{name} Unalived");
+    }
+
+
+    public bool isAlive
+    {
+        get {  return Health > 0; }
     }
 }
