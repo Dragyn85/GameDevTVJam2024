@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1988894077968877410}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0139199775, y: -0, z: -0, w: 0.9999032}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.368, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -32,7 +32,7 @@ Transform:
   - {fileID: 4854804140632680284}
   - {fileID: 7033940421001017610}
   m_Father: {fileID: 4808212602487925678}
-  m_LocalEulerAnglesHint: {x: -1.595, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5137005491003443374
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,7 +90,7 @@ MonoBehaviour:
   shootAction: {fileID: -593977067586949668, guid: 208771f88bd978545b579513a607ce2c, type: 3}
   lookSensitivity: 30
   moveSpeed: 8
-  playerBody: {fileID: 7658165693021526074}
+  playerBody: {fileID: 4808212602487925678}
   eyeCamera: {fileID: 7658165693021526074}
   shootRate: 0.05
 --- !u!54 &824347801892693294
@@ -119,7 +119,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
-  m_CollisionDetection: 1
+  m_CollisionDetection: 3
 --- !u!136 &3754945327980269897
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -796,7 +796,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8432114524313048399}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2d8418b0b9634b1892b0268dd9c2743, type: 3}
   m_Name: 
