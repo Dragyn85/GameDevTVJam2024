@@ -9,11 +9,16 @@ public class LeaderboardDisplay : MonoBehaviour
     
     private void OnEnable()
     {
+        Debug.Log("LeaderboardDisplay OnEnable");
+    }
+
+    private void Start()
+    {
         LeaderBoardManager.Instance.OnLeaderBoardUpdated += UpdateLeaderboard;
         LeaderBoardManager.Instance.RequestUpdate();
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         LeaderBoardManager.Instance.OnLeaderBoardUpdated -= UpdateLeaderboard;
     }

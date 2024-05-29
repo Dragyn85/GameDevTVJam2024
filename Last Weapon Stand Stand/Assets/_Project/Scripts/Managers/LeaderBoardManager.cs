@@ -10,40 +10,19 @@ public class LeaderBoardManager : MonoBehaviour
 {
     #region Singelton
 
-    private static LeaderBoardManager instance;
-    public static LeaderBoardManager Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                instance = FindFirstObjectByType<LeaderBoardManager>();
-                if (instance == null)
-                {
-                    GameObject singletonObject = new GameObject(typeof(LeaderBoardManager).ToString());
-                    instance = singletonObject.AddComponent<LeaderBoardManager>();
-                }
-            }
-            return instance;
-        }
-    }
+    public static LeaderBoardManager Instance;
     
     private void Awake()
     {
         Debug.Log("Awake LeaderboardManager");
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
-            AuthenticationManager.Instance.OnAuthenticationComplete += HandleAutheticationComplete;
+            Instance = this;
             DontDestroyOnLoad(gameObject);
-        }
-        else if(instance != this)
-        {
-            Destroy(gameObject);
         }
         else
         {
-            DontDestroyOnLoad(gameObject);
+            Destroy(gameObject);
         }
     }
 
@@ -131,6 +110,18 @@ public class LeaderBoardManager : MonoBehaviour
             UpdateLocalEntries();
         }
     }
+
+    private void Start()
+    {
+        Debug.Log("LeaderboardManager: Start");
+        AuthenticationManager.Instance.OnAuthenticationComplete += HandleAutheticationComplete;
+    }
+
+    private void OnDestroy()
+    {
+        AuthenticationManager.Instance.OnAuthenticationComplete -= HandleAutheticationComplete;
+    }
+
 
     #region Debugging
 

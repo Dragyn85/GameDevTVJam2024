@@ -11,47 +11,30 @@ public class AuthenticationManager : MonoBehaviour
 {
     #region Singelton
 
-    private static AuthenticationManager instance;
+    public static AuthenticationManager Instance;
 
-    public static AuthenticationManager Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                instance = FindFirstObjectByType<AuthenticationManager>();
-                if (instance == null)
-                {
-                    GameObject singletonObject = new GameObject(typeof(AuthenticationManager).ToString());
-                    instance = singletonObject.AddComponent<AuthenticationManager>();
-                }
-            }
-            return instance;
-        }
-    }
-
-    private async void Awake()
+    private void Awake()
     {
         Debug.Log("Awake AuthenticationManager");
-        if (instance == null)
+        if (Instance == null)
         {
 
-            instance = this;
+            Instance = this;
             DontDestroyOnLoad(gameObject);
-            await Initialize();
-        }
-        else if(Instance != this)
-        {
-            Destroy(gameObject);
         }
         else
         {
-            DontDestroyOnLoad(this);
-            await Initialize();
+            Destroy(gameObject);
         }
+        
     }
 
-    private async Task Initialize()
+    private void Start()
+    {
+        Initialize();
+    }
+
+    private async void Initialize()
     {
         Debug.Log("Initializing Unity Services");
         try
