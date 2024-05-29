@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -5,33 +6,35 @@ public class LeaderboardDisplay : MonoBehaviour
 {
     [SerializeField] private HighScoreEntryDisplay _leaderboardDisplayPrefab;
     [SerializeField] private Transform _leaderboardParent;
-
-    [ContextMenu("Update Leaderboard")]
-    private void UpdateLeadeboard()
-    {
-        UpdateLeaderboard();
-    }
-
-    public async void UpdateLeaderboard()
-    {
-        if (AuthenticationManager.Instance.IsAuthenticated())
-        {
-            ClearLeaderboard();
-            await InstantiateLeaderboardEntries();
-        }
-    }
     
+    private void OnEnable()
+    {
+        LeaderBoardManager.Instance.OnLeaderBoardUpdated += UpdateLeaderboard;
+        LeaderBoardManager.Instance.RequestUpdate();
+    }
+
+    private void OnDisable()
+    {
+        LeaderBoardManager.Instance.OnLeaderBoardUpdated -= UpdateLeaderboard;
+    }
+
+    public void UpdateLeaderboard()
+    {
+        ClearLeaderboard();
+        InstantiateLeaderboardEntries();
+    }
+
     void ClearLeaderboard()
     {
         foreach (Transform child in _leaderboardParent)
         {
             Destroy(child.gameObject);
-        } 
+        }
     }
 
-    async Task InstantiateLeaderboardEntries()
+    void InstantiateLeaderboardEntries()
     {
-        var entries = await LeaderBoardManager.Instance.GetTopTen();
+        var entries = LeaderBoardManager.Instance.GetLeaderboardEntries();
 
         foreach (var entry in entries)
         {

@@ -5,30 +5,55 @@ using Unity.Services.Core;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Action = System.Action;
 
 public class AuthenticationManager : MonoBehaviour
 {
     #region Singelton
 
-    public static AuthenticationManager Instance { get; private set; }
+    private static AuthenticationManager instance;
+
+    public static AuthenticationManager Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindFirstObjectByType<AuthenticationManager>();
+                if (instance == null)
+                {
+                    GameObject singletonObject = new GameObject(typeof(AuthenticationManager).ToString());
+                    instance = singletonObject.AddComponent<AuthenticationManager>();
+                }
+            }
+            return instance;
+        }
+    }
 
     private async void Awake()
     {
-        if (Instance == null)
+        Debug.Log("Awake AuthenticationManager");
+        if (instance == null)
         {
 
-            Instance = this;
+            instance = this;
             DontDestroyOnLoad(gameObject);
             await Initialize();
         }
-        else
+        else if(Instance != this)
         {
             Destroy(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(this);
+            await Initialize();
         }
     }
 
     private async Task Initialize()
     {
+        Debug.Log("Initializing Unity Services");
         try
         {
             await UnityServices.InitializeAsync();
@@ -50,12 +75,13 @@ public class AuthenticationManager : MonoBehaviour
 
     #endregion
 
-    private bool offlineMode;
+    private bool offlineMode = false;
     
     [FormerlySerializedAs("debugBoard")]
     [Tooltip("This will be inactivated in the build")]
     [SerializeField] bool debugMode = true;
 
+    public event Action OnAuthenticationComplete;
     public bool IsDebugModeActive()
     {
         return debugMode;
@@ -63,6 +89,11 @@ public class AuthenticationManager : MonoBehaviour
     
     public bool IsAuthenticated()
     {
+        if(offlineMode)
+        {
+            return true;
+        }
+        
         if (ugsAuthentication == null)
         {
             return false;
@@ -83,16 +114,18 @@ public class AuthenticationManager : MonoBehaviour
         offlineMode = true;
     }
 
-    public bool TryLogIn(string name)
+    public async Task<bool> TryLogIn(string name)
     {
         if (IsValidName(name))
         {
+            Debug.Log("TryLogIn");
             if (ugsAuthentication == null)
             {
                 ugsAuthentication = new UGSAuthentication();
             }
             
-            ugsAuthentication.AnonymusSignIn(name);
+            await ugsAuthentication.AnonymusSignIn(name);
+            OnAuthenticationComplete?.Invoke();
             return true;
         }
 
