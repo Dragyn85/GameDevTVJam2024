@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 117883394696954301}
   - component: {fileID: 5632788153568961326}
   m_Layer: 0
-  m_Name: Alian Spawner
+  m_Name: Alien Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

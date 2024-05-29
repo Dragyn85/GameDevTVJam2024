@@ -4,6 +4,8 @@ using UnityEngine.AI;
 
 public class AlianBrain : MonoBehaviour, Damageable
 {
+    [SerializeField] private int Health = 100;
+
     private NavMeshAgent     _navMeshAgent;
     private PlayerController _player;
     private GameObject       _playerGO;
@@ -11,8 +13,6 @@ public class AlianBrain : MonoBehaviour, Damageable
     private BoxCollider      _boxCollider;
     private ParticleSystem   _particleSystem;
     private GameObject       _weaponStandGO;
-
-    private int Health = 100;
 
     void Start()
     {
