@@ -151,7 +151,7 @@ public class PlayerController : MonoBehaviour
 
 		if (!Input.GetKey(KeyCode.Space))
 		{
-			_logService.Log($"Mosue-x: {mousePosition.x}");
+			_logService.Log($"Mouse-x: {mousePosition.x}");
 		}
 
 		lookInput =  mouseLookAction.action.ReadValue<Vector2>();

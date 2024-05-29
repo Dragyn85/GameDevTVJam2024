@@ -83,9 +83,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _jumpVelocity: 8
   invertY: 0
-  moouseLookAction: {fileID: -8644078859683959527, guid: 208771f88bd978545b579513a607ce2c, type: 3}
-  moouseLookButtonAction: {fileID: -7277190610009322873, guid: 208771f88bd978545b579513a607ce2c, type: 3}
-  playerMmoveAction: {fileID: 5160538191754638936, guid: 208771f88bd978545b579513a607ce2c, type: 3}
+  mouseLookAction: {fileID: -8644078859683959527, guid: 208771f88bd978545b579513a607ce2c, type: 3}
+  mouseLookButtonAction: {fileID: -7277190610009322873, guid: 208771f88bd978545b579513a607ce2c, type: 3}
+  playerMoveAction: {fileID: 5160538191754638936, guid: 208771f88bd978545b579513a607ce2c, type: 3}
   playerJumpAction: {fileID: -8543161942557663810, guid: 208771f88bd978545b579513a607ce2c, type: 3}
   fastAction: {fileID: -5762242440342612449, guid: 208771f88bd978545b579513a607ce2c, type: 3}
   shootAction: {fileID: -593977067586949668, guid: 208771f88bd978545b579513a607ce2c, type: 3}
