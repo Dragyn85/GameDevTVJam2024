@@ -115,10 +115,17 @@ public class LeaderBoardManager : MonoBehaviour
     {
         Debug.Log("LeaderboardManager: Start");
         AuthenticationManager.Instance.OnAuthenticationComplete += HandleAutheticationComplete;
+        AuthenticationManager.Instance.OnAuthenticationChanged += HandleAutheticationChanged;
+    }
+
+    private void HandleAutheticationChanged()
+    {
+        RequestUpdate();
     }
 
     private void OnDestroy()
     {
+    AuthenticationManager.Instance.OnAuthenticationChanged -= HandleAutheticationChanged;
         AuthenticationManager.Instance.OnAuthenticationComplete -= HandleAutheticationComplete;
     }
 

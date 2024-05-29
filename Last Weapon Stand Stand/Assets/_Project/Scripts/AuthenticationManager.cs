@@ -54,6 +54,8 @@ public class AuthenticationManager : MonoBehaviour
         }
 
         Debug.Log("Unity Services Initialized");
+        var name = PlayerPrefs.GetString("PlayerName", "Guest");
+        TryLogIn(name);
     }
 
     #endregion
@@ -65,6 +67,7 @@ public class AuthenticationManager : MonoBehaviour
     [SerializeField] bool debugMode = true;
 
     public event Action OnAuthenticationComplete;
+    public event Action OnAuthenticationChanged;
     public bool IsDebugModeActive()
     {
         return debugMode;
@@ -113,6 +116,15 @@ public class AuthenticationManager : MonoBehaviour
         }
 
         return false;
+    }
+    public async Task UpdatePlayerName(string name)
+    {
+        if (IsValidName(name))
+        {
+            await ugsAuthentication.UpdatePLayerName(name);
+            OnAuthenticationChanged?.Invoke();
+            PlayerPrefs.SetString("PlayerName", name);
+        }
     }
 
     private bool IsValidName(string name)

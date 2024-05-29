@@ -22,14 +22,7 @@ public class LoginPanel : MonoBehaviour
     {
         Color defaultColor = nameLable.color;
         string name = nameInputField.text;
-        bool loginSuccess = await AuthenticationManager.Instance.TryLogIn(name);
-        if (!loginSuccess)
-        {
-            nameLable.color = Color.red;
-        }
-        else
-        {
-            nameLable.color = defaultColor;
-        }
+        await AuthenticationManager.Instance.UpdatePlayerName(name);
+        PlayerPrefs.SetString("PlayerName", name);
     }
 }

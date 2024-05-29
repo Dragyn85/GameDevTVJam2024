@@ -24,6 +24,10 @@ public class UGSAuthentication
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
         await AuthenticationService.Instance.UpdatePlayerNameAsync(playerName);
     }
+    public async Task UpdatePLayerName(string playerName)
+    {
+        await AuthenticationService.Instance.UpdatePlayerNameAsync(playerName);
+    }
 
     public bool IsAuthenticationValid()
     {
