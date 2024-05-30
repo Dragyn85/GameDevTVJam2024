@@ -6,7 +6,10 @@ public class AmmoUpgradeShop : ShopUpgrade
     
     protected override void OnUpgrade(IUpgrade pickup)
     {
-        shopSound.Play();
+        if(shopSound != null)
+            {   
+                shopSound.Play();
+                }
     }
 }
 public class HealReplenishUpgradeShop : ShopUpgrade
@@ -15,6 +18,9 @@ public class HealReplenishUpgradeShop : ShopUpgrade
     
     protected override void OnUpgrade(IUpgrade pickup)
     {
-        shopSound.Play();
+        if(shopSound != null)
+            {   
+                shopSound.Play();
+                }
     }
 }
