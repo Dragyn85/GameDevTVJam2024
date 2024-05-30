@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class Ammo : MonoBehaviour
 {
-    private int maxAmmoInClip = 30;
-    private int maxAmmo = 200000;
-    private int initialAmmo = 1000;
-    private int currentAmmo;
-    private int currentAmmoInClip;
+    [SerializeField] private int maxAmmoInClip = 30;
+    [SerializeField] private int maxAmmo = 200000;
+    [SerializeField] private int initialAmmo = 1000;
+    [SerializeField] private int currentAmmo;
+    [SerializeField] private int currentAmmoInClip;
     
     public int CurrentAmmo => currentAmmo;
     public int CurrentAmmoInClip => currentAmmoInClip;

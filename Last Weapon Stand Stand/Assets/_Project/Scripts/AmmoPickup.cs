@@ -12,8 +12,7 @@ public class AmmoPickup : MonoBehaviour , IUpgrade
     [SerializeField] private int replenishAmountUpgradeAmount = 5;
 
     public void TakeAmmo(Ammo ammoToRefill)
-    {
-        
+    {Debug.Log("taking ammo");
         ammoToRefill.AddAmmo(ammoAmount);
         ammoAmount = 0;
     }
@@ -28,6 +27,7 @@ public class AmmoPickup : MonoBehaviour , IUpgrade
         if(Time.time > nextReplenishTime)
         {
             ammoAmount += replenishAmount;
+            ammoAmount = Mathf.Clamp(ammoAmount, 0, maxAmmo);
             nextReplenishTime = Time.time + replenishTime;
         }
     }

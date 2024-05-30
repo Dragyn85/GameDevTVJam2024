@@ -47,4 +47,9 @@ public class RifleWithAmmo : MonoBehaviour
     void Update()
     {
     }
+
+    public Ammo GetAmmo()
+    {
+        return ammo;
+    }
 }
