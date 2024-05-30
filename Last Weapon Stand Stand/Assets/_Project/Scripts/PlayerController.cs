@@ -16,8 +16,9 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private InputActionReference playerJumpAction;
 	[SerializeField] private InputActionReference fastAction;
 	[SerializeField] private InputActionReference shootAction;
-	[SerializeField] private float                lookSensitivity = 20.0f;
-	[SerializeField] private float                moveSpeed       = 4.0f;
+	[SerializeField] private float                lookSensitivity       = .2f;
+	[SerializeField] private float                webLookSensitivityScale = .5f;
+	[SerializeField] private float                moveSpeed             = 4.0f;
 	[SerializeField] private Transform            playerBody;
 	[SerializeField] private Transform            eyeCamera;
 
@@ -32,6 +33,8 @@ public class PlayerController : MonoBehaviour
 	TMP_Text                        scoreBoardTMP;
 	private GameObject              _weaponStand;
 	private Vector3                 mousePosition;
+
+	private float mouseDeltaMultiplier;
 
 
 	private void OnEnable()
@@ -51,8 +54,16 @@ public class PlayerController : MonoBehaviour
 	{
 		   Vector2 mouseDelta = obj.ReadValue<Vector2>() ;
 		   
-		   mouseDelta    *= lookSensitivity;
-		   mouseDelta.y  *= (invertY ? -1.0f : 1.0f);
+		   
+		   #if UNITY_WEBGL && UNITY_EDITOR
+		   var mouseDeltaMultiplier = lookSensitivity * webLookSensitivityScale;
+		   #else
+		   var mouseDeltaMultiplier = lookSensitivity;
+		   #endif
+		
+		debugPanel.SetElement(4, $"Mouse Delta Multiplier: {mouseDeltaMultiplier}", "");
+		
+		   mouseDelta.y  *= mouseDeltaMultiplier * (invertY ? -1.0f : 1.0f);
 		   
 		   // mousePosition += mouseDelta;
 	}
@@ -74,6 +85,7 @@ public class PlayerController : MonoBehaviour
 
 	private void Start()
 	{
+
 		_logService  = DHTServiceLocator.Get<DHTLogService>();
 		
 		_weaponStand = FindFirstObjectByType<WeaponStand>().gameObject;
@@ -93,7 +105,13 @@ public class PlayerController : MonoBehaviour
 
 	private void Update()
 	{
-		mousePosition += Input.mousePositionDelta;
+#if UNITY_WEBGL && !UNITY_EDITOR
+		var mouseDeltaMultiplier = lookSensitivity * webLookSensitivityScale;
+#else
+		   var mouseDeltaMultiplier = lookSensitivity;
+#endif
+		
+		mousePosition += Input.mousePositionDelta * mouseDeltaMultiplier;
 		HandleMouseLook();
 		HandlePlayerMove();
 		HandlePlayerShoot();
