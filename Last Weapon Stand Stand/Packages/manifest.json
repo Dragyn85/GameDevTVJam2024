@@ -2,6 +2,7 @@
   "dependencies": {
     "com.davidhopetech.core.dependency": "https://github.com/DavidJH2/_Daves_Custom_Packages.git?path=/Daves Custom Packages/Assets/com.davidhopetech.core#main",
     "com.davidhopetech.tools.dependency": "https://github.com/DavidJH2/_Daves_Custom_Packages.git?path=/Daves Custom Packages/Assets/com.davidhopetech.tools#main",
+    "com.unity.2d.sprite": "1.0.0",
     "com.unity.ai.navigation": "2.0.0",
     "com.unity.animation.rigging": "1.3.0",
     "com.unity.cinemachine": "2.10.0",
