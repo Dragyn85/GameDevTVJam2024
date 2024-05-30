@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private InputActionReference playerJumpAction;
 	[SerializeField] private InputActionReference fastAction;
 	[SerializeField] private InputActionReference shootAction;
+	[SerializeField] private InputActionReference InteractAction;
+	[SerializeField] private InputActionReference ReloadAction;
 	[SerializeField] private float                lookSensitivity       = .2f;
 	[SerializeField] private float                webLookSensitivityScale = .5f;
 	[SerializeField] private float                moveSpeed             = 4.0f;
@@ -25,7 +27,7 @@ public class PlayerController : MonoBehaviour
 	private DHTLogService _logService;
 	
 
-	private Rifle                   rifle;
+	private RifleWithAmmo           rifle;
 	private DHTDebugPanel_1_Service debugPanel;
 	private Vector2                 lookInput;
 	private Rigidbody               _rigidbody;
@@ -45,9 +47,47 @@ public class PlayerController : MonoBehaviour
 		playerJumpAction.action.Enable();
 		fastAction.action.Enable();
 		shootAction.action.Enable();
+		InteractAction.action.Enable();
+		ReloadAction.action.Enable();
 
 		mouseLookAction.action.performed += MouseMove;
 		playerJumpAction.action.started  += PlayerJump;
+		InteractAction.action.started    += Interact;
+		ReloadAction.action.started      += Reload;
+	}
+
+	private void Reload(InputAction.CallbackContext obj)
+	{
+		rifle.GetAmmo().TryReload();
+	}
+
+	private void Interact(InputAction.CallbackContext obj)
+	{
+		float maxDistance = 10;
+		RaycastHit[] hits = new RaycastHit[5];
+		double playerCredit = 200;
+
+		var ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+		Debug.Log("Trying to interact");
+		if (Physics.RaycastNonAlloc(ray, hits, maxDistance) > 0)
+		{
+			var hit = hits[0];
+
+			if (hit.collider.gameObject.TryGetComponent(out ShopUpgrade shop))
+			{
+				Debug.Log("Hit: " + hit.collider.gameObject.name);
+
+				playerCredit -= shop.TryBuy(playerCredit);
+			}
+
+			if (hit.collider.gameObject.TryGetComponent(out AmmoPickup ammoPickup))
+			{
+				Debug.Log("Hit: " + hit.collider.gameObject.name);
+
+
+				ammoPickup.TakeAmmo(rifle.GetAmmo());
+			}
+		}
 	}
 
 	private void MouseMove(InputAction.CallbackContext obj)
@@ -77,9 +117,13 @@ public class PlayerController : MonoBehaviour
 		playerJumpAction.action.Disable();
 		fastAction.action.Disable();
 		shootAction.action.Disable();
+		InteractAction.action.Disable();
+		ReloadAction.action.Disable();
 
 		mouseLookButtonAction.action.performed -= MouseMove;
 		playerJumpAction.action.started         -= PlayerJump;
+		InteractAction.action.started    -= Interact;
+		ReloadAction.action.started      -= Reload;
 	}
 
 
@@ -93,7 +137,7 @@ public class PlayerController : MonoBehaviour
 		var go = FindFirstObjectByType<ScoreBoard>().gameObject;
 		scoreBoardTMP = go.GetComponent<TMP_Text>();
 
-		Rifle[] rifles = FindObjectsByType<Rifle>(FindObjectsSortMode.None);
+		RifleWithAmmo[] rifles = FindObjectsByType<RifleWithAmmo>(FindObjectsSortMode.None);
 		rifle            = rifles[0];
 		debugPanel       = DHTServiceLocator.Get<DHTDebugPanel_1_Service>();
 	
