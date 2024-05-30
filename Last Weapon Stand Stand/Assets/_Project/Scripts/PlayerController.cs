@@ -101,8 +101,6 @@ public class PlayerController : MonoBehaviour
 		   var mouseDeltaMultiplier = lookSensitivity;
 		   #endif
 		
-		debugPanel.SetElement(4, $"Mouse Delta Multiplier: {mouseDeltaMultiplier}", "");
-		
 		   mouseDelta.y  *= mouseDeltaMultiplier * (invertY ? -1.0f : 1.0f);
 		   
 		   // mousePosition += mouseDelta;
@@ -156,6 +154,9 @@ public class PlayerController : MonoBehaviour
 #endif
 		
 		mousePosition += Input.mousePositionDelta * mouseDeltaMultiplier;
+		
+		debugPanel.SetElement(4, $"Mouse Delta Multiplier: {mouseDeltaMultiplier}", "");
+		
 		HandleMouseLook();
 		HandlePlayerMove();
 		HandlePlayerShoot();
