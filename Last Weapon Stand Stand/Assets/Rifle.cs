@@ -1,6 +1,6 @@
 using System;
-using Mono.Cecil;
-using UnityEditor.SceneManagement;
+// using Mono.Cecil;
+// using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class Rifle : MonoBehaviour

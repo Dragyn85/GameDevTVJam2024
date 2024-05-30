@@ -242,7 +242,9 @@ PlayerSettings:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}
+  - {fileID: 0}
+  - {fileID: -944628639613478452, guid: 208771f88bd978545b579513a607ce2c, type: 3}
+  - {fileID: 8057472380658325935, guid: e6e0d5c126ba5084da2a21baad8a9616, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -648,7 +650,7 @@ PlayerSettings:
     m_APIs: 15000000
     m_Automatic: 0
   - m_BuildTarget: WebGLSupport
-    m_APIs: 0b000000
+    m_APIs: 1c0000000b000000
     m_Automatic: 0
   - m_BuildTarget: WindowsStandaloneSupport
     m_APIs: 02000000
@@ -944,7 +946,7 @@ PlayerSettings:
   webGLMemoryLinearGrowthStep: 16
   webGLMemoryGeometricGrowthStep: 0.2
   webGLMemoryGeometricGrowthCap: 96
-  webGLEnableWebGPU: 0
+  webGLEnableWebGPU: 1
   webGLPowerPreference: 2
   webGLWebAssemblyTable: 0
   webGLWebAssemblyBigInt: 0
@@ -973,8 +975,8 @@ PlayerSettings:
   editorAssembliesCompatibilityLevel: 1
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: Last Weapon Stand Stand
-  metroPackageVersion: 
+  metroPackageName: LastWeaponStandStand
+  metroPackageVersion: 1.0.0.0
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
@@ -982,7 +984,7 @@ PlayerSettings:
   metroCertificateNotAfter: 0000000000000000
   metroApplicationDescription: Last Weapon Stand Stand
   wsaImages: {}
-  metroTileShortName: 
+  metroTileShortName: Last Weapon Stand Stand
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0
@@ -1050,7 +1052,7 @@ PlayerSettings:
   qnxGraphicConfPath: 
   apiCompatibilityLevel: 6
   captureStartupLogs: {}
-  activeInputHandler: 1
+  activeInputHandler: 2
   windowsGamepadBackendHint: 0
   cloudProjectId: a64db891-86ab-4c8d-8b61-2265a672c21a
   framebufferDepthMemorylessMode: 0

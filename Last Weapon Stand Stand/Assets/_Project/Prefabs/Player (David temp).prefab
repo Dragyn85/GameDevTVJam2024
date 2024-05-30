@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1988894077968877410}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0139199775, y: -0, z: -0, w: 0.9999032}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.368, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -32,7 +32,7 @@ Transform:
   - {fileID: 4854804140632680284}
   - {fileID: 7033940421001017610}
   m_Father: {fileID: 4808212602487925678}
-  m_LocalEulerAnglesHint: {x: -1.595, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5137005491003443374
 GameObject:
   m_ObjectHideFlags: 0
@@ -43,6 +43,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4808212602487925678}
   - component: {fileID: 1908441490439714357}
+  - component: {fileID: 1510695484137925995}
   - component: {fileID: 824347801892693294}
   - component: {fileID: 3754945327980269897}
   m_Layer: 0
@@ -82,17 +83,87 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _jumpVelocity: 8
   invertY: 0
-  moouseLookAction: {fileID: -8644078859683959527, guid: 208771f88bd978545b579513a607ce2c, type: 3}
-  moouseLookButtonAction: {fileID: -7277190610009322873, guid: 208771f88bd978545b579513a607ce2c, type: 3}
-  playerMmoveAction: {fileID: 5160538191754638936, guid: 208771f88bd978545b579513a607ce2c, type: 3}
+  mouseLookAction: {fileID: -8644078859683959527, guid: 208771f88bd978545b579513a607ce2c, type: 3}
+  mouseLookButtonAction: {fileID: -7277190610009322873, guid: 208771f88bd978545b579513a607ce2c, type: 3}
+  playerMoveAction: {fileID: 5160538191754638936, guid: 208771f88bd978545b579513a607ce2c, type: 3}
   playerJumpAction: {fileID: -8543161942557663810, guid: 208771f88bd978545b579513a607ce2c, type: 3}
   fastAction: {fileID: -5762242440342612449, guid: 208771f88bd978545b579513a607ce2c, type: 3}
   shootAction: {fileID: -593977067586949668, guid: 208771f88bd978545b579513a607ce2c, type: 3}
   lookSensitivity: 30
   moveSpeed: 8
-  playerBody: {fileID: 7658165693021526074}
+  playerBody: {fileID: 4808212602487925678}
   eyeCamera: {fileID: 7658165693021526074}
   shootRate: 0.05
+--- !u!114 &1510695484137925995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5137005491003443374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 208771f88bd978545b579513a607ce2c, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6c97f5b1-3a9c-41f8-96d8-e61a23638904
+    m_ActionName: 'player action map/Mouse Look[/Mouse/delta]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d5910b18-27f1-4863-a3fa-5a11cd244b15
+    m_ActionName: 'player action map/Mouse Look Button[/Mouse/rightButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 94d7b4a0-0ad2-4194-8247-937c0145d9c0
+    m_ActionName: 'player action map/Player Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d5da13bb-7ba4-435b-ace0-08460ecec627
+    m_ActionName: 'player action map/Fast[/Keyboard/leftShift]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 859a3a80-516a-46b1-afde-94da1d7b7ac9
+    m_ActionName: 'player action map/Jump[/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: baf7bf1f-ef4c-4164-a308-b5608a3d9c44
+    m_ActionName: 'player action map/Shoot[/Mouse/leftButton]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1908441490439714357}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 6f057242-2ece-47c3-a617-b1afc63010c8
+    m_ActionName: 'player action map/Quit[/Keyboard/escape]'
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: player action map
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!54 &824347801892693294
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -119,7 +190,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
-  m_CollisionDetection: 1
+  m_CollisionDetection: 3
 --- !u!136 &3754945327980269897
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -796,7 +867,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8432114524313048399}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2d8418b0b9634b1892b0268dd9c2743, type: 3}
   m_Name: 
