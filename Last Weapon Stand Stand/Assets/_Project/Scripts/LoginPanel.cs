@@ -13,21 +13,16 @@ public class LoginPanel : MonoBehaviour
 
     private void Start()
     {
-        Color defaultColor = nameLable.color;
-        
-        loginButton.onClick.AddListener(() =>
-        {
-            string name = nameInputField.text;
-            if (!AuthenticationManager.Instance.TryLogIn(name))
-            {
-                nameLable.color = Color.red;
-            }
-            else
-            {
-                nameLable.color = defaultColor;
-            }
-        });
+        loginButton.onClick.AddListener(HandleLoginButtonClicked);
 
         offlineButton.onClick.AddListener(() => { AuthenticationManager.Instance.RequestOfflineMode(); });
+    }
+
+    async void HandleLoginButtonClicked()
+    {
+        Color defaultColor = nameLable.color;
+        string name = nameInputField.text;
+        await AuthenticationManager.Instance.UpdatePlayerName(name);
+        PlayerPrefs.SetString("PlayerName", name);
     }
 }

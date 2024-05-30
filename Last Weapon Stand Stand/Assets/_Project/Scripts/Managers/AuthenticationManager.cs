@@ -5,30 +5,38 @@ using Unity.Services.Core;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Action = System.Action;
 
 public class AuthenticationManager : MonoBehaviour
 {
     #region Singelton
 
-    public static AuthenticationManager Instance { get; private set; }
+    public static AuthenticationManager Instance;
 
-    private async void Awake()
+    private void Awake()
     {
+        Debug.Log("Awake AuthenticationManager");
         if (Instance == null)
         {
 
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            await Initialize();
         }
         else
         {
             Destroy(gameObject);
         }
+        
     }
 
-    private async Task Initialize()
+    private void Start()
     {
+        Initialize();
+    }
+
+    private async void Initialize()
+    {
+        Debug.Log("Initializing Unity Services");
         try
         {
             await UnityServices.InitializeAsync();
@@ -46,16 +54,20 @@ public class AuthenticationManager : MonoBehaviour
         }
 
         Debug.Log("Unity Services Initialized");
+        var name = PlayerPrefs.GetString("PlayerName", "Guest");
+        TryLogIn(name);
     }
 
     #endregion
 
-    private bool offlineMode;
+    private bool offlineMode = false;
     
     [FormerlySerializedAs("debugBoard")]
     [Tooltip("This will be inactivated in the build")]
     [SerializeField] bool debugMode = true;
 
+    public event Action OnAuthenticationComplete;
+    public event Action OnAuthenticationChanged;
     public bool IsDebugModeActive()
     {
         return debugMode;
@@ -63,6 +75,11 @@ public class AuthenticationManager : MonoBehaviour
     
     public bool IsAuthenticated()
     {
+        if(offlineMode)
+        {
+            return true;
+        }
+        
         if (ugsAuthentication == null)
         {
             return false;
@@ -83,20 +100,31 @@ public class AuthenticationManager : MonoBehaviour
         offlineMode = true;
     }
 
-    public bool TryLogIn(string name)
+    public async Task<bool> TryLogIn(string name)
     {
         if (IsValidName(name))
         {
+            Debug.Log("TryLogIn");
             if (ugsAuthentication == null)
             {
                 ugsAuthentication = new UGSAuthentication();
             }
             
-            ugsAuthentication.AnonymusSignIn(name);
+            await ugsAuthentication.AnonymusSignIn(name);
+            OnAuthenticationComplete?.Invoke();
             return true;
         }
 
         return false;
+    }
+    public async Task UpdatePlayerName(string name)
+    {
+        if (IsValidName(name))
+        {
+            await ugsAuthentication.UpdatePLayerName(name);
+            OnAuthenticationChanged?.Invoke();
+            PlayerPrefs.SetString("PlayerName", name);
+        }
     }
 
     private bool IsValidName(string name)

@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -5,38 +6,61 @@ public class LeaderboardDisplay : MonoBehaviour
 {
     [SerializeField] private HighScoreEntryDisplay _leaderboardDisplayPrefab;
     [SerializeField] private Transform _leaderboardParent;
-
-    [ContextMenu("Update Leaderboard")]
-    private void UpdateLeadeboard()
-    {
-        UpdateLeaderboard();
-    }
-
-    public async void UpdateLeaderboard()
-    {
-        if (AuthenticationManager.Instance.IsAuthenticated())
-        {
-            ClearLeaderboard();
-            await InstantiateLeaderboardEntries();
-        }
-    }
+    [SerializeField] private int maxEntries = 10;
+    [SerializeField] private CanvasGroup canvasGroup;
     
+    private void OnEnable()
+    {
+        Debug.Log("LeaderboardDisplay OnEnable");
+    }
+
+    private void Start()
+    {
+        LeaderBoardManager.Instance.OnLeaderBoardUpdated += UpdateLeaderboard;
+        LeaderBoardManager.Instance.RequestUpdate();
+    }
+
+    private void OnDestroy()
+    {
+        //LeaderBoardManager.Instance.OnLeaderBoardUpdated -= UpdateLeaderboard;
+    }
+
+    public void UpdateLeaderboard()
+    {
+        ClearLeaderboard();
+        InstantiateLeaderboardEntries();
+    }
+
     void ClearLeaderboard()
     {
         foreach (Transform child in _leaderboardParent)
         {
             Destroy(child.gameObject);
-        } 
+        }
     }
 
-    async Task InstantiateLeaderboardEntries()
+    void InstantiateLeaderboardEntries()
     {
-        var entries = await LeaderBoardManager.Instance.GetTopTen();
-
+        var entries = LeaderBoardManager.Instance.GetLeaderboardEntries();
+        int numberOfEntries = 0;
         foreach (var entry in entries)
         {
             var leaderboardDisplay = Instantiate(_leaderboardDisplayPrefab, _leaderboardParent);
             leaderboardDisplay.SetTexts(entry.PlayerName, entry.Score);
+            numberOfEntries++;
+            if (numberOfEntries >= maxEntries)
+            {
+                break;
+            }
         }
+    }
+
+    public void Hide(bool hide)
+    {
+        canvasGroup.alpha = hide ? 0 : 1;
+        canvasGroup.interactable = !hide;
+        canvasGroup.blocksRaycasts = !hide;
+        
+        LeaderBoardManager.Instance.DisableUpdates(hide);
     }
 }
