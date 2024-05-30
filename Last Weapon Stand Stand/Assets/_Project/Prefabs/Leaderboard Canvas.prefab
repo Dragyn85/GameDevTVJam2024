@@ -173,8 +173,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 47, y: 0}
-  m_SizeDelta: {x: -1344.6821, y: 0}
+  m_AnchoredPosition: {x: -394, y: 165}
+  m_SizeDelta: {x: -945.5544, y: -369.5191}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5345214797800474028
 CanvasRenderer:
@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6886792, g: 0.40485635, b: 0, a: 1}
+  m_Color: {r: 0.6886792, g: 0.40485635, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -226,7 +226,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47b5e42bdbb6ae44d91e1a5b89f8cad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _leaderboardDisplayPrefab: {fileID: 0}
+  _leaderboardDisplayPrefab: {fileID: 1142147082923141250, guid: a3d0ab6493edfb243a9b0c5e6184c5e1, type: 3}
+  _leaderboardParent: {fileID: 3272014767012669187}
 --- !u!1 &5820495549821533579
 GameObject:
   m_ObjectHideFlags: 0

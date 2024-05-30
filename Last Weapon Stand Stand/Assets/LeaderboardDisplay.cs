@@ -6,6 +6,8 @@ public class LeaderboardDisplay : MonoBehaviour
 {
     [SerializeField] private HighScoreEntryDisplay _leaderboardDisplayPrefab;
     [SerializeField] private Transform _leaderboardParent;
+    [SerializeField] private int maxEntries = 10;
+    [SerializeField] private CanvasGroup canvasGroup;
     
     private void OnEnable()
     {
@@ -20,7 +22,7 @@ public class LeaderboardDisplay : MonoBehaviour
 
     private void OnDestroy()
     {
-        LeaderBoardManager.Instance.OnLeaderBoardUpdated -= UpdateLeaderboard;
+        //LeaderBoardManager.Instance.OnLeaderBoardUpdated -= UpdateLeaderboard;
     }
 
     public void UpdateLeaderboard()
@@ -40,11 +42,25 @@ public class LeaderboardDisplay : MonoBehaviour
     void InstantiateLeaderboardEntries()
     {
         var entries = LeaderBoardManager.Instance.GetLeaderboardEntries();
-
+        int numberOfEntries = 0;
         foreach (var entry in entries)
         {
             var leaderboardDisplay = Instantiate(_leaderboardDisplayPrefab, _leaderboardParent);
             leaderboardDisplay.SetTexts(entry.PlayerName, entry.Score);
+            numberOfEntries++;
+            if (numberOfEntries >= maxEntries)
+            {
+                break;
+            }
         }
+    }
+
+    public void Hide(bool hide)
+    {
+        canvasGroup.alpha = hide ? 0 : 1;
+        canvasGroup.interactable = !hide;
+        canvasGroup.blocksRaycasts = !hide;
+        
+        LeaderBoardManager.Instance.DisableUpdates(hide);
     }
 }

@@ -34,6 +34,7 @@ public class LeaderBoardManager : MonoBehaviour
     private double currentLocalHighScore;
     private float nextUpdateTime;
     private float refreshMinInterval = 300;
+    private bool isEnabled = true;
 
     /// <summary>
     /// Adds a score to the leaderboard, if the score is higher than the current local highscore it will update the local highscore.
@@ -55,6 +56,12 @@ public class LeaderBoardManager : MonoBehaviour
     {
         nextUpdateTime = Time.time;
     }
+
+    public void DisableUpdates(bool disable)
+    {
+        isEnabled = !disable;
+    }
+    
 
 
     private void HandleAutheticationComplete()
@@ -105,7 +112,7 @@ public class LeaderBoardManager : MonoBehaviour
 
     private void Update()
     {
-        if (Time.time > nextUpdateTime)
+        if (isEnabled && Time.time > nextUpdateTime)
         {
             UpdateLocalEntries();
         }
@@ -125,8 +132,8 @@ public class LeaderBoardManager : MonoBehaviour
 
     private void OnDestroy()
     {
-    AuthenticationManager.Instance.OnAuthenticationChanged -= HandleAutheticationChanged;
-        AuthenticationManager.Instance.OnAuthenticationComplete -= HandleAutheticationComplete;
+        //AuthenticationManager.Instance.OnAuthenticationChanged -= HandleAutheticationChanged;
+        //AuthenticationManager.Instance.OnAuthenticationComplete -= HandleAutheticationComplete;
     }
 
 
