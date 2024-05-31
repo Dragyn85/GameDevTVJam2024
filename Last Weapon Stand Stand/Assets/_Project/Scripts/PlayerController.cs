@@ -251,7 +251,7 @@ public class PlayerController : MonoBehaviour
 	{
 		Debug.Log("Quit");
 #if (UNITY_EDITOR)
-    UnityEditor.EditorApplication.isPlaying = false;
+    // UnityEditor.EditorApplication.isPlaying = false;
 #elif (UNITY_WEBGL)
 //    Application.OpenURL("about:blank");
 	Debug.Log("Web Quit");

@@ -16,13 +16,15 @@ public class AlianBrain : MonoBehaviour, Damageable
 
     void Start()
     {
-        _navMeshAgent   = GetComponent<NavMeshAgent>();
-        _player         = FindAnyObjectByType<PlayerController>();
-        _playerGO       = _player.gameObject;
-        _animator       = GetComponent<Animator>();
-        _boxCollider    = GetComponent<BoxCollider>();
-        _particleSystem = GetComponentInChildren<ParticleSystem>();
-        _weaponStandGO    = FindFirstObjectByType<WeaponStand>().gameObject;
+        _navMeshAgent             = GetComponent<NavMeshAgent>();
+        _player                   = FindAnyObjectByType<PlayerController>();
+        _playerGO                 = _player.gameObject;
+        _animator                 = GetComponent<Animator>();
+        _boxCollider              = GetComponent<BoxCollider>();
+        _particleSystem           = GetComponentInChildren<ParticleSystem>();
+        _weaponStandGO            = FindFirstObjectByType<WeaponStand>().gameObject;
+
+        _navMeshAgent.destination = _weaponStandGO.transform.position;
     }
 
 
@@ -30,7 +32,7 @@ public class AlianBrain : MonoBehaviour, Damageable
     {
         if (_navMeshAgent.enabled)
         {
-            _navMeshAgent.destination = _weaponStandGO.transform.position;
+            // _navMeshAgent.destination = _weaponStandGO.transform.position;
         }
     }
 
