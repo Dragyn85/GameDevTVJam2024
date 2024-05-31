@@ -1645,7 +1645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenuLoadingScreen: {fileID: 269547882}
-  SceneToLoad: David Copy for joppe
+  SceneToLoad: David
   startButton: {fileID: 447570359}
   settingsButton: {fileID: 181745193}
   settingsDisplay: {fileID: 1071482077}
