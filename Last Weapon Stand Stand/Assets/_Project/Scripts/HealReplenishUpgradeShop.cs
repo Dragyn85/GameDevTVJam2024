@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 
-public class AmmoUpgradeShop : ShopUpgrade
+public class HealReplenishUpgradeShop : ShopUpgrade
 {
     AudioSource shopSound;
     
     protected override void OnUpgrade(IUpgrade pickup)
     {
         if(shopSound != null)
-            {   
-                shopSound.Play();
-                }
+        {   
+            shopSound.Play();
+        }
     }
 }

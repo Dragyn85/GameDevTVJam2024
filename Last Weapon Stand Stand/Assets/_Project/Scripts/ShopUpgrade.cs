@@ -32,12 +32,8 @@ public abstract class ShopUpgrade : MonoBehaviour , IInteractable
         
     }
 
-    public string GetInteractionText()
+    public virtual string GetInteractionText()
     {
         return $"{interactionText} : ${cost}";
     }
-}
-public interface IInteractable
-{
-    string GetInteractionText();
 }

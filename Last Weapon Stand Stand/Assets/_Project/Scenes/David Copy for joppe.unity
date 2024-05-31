@@ -1623,8 +1623,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa07e66eaaa10c4cacfeba0a97cfde8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 100
   health: 100
   _alarm: {fileID: 1944132545}
+  repairAmount: 10
+  repairTime: 10
+  repairAmountIncrease: 1
+  repairTimeDecrease: 1
 --- !u!1 &288940087 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3593924554708469850, guid: 3eee5b75bf8456847af359ea0aa9a8c1, type: 3}
@@ -6389,6 +6394,71 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -7828716370911885745, guid: 5821af9a78876e3418d2b2282dc6e8de, type: 3}
+--- !u!1001 &1439011995
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4942787090102786063, guid: 65ffcd5fa0f5b4444ad1bae57edbadf1, type: 3}
+      propertyPath: uppgradeObject
+      value: 
+      objectReference: {fileID: 1838738581}
+    - target: {fileID: 4942787090102786063, guid: 65ffcd5fa0f5b4444ad1bae57edbadf1, type: 3}
+      propertyPath: interactionText
+      value: '[ E ] - Upgrade weaponstand repair'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5027483348132447586, guid: 65ffcd5fa0f5b4444ad1bae57edbadf1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 5027483348132447586, guid: 65ffcd5fa0f5b4444ad1bae57edbadf1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 5027483348132447586, guid: 65ffcd5fa0f5b4444ad1bae57edbadf1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 51.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 5027483348132447586, guid: 65ffcd5fa0f5b4444ad1bae57edbadf1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5027483348132447586, guid: 65ffcd5fa0f5b4444ad1bae57edbadf1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5027483348132447586, guid: 65ffcd5fa0f5b4444ad1bae57edbadf1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5027483348132447586, guid: 65ffcd5fa0f5b4444ad1bae57edbadf1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5027483348132447586, guid: 65ffcd5fa0f5b4444ad1bae57edbadf1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5027483348132447586, guid: 65ffcd5fa0f5b4444ad1bae57edbadf1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5027483348132447586, guid: 65ffcd5fa0f5b4444ad1bae57edbadf1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9071784046577047921, guid: 65ffcd5fa0f5b4444ad1bae57edbadf1, type: 3}
+      propertyPath: m_Name
+      value: Weaponstand Upgrade shop
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 65ffcd5fa0f5b4444ad1bae57edbadf1, type: 3}
 --- !u!1 &1457146749 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6513343459884660915, guid: 3eee5b75bf8456847af359ea0aa9a8c1, type: 3}
@@ -9786,10 +9856,14 @@ PrefabInstance:
     - target: {fileID: 4942787090102786063, guid: 65ffcd5fa0f5b4444ad1bae57edbadf1, type: 3}
       propertyPath: uppgradeObject
       value: 
-      objectReference: {fileID: 1838738581}
+      objectReference: {fileID: 280597055}
+    - target: {fileID: 4942787090102786063, guid: 65ffcd5fa0f5b4444ad1bae57edbadf1, type: 3}
+      propertyPath: interactionText
+      value: '[ E ] - Upgrade ammo refill rate'
+      objectReference: {fileID: 0}
     - target: {fileID: 5027483348132447586, guid: 65ffcd5fa0f5b4444ad1bae57edbadf1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.55
+      value: 1.01
       objectReference: {fileID: 0}
     - target: {fileID: 5027483348132447586, guid: 65ffcd5fa0f5b4444ad1bae57edbadf1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9829,7 +9903,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9071784046577047921, guid: 65ffcd5fa0f5b4444ad1bae57edbadf1, type: 3}
       propertyPath: m_Name
-      value: AmmoShop
+      value: Ammo Upgrade Shop
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9914,6 +9988,7 @@ SceneRoots:
   - {fileID: 52902775}
   - {fileID: 7280769728586701894}
   - {fileID: 6892663533452607362}
+  - {fileID: 1439011995}
   - {fileID: 293383841970539778}
   - {fileID: 962740483}
   - {fileID: 1944132546}
