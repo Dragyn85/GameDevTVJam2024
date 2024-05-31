@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour
 	private Vector3                 mousePosition;
 
 	private float mouseDeltaMultiplier;
+	private float pauseInteractionTextTimer;
 	
 	RaycastHit[] hits = new RaycastHit[1];
 	float maxDistance = 10;
@@ -65,7 +66,11 @@ public class PlayerController : MonoBehaviour
 
 	private void Reload(InputAction.CallbackContext obj)
 	{
-		rifle.GetAmmo().TryReload();
+		if (rifle.GetAmmo().TryReload())
+		{
+			Debug.Log("Reloading");
+			//Reload sound & animation
+		}
 	}
 
 	
@@ -95,7 +100,14 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 	private void UpdateInteractionText()
-	{var ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+	{
+		if(pauseInteractionTextTimer > 0)
+		{
+			pauseInteractionTextTimer -= Time.deltaTime;
+			return;
+		}
+		
+		var ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
 		string text = "";
 		if (Physics.RaycastNonAlloc(ray, hits, maxDistance,interactionLayer) > 0)
 		{
@@ -107,6 +119,7 @@ public class PlayerController : MonoBehaviour
 			}
 		}
 		interactionText.text = text;
+		pauseInteractionTextTimer = .2f;
 	}
 
 	private void MouseMove(InputAction.CallbackContext obj)
@@ -196,11 +209,17 @@ public class PlayerController : MonoBehaviour
 			shootTimer -= Time.deltaTime;
 			if (shootTimer <= 0)
 			{
-				rifle.Fire();
-				shootTimer = shootRate;
+				if (rifle.Fire())
+				{
+					shootTimer = shootRate;
+				}
+				else
+				{
+					interactionText.text = "[ R ] Reload";
+					pauseInteractionTextTimer = 1;
+				}
+				
 			}
-
-			// Debug.Log("Player Shoot");
 		}
 		else
 		{

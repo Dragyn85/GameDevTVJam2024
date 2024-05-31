@@ -20,12 +20,15 @@ public class RifleWithAmmo : MonoBehaviour
     {
     }
 
-    public void Fire()
+    public bool Fire()
     {
-        if (ShootBullet())
+        bool canFire = ShootBullet();
+        if (canFire)
         {
             _audioSource.Play();
         }
+
+        return canFire;
     }
 
 

@@ -89,10 +89,16 @@ MonoBehaviour:
   playerJumpAction: {fileID: -8543161942557663810, guid: 208771f88bd978545b579513a607ce2c, type: 3}
   fastAction: {fileID: -5762242440342612449, guid: 208771f88bd978545b579513a607ce2c, type: 3}
   shootAction: {fileID: -593977067586949668, guid: 208771f88bd978545b579513a607ce2c, type: 3}
-  lookSensitivity: 30
+  InteractAction: {fileID: -2825645524649643906, guid: 208771f88bd978545b579513a607ce2c, type: 3}
+  ReloadAction: {fileID: 7694604389740355315, guid: 208771f88bd978545b579513a607ce2c, type: 3}
+  lookSensitivity: 0.5
+  webLookSensitivityScale: 0.5
   moveSpeed: 8
   playerBody: {fileID: 4808212602487925678}
   eyeCamera: {fileID: 7658165693021526074}
+  interactionLayer:
+    serializedVersion: 2
+    m_Bits: 16384
   shootRate: 0.05
 --- !u!114 &1510695484137925995
 MonoBehaviour:
@@ -144,20 +150,28 @@ MonoBehaviour:
     m_ActionId: baf7bf1f-ef4c-4164-a308-b5608a3d9c44
     m_ActionName: 'player action map/Shoot[/Mouse/leftButton]'
   - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bc03ac1e-61b8-4af8-83f3-6838c192830a
+    m_ActionName: 'player action map/Interact[/Keyboard/e]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5464c238-6d99-4ae2-bbf9-30edc4788cc2
+    m_ActionName: 'player action map/Reload[/Keyboard/r]'
+  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1908441490439714357}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 6f057242-2ece-47c3-a617-b1afc63010c8
+    m_ActionId: 86c62794-85d4-47df-aa65-377bf9c6f6c9
     m_ActionName: 'player action map/Quit[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
@@ -1011,6 +1025,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7658165693021526074}
     m_Modifications:
+    - target: {fileID: 1308070332100152241, guid: 8ec4cfd3f7f261d4ebb9097453535dec, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3482815261436065663, guid: 8ec4cfd3f7f261d4ebb9097453535dec, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.13911057
@@ -1058,10 +1076,60 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4260021155387469253, guid: 8ec4cfd3f7f261d4ebb9097453535dec, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2918761112747356409}
+    - targetCorrespondingSourceObject: {fileID: 4260021155387469253, guid: 8ec4cfd3f7f261d4ebb9097453535dec, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 616599908793901781}
   m_SourcePrefab: {fileID: 100100000, guid: 8ec4cfd3f7f261d4ebb9097453535dec, type: 3}
+--- !u!4 &3051985416794434306 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8904237814796133751, guid: 8ec4cfd3f7f261d4ebb9097453535dec, type: 3}
+  m_PrefabInstance: {fileID: 5893208106664611445}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7033940421001017610 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3482815261436065663, guid: 8ec4cfd3f7f261d4ebb9097453535dec, type: 3}
   m_PrefabInstance: {fileID: 5893208106664611445}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7698414448888161200 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4260021155387469253, guid: 8ec4cfd3f7f261d4ebb9097453535dec, type: 3}
+  m_PrefabInstance: {fileID: 5893208106664611445}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2918761112747356409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7698414448888161200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53edc4ab3cd3410ab9a21852617423e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletVelocity: 100
+  bulletPrefab: {fileID: 2454884093666954120, guid: 30e26d1edecb859418485ef5851754e1, type: 3}
+  bulletSpawnPoint: {fileID: 3051985416794434306}
+  ammo: {fileID: 616599908793901781}
+--- !u!114 &616599908793901781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7698414448888161200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 833f08663a7961645907dd0b83acf326, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxAmmoInClip: 60
+  maxAmmo: 200000
+  initialAmmo: 500
+  currentAmmo: 0
+  currentAmmoInClip: 0
+  reloadTime: 1

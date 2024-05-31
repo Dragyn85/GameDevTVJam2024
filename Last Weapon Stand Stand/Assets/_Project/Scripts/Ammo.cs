@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class Ammo : MonoBehaviour
@@ -8,11 +9,15 @@ public class Ammo : MonoBehaviour
     [SerializeField] private int initialAmmo = 1000;
     [SerializeField] private int currentAmmo;
     [SerializeField] private int currentAmmoInClip;
-    
+    [SerializeField] private float reloadTime = 1;
+
+    private bool reloading = false;
+
     public int CurrentAmmo => currentAmmo;
     public int CurrentAmmoInClip => currentAmmoInClip;
+    public int MaxAmmoInClip => maxAmmoInClip;
 
-    public static event Action OnAmmoChanged;
+    public static event Action<Ammo> OnAmmoChanged;
 
     private void Awake()
     {
@@ -20,19 +25,19 @@ public class Ammo : MonoBehaviour
         currentAmmo = initialAmmo;
     }
 
-    private void OnEnable()
+    private void Start()
     {
-        OnAmmoChanged?.Invoke();
+        OnAmmoChanged?.Invoke(this);
     }
 
     public bool TryConsumeAmmo()
     {
         bool canFire = false;
-        if (currentAmmoInClip > 0)
+        if (currentAmmoInClip > 0 && !reloading)
         {
             currentAmmoInClip--;
             canFire = true;
-            OnAmmoChanged?.Invoke();
+            OnAmmoChanged?.Invoke(this);
         }
 
         return canFire;
@@ -43,29 +48,33 @@ public class Ammo : MonoBehaviour
         int ammoNeeded = maxAmmo - currentAmmo;
         int ammoToPickup = Math.Min(ammoNeeded, amount);
         currentAmmo += ammoToPickup;
-        OnAmmoChanged?.Invoke();
+        OnAmmoChanged?.Invoke(this);
     }
 
     public bool TryReload()
     {
         bool canReload = false;
 
-        if(currentAmmo > 0 && currentAmmoInClip < maxAmmoInClip)
+        if(currentAmmo > 0 && currentAmmoInClip < maxAmmoInClip && !reloading)
         {
-            Reload();
+            StartCoroutine(Reload());
             canReload = true;
         }
         
         return canReload; 
     }
 
-    private void Reload()
+    private IEnumerator Reload()
     {
+        reloading = true;
+        yield return new WaitForSeconds(reloadTime);
         int ammoNeeded = maxAmmoInClip - currentAmmoInClip;
         int ammoAvailable = currentAmmo;
         int ammoToReload = Math.Min(ammoNeeded, ammoAvailable);
         currentAmmoInClip += ammoToReload;
         currentAmmo -= ammoToReload;
-        OnAmmoChanged?.Invoke();
+        
+        OnAmmoChanged?.Invoke(this);
+        reloading = false;
     }
 }
