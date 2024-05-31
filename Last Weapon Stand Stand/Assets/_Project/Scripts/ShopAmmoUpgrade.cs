@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 
-public abstract class ShopUpgrade : MonoBehaviour 
+public abstract class ShopUpgrade : MonoBehaviour , IInteractable
 {
-    [SerializeField] private double cost = 100;
+    [SerializeField] private int cost = 100;
     [SerializeField] private GameObject uppgradeObject;
     private IUpgrade upgradable;
-    
+    [SerializeField] private string interactionText;
+
     public double Cost => cost;
     
     private void Awake()
@@ -13,7 +14,7 @@ public abstract class ShopUpgrade : MonoBehaviour
         upgradable = uppgradeObject.GetComponent<IUpgrade>();
     }
     
-    public double TryBuy(double currentPoints)
+    public int TryBuy(int currentPoints)
     {
         Debug.Log("trying to buy");
         if(currentPoints >= cost)
@@ -30,4 +31,13 @@ public abstract class ShopUpgrade : MonoBehaviour
     {
         
     }
+
+    public string GetInteractionText()
+    {
+        return $"{interactionText} : ${cost}";
+    }
+}
+public interface IInteractable
+{
+    string GetInteractionText();
 }

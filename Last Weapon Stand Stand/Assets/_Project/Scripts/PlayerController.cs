@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private float                moveSpeed             = 4.0f;
 	[SerializeField] private Transform            playerBody;
 	[SerializeField] private Transform            eyeCamera;
+	[SerializeField] private LayerMask			  interactionLayer;
 
 	private DHTLogService _logService;
 	
@@ -32,11 +33,17 @@ public class PlayerController : MonoBehaviour
 	private Vector2                 lookInput;
 	private Rigidbody               _rigidbody;
 	private int                     _score = 0;
+	private int					    _creditScore  = 0;
 	TMP_Text                        scoreBoardTMP;
+	TMP_Text                        creditBoardTMP;
+	TMP_Text						interactionText;
 	private GameObject              _weaponStand;
 	private Vector3                 mousePosition;
 
 	private float mouseDeltaMultiplier;
+	
+	RaycastHit[] hits = new RaycastHit[1];
+	float maxDistance = 10;
 
 
 	private void OnEnable()
@@ -61,15 +68,13 @@ public class PlayerController : MonoBehaviour
 		rifle.GetAmmo().TryReload();
 	}
 
+	
 	private void Interact(InputAction.CallbackContext obj)
 	{
-		float maxDistance = 10;
-		RaycastHit[] hits = new RaycastHit[5];
-		double playerCredit = 200;
-
+		
 		var ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
 		Debug.Log("Trying to interact");
-		if (Physics.RaycastNonAlloc(ray, hits, maxDistance) > 0)
+		if (Physics.RaycastNonAlloc(ray, hits, maxDistance,interactionLayer) > 0)
 		{
 			var hit = hits[0];
 
@@ -77,7 +82,7 @@ public class PlayerController : MonoBehaviour
 			{
 				Debug.Log("Hit: " + hit.collider.gameObject.name);
 
-				playerCredit -= shop.TryBuy(playerCredit);
+				UpdateCredit(-shop.TryBuy(_creditScore));
 			}
 
 			if (hit.collider.gameObject.TryGetComponent(out AmmoPickup ammoPickup))
@@ -88,6 +93,20 @@ public class PlayerController : MonoBehaviour
 				ammoPickup.TakeAmmo(rifle.GetAmmo());
 			}
 		}
+	}
+	private void UpdateInteractionText()
+	{var ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+		string text = "";
+		if (Physics.RaycastNonAlloc(ray, hits, maxDistance,interactionLayer) > 0)
+		{
+			var hit = hits[0];
+
+			if (hit.collider.gameObject.TryGetComponent(out IInteractable interactable))
+			{
+				text = interactable.GetInteractionText();
+			}
+		}
+		interactionText.text = text;
 	}
 
 	private void MouseMove(InputAction.CallbackContext obj)
@@ -134,6 +153,9 @@ public class PlayerController : MonoBehaviour
 		_rigidbody   = playerBody.GetComponent<Rigidbody>();
 		var go = FindFirstObjectByType<ScoreBoard>().gameObject;
 		scoreBoardTMP = go.GetComponent<TMP_Text>();
+		creditBoardTMP = FindFirstObjectByType<CreditBoard>().GetComponent<TMP_Text>();
+		interactionText = FindFirstObjectByType<InteractionText>().GetComponent<TMP_Text>();
+		UpdateCredit(400);
 
 		RifleWithAmmo[] rifles = FindObjectsByType<RifleWithAmmo>(FindObjectsSortMode.None);
 		rifle            = rifles[0];
@@ -160,6 +182,7 @@ public class PlayerController : MonoBehaviour
 		HandleMouseLook();
 		HandlePlayerMove();
 		HandlePlayerShoot();
+		UpdateInteractionText();
 	}
 
 
@@ -191,13 +214,20 @@ public class PlayerController : MonoBehaviour
 		var dist = Vector3.Distance(_weaponStand.transform.position, alien.transform.position);
 
 		int score = (int)MathF.Floor(dist / 10) * 10;
+		
 		UpdateScore(score);
+		UpdateCredit(score);
 	}
 
 	public void UpdateScore(int scoreDelta)
 	{
 		_score             += scoreDelta;
 		scoreBoardTMP.text =  _score.ToString();
+	}
+	void UpdateCredit(int amount)
+	{
+		_creditScore += amount;
+		creditBoardTMP.text = _creditScore.ToString();
 	}
 
 	private void PlayerJump(InputAction.CallbackContext obj)

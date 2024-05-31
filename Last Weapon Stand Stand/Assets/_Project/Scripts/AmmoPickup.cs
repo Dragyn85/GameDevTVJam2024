@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class AmmoPickup : MonoBehaviour , IUpgrade
+public class AmmoPickup : MonoBehaviour , IUpgrade, IInteractable
 {
     [SerializeField] private int ammoAmount = 10;
     [SerializeField] int maxAmmo = 1000;
@@ -10,6 +10,7 @@ public class AmmoPickup : MonoBehaviour , IUpgrade
 
     [SerializeField,Range(-2,-0.01f)] private float replenishTimeUpgradeAmount = -0.5f;
     [SerializeField] private int replenishAmountUpgradeAmount = 5;
+    [SerializeField] private string interactionText;
 
     public void TakeAmmo(Ammo ammoToRefill)
     {Debug.Log("taking ammo");
@@ -36,6 +37,11 @@ public class AmmoPickup : MonoBehaviour , IUpgrade
     {
         replenishAmount += replenishAmountUpgradeAmount;
         replenishTime += replenishTimeUpgradeAmount;
+    }
+
+    public string GetInteractionText()
+    {
+        return $"{interactionText} : {ammoAmount}";
     }
 }
 
