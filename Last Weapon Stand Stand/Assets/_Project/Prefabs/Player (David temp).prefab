@@ -92,7 +92,7 @@ MonoBehaviour:
   InteractAction: {fileID: -2825645524649643906, guid: 208771f88bd978545b579513a607ce2c, type: 3}
   ReloadAction: {fileID: 7694604389740355315, guid: 208771f88bd978545b579513a607ce2c, type: 3}
   lookSensitivity: 0.5
-  webLookSensitivityScale: 0.5
+  webLookSensitivityScale: 0.3
   moveSpeed: 8
   playerBody: {fileID: 4808212602487925678}
   eyeCamera: {fileID: 7658165693021526074}
@@ -1073,7 +1073,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: TacticalRifle
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1308070332100152241, guid: 8ec4cfd3f7f261d4ebb9097453535dec, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -1127,9 +1128,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 833f08663a7961645907dd0b83acf326, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxAmmoInClip: 60
+  maxAmmoInClip: 120
   maxAmmo: 200000
   initialAmmo: 500
   currentAmmo: 0
   currentAmmoInClip: 0
-  reloadTime: 1
+  reloadTime: 0.9
