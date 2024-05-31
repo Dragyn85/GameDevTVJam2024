@@ -8,21 +8,21 @@ public class Alarm : MonoBehaviour
     [SerializeField] private Transform   axis;
     [SerializeField] private AudioSource _audioSource;
 
-    private Light     light;
-    private Vector3   RotationRate;
+    private Light   light;
+    private Vector3 RotationRate;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        light         = GetComponentInChildren<Light>();
-        RotationRate  = new Vector3(0, _rotationRate, 0);
+        light          = GetComponentInChildren<Light>();
+        RotationRate   = new Vector3(0, _rotationRate, 0);
         updateAlarmState();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_alarmOn)
+        if (AlarmOn)
         {
             axis.Rotate(RotationRate * Time.deltaTime);
         }
@@ -30,8 +30,9 @@ public class Alarm : MonoBehaviour
 
     void updateAlarmState()
     {
-        if (_alarmOn)
+        if (AlarmOn)
         {
+            Debug.Log("Play Alarm Sound");
             _audioSource.Play();
         }
         else
@@ -39,7 +40,7 @@ public class Alarm : MonoBehaviour
             _audioSource.Stop();
         }
 
-        light.enabled = _alarmOn;
+        light.enabled = AlarmOn;
     }
 
     public bool AlarmOn
@@ -50,8 +51,11 @@ public class Alarm : MonoBehaviour
         }
         set
         {
-            _alarmOn = value;
-            updateAlarmState();
+            if (AlarmOn != value)
+            {
+                _alarmOn        = value;
+                updateAlarmState();
+            }
         }
     }
     

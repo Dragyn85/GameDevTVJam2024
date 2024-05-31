@@ -1,11 +1,15 @@
+using Newtonsoft.Json;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class WeaponStand : MonoBehaviour
 {
-    [SerializeField] private int   health = 100;
-    [SerializeField] private Alarm _alarm;
+    [SerializeField] private int            health     = 100;
+    [SerializeField] private float          _alarmTime = 3.5f;
+    [SerializeField] private Alarm          _alarm;
+    [SerializeField] private StandHealthBar _standHealthBar;
 
-    private float damageTimmer;
+    private float damageTimer;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -16,17 +20,21 @@ public class WeaponStand : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        damageTimmer -= Time.deltaTime;
-        if (damageTimmer < 0)
+        if (damageTimer > 0)
         {
-            _alarm.AlarmOn = false;
+            damageTimer -= Time.deltaTime;
+            if (damageTimer <=0)
+            {
+                _alarm.AlarmOn = false;
+            }
         }
     }
 
     public void TakeDamage(int damage)
     {
-        _alarm.AlarmOn =  true;
-        health         -= damage;
-        damageTimmer   =  3;
+        _alarm.AlarmOn         =  true;
+        health                 -= damage;
+        damageTimer            =  _alarmTime;
+        _standHealthBar.Health =  health;
     }
 }

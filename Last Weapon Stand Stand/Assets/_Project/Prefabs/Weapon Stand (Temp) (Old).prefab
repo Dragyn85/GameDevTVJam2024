@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 3351632049145520093}
   - component: {fileID: 5944353774931038642}
   m_Layer: 0
-  m_Name: Weapon Stand (Temp)
+  m_Name: Weapon Stand (Temp) (Old)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

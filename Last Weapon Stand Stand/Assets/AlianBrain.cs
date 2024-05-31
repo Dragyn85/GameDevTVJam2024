@@ -5,27 +5,27 @@ using UnityEngine.AI;
 public class AlianBrain : MonoBehaviour, Damageable
 {
     [SerializeField] private int Health = 100;
+    [SerializeField] private float AttackTime  = 3;
 
-    private       NavMeshAgent     _navMeshAgent;
-    private       PlayerController _player;
-    private       GameObject       _playerGO;
-    private       Animator         _animator;
-    private       BoxCollider      _boxCollider;
-    private       ParticleSystem   _particleSystem;
-    private       WeaponStand       _weaponStand;
-    
-    private const float            AttackTime  = 3;
-    private       float            attackTimer = AttackTime;
+    private NavMeshAgent     _navMeshAgent;
+    private PlayerController _player;
+    private GameObject       _playerGO;
+    private Animator         _animator;
+    private BoxCollider      _boxCollider;
+    private ParticleSystem   _particleSystem;
+    private WeaponStand      _weaponStand;
+    private float            attackTimer;
 
     void Start()
     {
-        _navMeshAgent             = GetComponent<NavMeshAgent>();
-        _player                   = FindAnyObjectByType<PlayerController>();
-        _playerGO                 = _player.gameObject;
-        _animator                 = GetComponent<Animator>();
-        _boxCollider              = GetComponent<BoxCollider>();
-        _particleSystem           = GetComponentInChildren<ParticleSystem>();
-        _weaponStand            = FindFirstObjectByType<WeaponStand>();
+        attackTimer     = AttackTime;
+        _navMeshAgent   = GetComponent<NavMeshAgent>();
+        _player         = FindAnyObjectByType<PlayerController>();
+        _playerGO       = _player.gameObject;
+        _animator       = GetComponent<Animator>();
+        _boxCollider    = GetComponent<BoxCollider>();
+        _particleSystem = GetComponentInChildren<ParticleSystem>();
+        _weaponStand    = FindFirstObjectByType<WeaponStand>();
 
         _navMeshAgent.destination = _weaponStand.transform.position;
     }
