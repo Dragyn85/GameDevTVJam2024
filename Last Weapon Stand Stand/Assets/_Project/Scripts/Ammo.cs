@@ -1,17 +1,19 @@
 using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class Ammo : MonoBehaviour
 {
-    [SerializeField] private int maxAmmoInClip = 30;
-    [SerializeField] private int maxAmmo = 200000;
-    [SerializeField] private int initialAmmo = 1000;
-    [SerializeField] private int currentAmmo;
-    [SerializeField] private int currentAmmoInClip;
-    [SerializeField] private float reloadTime = 1;
+    [SerializeField] private int   maxAmmoInClip = 30;
+    [SerializeField] private int   maxAmmo       = 200000;
+    [SerializeField] private int   initialAmmo   = 1000;
+    [SerializeField] private int   currentAmmo;
+    [SerializeField] private int   currentAmmoInClip;
+    [SerializeField] private float reloadTime = 3;
 
-    private bool reloading = false;
+    private TMP_Text interactionText;
+    private bool     reloading = false;
 
     public int CurrentAmmo => currentAmmo;
     public int CurrentAmmoInClip => currentAmmoInClip;
@@ -19,6 +21,11 @@ public class Ammo : MonoBehaviour
 
     public static event Action<Ammo> OnAmmoChanged;
 
+    public bool Reloading
+    {
+        get { return reloading; }
+    }
+    
     private void Awake()
     {
         currentAmmoInClip = maxAmmoInClip;
@@ -27,6 +34,7 @@ public class Ammo : MonoBehaviour
 
     private void Start()
     {
+        interactionText = FindFirstObjectByType<InteractionText>().GetComponent<TMP_Text>();
         OnAmmoChanged?.Invoke(this);
     }
 
@@ -66,7 +74,9 @@ public class Ammo : MonoBehaviour
 
     private IEnumerator Reload()
     {
-        reloading = true;
+        Debug.Log("---  Reloading  ---");
+        interactionText.text = "---  Reloading  ---";
+        reloading            = true;
         yield return new WaitForSeconds(reloadTime);
         int ammoNeeded = maxAmmoInClip - currentAmmoInClip;
         int ammoAvailable = currentAmmo;
@@ -75,6 +85,6 @@ public class Ammo : MonoBehaviour
         currentAmmo -= ammoToReload;
         
         OnAmmoChanged?.Invoke(this);
-        reloading = false;
+        reloading            = false;
     }
 }

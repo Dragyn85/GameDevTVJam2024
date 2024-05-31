@@ -101,6 +101,11 @@ public class PlayerController : MonoBehaviour
 	}
 	private void UpdateInteractionText()
 	{
+		if (rifle.GetAmmo().Reloading)
+		{
+			return;
+		}
+
 		if(pauseInteractionTextTimer > 0)
 		{
 			pauseInteractionTextTimer -= Time.deltaTime;
@@ -127,7 +132,7 @@ public class PlayerController : MonoBehaviour
 		   Vector2 mouseDelta = obj.ReadValue<Vector2>() ;
 		   
 		   
-		   #if UNITY_WEBGL && UNITY_EDITOR
+		   #if UNITY_WEBGL && !UNITY_EDITOR
 		   var mouseDeltaMultiplier = lookSensitivity * webLookSensitivityScale;
 		   #else
 		   var mouseDeltaMultiplier = lookSensitivity;
@@ -215,10 +220,12 @@ public class PlayerController : MonoBehaviour
 				}
 				else
 				{
-					interactionText.text = "[ R ] Reload";
-					pauseInteractionTextTimer = 1;
+					if (!rifle.GetAmmo().Reloading)
+					{
+						interactionText.text      = "[ R ] Reload";
+						pauseInteractionTextTimer = 1;
+					}
 				}
-				
 			}
 		}
 		else
