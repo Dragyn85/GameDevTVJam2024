@@ -493,7 +493,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &52902772
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -582,7 +582,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 496301179}
-  - {fileID: 280597056}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &52902776
@@ -1868,12 +1867,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 280597055}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.11, z: 0.06}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.454, y: 6.938, z: 52.696}
+  m_LocalScale: {x: 4, y: 2.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 52902775}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &280597057
 MonoBehaviour:
@@ -4601,131 +4600,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 680485728}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &696072414
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 696072417}
-  - component: {fileID: 696072416}
-  - component: {fileID: 696072415}
-  - component: {fileID: 696072418}
-  m_Layer: 0
-  m_Name: Terrain
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
---- !u!154 &696072415
-TerrainCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 696072414}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_TerrainData: {fileID: 15600000, guid: 315e63a6dd213034eb81b57528f5abd8, type: 2}
-  m_EnableTreeColliders: 1
---- !u!218 &696072416
-Terrain:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 696072414}
-  m_Enabled: 1
-  serializedVersion: 6
-  m_TerrainData: {fileID: 15600000, guid: 315e63a6dd213034eb81b57528f5abd8, type: 2}
-  m_TreeDistance: 5000
-  m_TreeBillboardDistance: 50
-  m_TreeCrossFadeLength: 5
-  m_TreeMaximumFullLODCount: 50
-  m_DetailObjectDistance: 80
-  m_DetailObjectDensity: 1
-  m_HeightmapPixelError: 5
-  m_SplatMapDistance: 1000
-  m_HeightmapMinimumLODSimplification: 0
-  m_HeightmapMaximumLOD: 0
-  m_ShadowCastingMode: 2
-  m_DrawHeightmap: 1
-  m_DrawInstanced: 0
-  m_DrawTreesAndFoliage: 1
-  m_StaticShadowCaster: 0
-  m_IgnoreQualitySettings: 0
-  m_ReflectionProbeUsage: 1
-  m_MaterialTemplate: {fileID: 2100000, guid: 594ea882c5a793440b60ff72d896021e, type: 2}
-  m_BakeLightProbesForTrees: 1
-  m_PreserveTreePrototypeLayers: 0
-  m_DeringLightProbesForTrees: 1
-  m_ReceiveGI: 1
-  m_ScaleInLightmap: 0.0256
-  m_LightmapParameters: {fileID: 15203, guid: 0000000000000000f000000000000000, type: 0}
-  m_GroupingID: 0
-  m_RenderingLayerMask: 1
-  m_AllowAutoConnect: 1
-  m_EnableHeightmapRayTracing: 1
-  m_EnableTreesAndDetailsRayTracing: 0
-  m_TreeMotionVectorModeOverride: 3
---- !u!4 &696072417
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 696072414}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -500, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &696072418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 696072414}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 10894c0a8215c5e46a62e09ffad7706c, type: 2}
-  m_BuildHeightMesh: 0
 --- !u!1 &698609961 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3529745951174825308, guid: 8f0e32887c370024784b73d2bc3226d1, type: 3}
@@ -6705,6 +6579,17 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -7828716370911885745, guid: 5821af9a78876e3418d2b2282dc6e8de, type: 3}
+--- !u!114 &1429003075 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1908441490439714357, guid: bc07d278fdf248c4e8a4b1da7dd33131, type: 3}
+  m_PrefabInstance: {fileID: 1573840725086916340}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a66dea14bde13f42bb159830d91bd4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1457146749 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6513343459884660915, guid: 3eee5b75bf8456847af359ea0aa9a8c1, type: 3}
@@ -9663,6 +9548,66 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1510695484137925995, guid: bc07d278fdf248c4e8a4b1da7dd33131, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510695484137925995, guid: bc07d278fdf248c4e8a4b1da7dd33131, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_ActionId
+      value: bc03ac1e-61b8-4af8-83f3-6838c192830a
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510695484137925995, guid: bc07d278fdf248c4e8a4b1da7dd33131, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_ActionId
+      value: 5464c238-6d99-4ae2-bbf9-30edc4788cc2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510695484137925995, guid: bc07d278fdf248c4e8a4b1da7dd33131, type: 3}
+      propertyPath: m_ActionEvents.Array.data[8].m_ActionId
+      value: 86c62794-85d4-47df-aa65-377bf9c6f6c9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510695484137925995, guid: bc07d278fdf248c4e8a4b1da7dd33131, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_ActionName
+      value: 'player action map/Interact[/Keyboard/e]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510695484137925995, guid: bc07d278fdf248c4e8a4b1da7dd33131, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_ActionName
+      value: 'player action map/Reload[/Keyboard/r]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510695484137925995, guid: bc07d278fdf248c4e8a4b1da7dd33131, type: 3}
+      propertyPath: m_ActionEvents.Array.data[8].m_ActionName
+      value: 'player action map/Quit[/Keyboard/escape]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510695484137925995, guid: bc07d278fdf248c4e8a4b1da7dd33131, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510695484137925995, guid: bc07d278fdf248c4e8a4b1da7dd33131, type: 3}
+      propertyPath: m_ActionEvents.Array.data[8].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510695484137925995, guid: bc07d278fdf248c4e8a4b1da7dd33131, type: 3}
+      propertyPath: m_ActionEvents.Array.data[8].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510695484137925995, guid: bc07d278fdf248c4e8a4b1da7dd33131, type: 3}
+      propertyPath: m_ActionEvents.Array.data[8].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1429003075}
+    - target: {fileID: 1510695484137925995, guid: bc07d278fdf248c4e8a4b1da7dd33131, type: 3}
+      propertyPath: m_ActionEvents.Array.data[8].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510695484137925995, guid: bc07d278fdf248c4e8a4b1da7dd33131, type: 3}
+      propertyPath: m_ActionEvents.Array.data[8].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Quit
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510695484137925995, guid: bc07d278fdf248c4e8a4b1da7dd33131, type: 3}
+      propertyPath: m_ActionEvents.Array.data[8].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510695484137925995, guid: bc07d278fdf248c4e8a4b1da7dd33131, type: 3}
+      propertyPath: m_ActionEvents.Array.data[8].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1908441490439714357, guid: bc07d278fdf248c4e8a4b1da7dd33131, type: 3}
       propertyPath: playerBody
       value: 
@@ -9978,7 +9923,6 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 696072417}
   - {fileID: 321960642}
   - {fileID: 989182750}
   - {fileID: 1573840725086916340}
@@ -9992,6 +9936,7 @@ SceneRoots:
   - {fileID: 1086984805}
   - {fileID: 1097672542}
   - {fileID: 1048204911}
+  - {fileID: 280597056}
   - {fileID: 52902775}
   - {fileID: 1838738582}
   - {fileID: 141811025}
