@@ -19,11 +19,15 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private InputActionReference InteractAction;
 	[SerializeField] private InputActionReference ReloadAction;
 	[SerializeField] private float                lookSensitivity       = .2f;
-	[SerializeField] private float                webLookSensitivityScale = .5f;
+	
 	[SerializeField] private float                moveSpeed             = 4.0f;
 	[SerializeField] private Transform            playerBody;
 	[SerializeField] private Transform            eyeCamera;
 	[SerializeField] private LayerMask			  interactionLayer;
+	
+	#if UNITY_WEBGL && !UNITY_EDITOR
+	[SerializeField] private float                webLookSensitivityScale = .5f;
+	#endif
 
 	private DHTLogService _logService;
 	
@@ -114,6 +118,7 @@ public class PlayerController : MonoBehaviour
 		
 		var ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
 		string text = "";
+		
 		if (Physics.RaycastNonAlloc(ray, hits, maxDistance,interactionLayer) > 0)
 		{
 			var hit = hits[0];
@@ -195,8 +200,6 @@ public class PlayerController : MonoBehaviour
 		
 		mousePosition += Input.mousePositionDelta * mouseDeltaMultiplier;
 		
-		debugPanel.SetElement(4, $"Mouse Delta Multiplier: {mouseDeltaMultiplier}", "");
-		
 		HandleMouseLook();
 		HandlePlayerMove();
 		HandlePlayerShoot();
@@ -270,7 +273,7 @@ public class PlayerController : MonoBehaviour
 
 		if (!Input.GetKey(KeyCode.Space))
 		{
-			_logService.Log($"Mouse-x: {mousePosition.x}");
+			// _logService.Log($"Mouse-x: {mousePosition.x}");
 		}
 
 		lookInput =  mouseLookAction.action.ReadValue<Vector2>();
@@ -280,7 +283,7 @@ public class PlayerController : MonoBehaviour
 		
 		mouseY = math.clamp(mouseY, -85, 85);
 
-		debugPanel.SetElement(2, $"mouseY: {mouseY}", "");
+		// debugPanel.SetElement(2, $"mouseY: {mouseY}", "");
 		
 		// eyeCamera.Rotate(Vector3.left * mouseY);
 		eyeCamera.rotation = Quaternion.Euler(-mouseY, mouseX, 0f);
@@ -299,8 +302,8 @@ public class PlayerController : MonoBehaviour
 		deltaMove.y               = _rigidbody.linearVelocity.y;
 		_rigidbody.linearVelocity = deltaMove;
 
-		debugPanel.SetElement(0, $"Keys: {move}", "");
-		debugPanel.SetElement(1, $"deltaMove: {deltaMove}", "");
+		// debugPanel.SetElement(0, $"Keys: {move}", "");
+		// debugPanel.SetElement(1, $"deltaMove: {deltaMove}", "");
 	}
 
 	public void Quit()

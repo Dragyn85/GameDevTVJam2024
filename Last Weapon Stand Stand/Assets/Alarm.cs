@@ -8,13 +8,13 @@ public class Alarm : MonoBehaviour
     [SerializeField] private Transform   axis;
     [SerializeField] private AudioSource _audioSource;
 
-    private Light   light;
+    private Light   _light;
     private Vector3 RotationRate;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        light          = GetComponentInChildren<Light>();
+        _light          = GetComponentInChildren<Light>();
         RotationRate   = new Vector3(0, _rotationRate, 0);
         updateAlarmState();
     }
@@ -40,7 +40,7 @@ public class Alarm : MonoBehaviour
             _audioSource.Stop();
         }
 
-        light.enabled = AlarmOn;
+        _light.enabled = AlarmOn;
     }
 
     public bool AlarmOn

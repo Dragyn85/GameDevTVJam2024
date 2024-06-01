@@ -5,13 +5,13 @@ using Random = UnityEngine.Random;
 
 public class AlianSpawner : MonoBehaviour
 {
-    [SerializeField] private float      minSpawnRate = 0;
-    [SerializeField] private float      maxSpawnRate = 2;
-    [SerializeField] private float      width        = 200;
-    [SerializeField] private float      depth        = 50;
-    [SerializeField] private GameObject alianPrefab;
+    [SerializeField] internal float      minSpawnRate = 0;
+    [SerializeField] internal float      maxSpawnRate = 2;
+    [SerializeField] private  float      width        = 200;
+    [SerializeField] private  float      depth        = 50;
+    [SerializeField] private  GameObject alianPrefab;
 
-    private int _spawnCount = 0;
+    private IAlienCounter _alienCounter;
 
     private float timer = 0;
     private void OnDrawGizmos()
@@ -31,7 +31,7 @@ public class AlianSpawner : MonoBehaviour
 
     void Start()
     {
-        
+        _alienCounter = GameObjectExtensions.FindObjectsOfTypeWithInterface<IAlienCounter>()[0];
     }
 
 
@@ -58,7 +58,7 @@ public class AlianSpawner : MonoBehaviour
         Vector3 spawnPosition = transform.TransformPoint(new Vector3(x, 0, z));
 
         GameObject go = Instantiate(alianPrefab, spawnPosition, quaternion.identity);
-        _spawnCount++;
-        go.name = $"Alien #{_spawnCount}";
+        _alienCounter.AdjustCount(1);
+        go.name = $"Alien #{_alienCounter.Count}";
     }
 }

@@ -15,7 +15,9 @@ public class AlianBrain : MonoBehaviour, Damageable
     private ParticleSystem   _particleSystem;
     private WeaponStand      _weaponStand;
     private float            attackTimer;
+    IAlienCounter _alienCounter;
 
+    
     void Start()
     {
         attackTimer     = AttackTime;
@@ -26,6 +28,7 @@ public class AlianBrain : MonoBehaviour, Damageable
         _boxCollider    = GetComponent<BoxCollider>();
         _particleSystem = GetComponentInChildren<ParticleSystem>();
         _weaponStand    = FindFirstObjectByType<WeaponStand>();
+        _alienCounter   = GameObjectExtensions.FindObjectsOfTypeWithInterface<IAlienCounter>()[0];
 
         _navMeshAgent.destination = _weaponStand.transform.position;
     }
@@ -77,8 +80,11 @@ public class AlianBrain : MonoBehaviour, Damageable
     }
     
     
-    void UnaliveAlien()
+    internal void UnaliveAlien()
     {
+        if (_animator.GetBool("Alive") == false)
+            return;
+        
         var size   = _boxCollider.size;
         var center = _boxCollider.center;
 
@@ -96,6 +102,8 @@ public class AlianBrain : MonoBehaviour, Damageable
         _animator.SetBool("Alive", false);
         _navMeshAgent.enabled = false;
         Debug.Log($"{name} Unalived");
+        
+        _alienCounter.AdjustCount(-1);
     }
 
 
