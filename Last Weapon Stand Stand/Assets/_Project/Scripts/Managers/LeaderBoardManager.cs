@@ -122,7 +122,7 @@ public class LeaderBoardManager : MonoBehaviour
     {
         Debug.Log("LeaderboardManager: Start");
 
-        if (AuthenticationManager.Instance.isActiveAndEnabled)
+        if (AuthenticationManager.Instance.IsAuthenticated())
         {
             Debug.Log("LeaderBoardManager.Start()  ----   Already Authenticated");
             HandleAutheticationComplete();

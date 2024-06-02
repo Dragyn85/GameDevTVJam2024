@@ -16,8 +16,12 @@ public class LeaderboardDisplay : MonoBehaviour
 
     private void Start()
     {
-        LeaderBoardManager.Instance.DisableUpdates(false);
-        UpdateLeaderboard();
+        if (AuthenticationManager.Instance.IsAuthenticated())
+        {
+            LeaderBoardManager.Instance.DisableUpdates(false);
+            UpdateLeaderboard();
+        }
+
         LeaderBoardManager.Instance.OnLeaderBoardUpdated += UpdateLeaderboard;
         LeaderBoardManager.Instance.RequestUpdate();
     }

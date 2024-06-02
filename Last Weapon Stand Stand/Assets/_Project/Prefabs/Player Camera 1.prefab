@@ -1122,6 +1122,10 @@ PrefabInstance:
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
       value: 1801810542
       objectReference: {fileID: 0}
+    - target: {fileID: 3056065110461976483, guid: 7391d1bb1f396aa4497e039cce559622, type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3142504604149418260, guid: 7391d1bb1f396aa4497e039cce559622, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -1456,7 +1460,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5088953032710615264, guid: 7391d1bb1f396aa4497e039cce559622, type: 3}
       propertyPath: m_Size
-      value: 0.9999998
+      value: 0.99999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 5088953032710615264, guid: 7391d1bb1f396aa4497e039cce559622, type: 3}
+      propertyPath: m_Value
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5434884343300845131, guid: 7391d1bb1f396aa4497e039cce559622, type: 3}
       propertyPath: m_LocalScale.x
@@ -1556,7 +1564,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5851684159164530592, guid: 7391d1bb1f396aa4497e039cce559622, type: 3}
       propertyPath: m_Size
-      value: 0.99999976
+      value: 0.99999994
       objectReference: {fileID: 0}
     - target: {fileID: 5851684159164530592, guid: 7391d1bb1f396aa4497e039cce559622, type: 3}
       propertyPath: m_Value
@@ -1720,7 +1728,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7201610287239406286, guid: 7391d1bb1f396aa4497e039cce559622, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0.99999994
       objectReference: {fileID: 0}
     - target: {fileID: 7201610287239406286, guid: 7391d1bb1f396aa4497e039cce559622, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1816,7 +1824,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8384451303138454926, guid: 7391d1bb1f396aa4497e039cce559622, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.000000059604645
       objectReference: {fileID: 0}
     - target: {fileID: 8384451303138454926, guid: 7391d1bb1f396aa4497e039cce559622, type: 3}
       propertyPath: m_LocalPosition.x

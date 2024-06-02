@@ -190,6 +190,10 @@ public class PlayerController : MonoBehaviour
 
 	private void Update()
 	{
+		if (Input.GetKeyDown(KeyCode.Equals))
+		{
+			UpdateScore(100);
+		}
 #if UNITY_WEBGL && !UNITY_EDITOR
 		var mouseDeltaMultiplier = lookSensitivity * webLookSensitivityScale;
 #else
