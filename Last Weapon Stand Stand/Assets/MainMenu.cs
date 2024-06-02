@@ -15,7 +15,14 @@ public class MainMenu : MonoBehaviour
 
 	private void Start()
 	{
-		UGSAuthentication.OnAuthenticationComplete += HandleAutheticationComplete;
+		if (AuthenticationManager.Instance.IsAuthenticated())
+		{
+			HandleAutheticationComplete();
+		}
+		else
+		{
+			UGSAuthentication.OnAuthenticationComplete += HandleAutheticationComplete;
+		}
 	}
 
 	private void HandleAutheticationComplete()
@@ -30,6 +37,7 @@ public class MainMenu : MonoBehaviour
 	{
 		var result = await AuthenticationService.Instance.UpdatePlayerNameAsync(NameInputField.text);
 		NameInputField.text = result;
+		LeaderBoardManager.Instance.RequestUpdate();
 	}
 	
 	public void PlayButtonClicked()

@@ -91,12 +91,15 @@ public class WeaponStand : MonoBehaviour, IUpgrade
     {
         var player = FindFirstObjectByType<PlayerController>();
         GameOverPanel.SetActive(true);
+        // LeaderBoardManager.Instance.DisableUpdates(false);
         LeaderBoardManager.Instance.AddScore(player._score);
         Invoke(nameof(GotoMainMenu), 4);
     }
 
     void GotoMainMenu()
     {
+        Cursor.lockState = CursorLockMode.None;
+
         SceneManager.LoadScene("Main Menu");
     }
 }

@@ -16,6 +16,8 @@ public class LeaderboardDisplay : MonoBehaviour
 
     private void Start()
     {
+        LeaderBoardManager.Instance.DisableUpdates(false);
+        UpdateLeaderboard();
         LeaderBoardManager.Instance.OnLeaderBoardUpdated += UpdateLeaderboard;
         LeaderBoardManager.Instance.RequestUpdate();
     }
@@ -33,9 +35,12 @@ public class LeaderboardDisplay : MonoBehaviour
 
     void ClearLeaderboard()
     {
-        foreach (Transform child in _leaderboardParent)
+        if (_leaderboardParent)
         {
-            Destroy(child.gameObject);
+            foreach (Transform child in _leaderboardParent)
+            {
+                Destroy(child.gameObject);
+            }
         }
     }
 
