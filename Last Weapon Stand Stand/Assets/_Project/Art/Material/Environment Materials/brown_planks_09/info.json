@@ -1,0 +1,829 @@
+{
+    "type": 1,
+    "tags": [
+        "brown",
+        "planks"
+    ],
+    "date_published": 1556147662,
+    "name": "Brown Planks 09",
+    "categories": [
+        "wood",
+        "outdoor",
+        "indoor",
+        "clean",
+        "wall",
+        "man made"
+    ],
+    "authors": {
+        "Rob Tuytel": "All"
+    },
+    "dimensions": [
+        1000,
+        1000
+    ],
+    "files_hash": "12294191da633163dc9d644980dfea41a6b51066",
+    "max_resolution": [
+        8192,
+        8192
+    ],
+    "download_count": 32153,
+    "thumbnail_url": "https://cdn.polyhaven.com/asset_img/thumbs/brown_planks_09.png?width=256&height=256",
+    "files": {
+        "Diffuse": {
+            "8k": {
+                "jpg": {
+                    "size": 20375775,
+                    "md5": "4b007b17c32ee87294daf9483791384d",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/8k/brown_planks_09/brown_planks_09_diff_8k.jpg"
+                },
+                "png": {
+                    "size": 352779726,
+                    "md5": "950eef5fae047191235e34c2401e4d45",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/8k/brown_planks_09/brown_planks_09_diff_8k.png"
+                },
+                "exr": {
+                    "size": 48586224,
+                    "md5": "50f5f24b1c9c45ea012a641d8f17024c",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/8k/brown_planks_09/brown_planks_09_diff_8k.exr"
+                }
+            },
+            "4k": {
+                "jpg": {
+                    "size": 6395163,
+                    "md5": "6b7c2563f6741448c369ef0edc2853ad",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/4k/brown_planks_09/brown_planks_09_diff_4k.jpg"
+                },
+                "png": {
+                    "size": 96683007,
+                    "md5": "d0d20726beea66791ba6305177fd8766",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/4k/brown_planks_09/brown_planks_09_diff_4k.png"
+                },
+                "exr": {
+                    "size": 15298764,
+                    "md5": "6e88450d484f681af35225c3ce1bdf77",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/4k/brown_planks_09/brown_planks_09_diff_4k.exr"
+                }
+            },
+            "2k": {
+                "jpg": {
+                    "size": 1745758,
+                    "md5": "781a68d5242a63eff4217b34f8601714",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/brown_planks_09/brown_planks_09_diff_2k.jpg"
+                },
+                "png": {
+                    "size": 24589060,
+                    "md5": "06ad0ddf196c50b2e3993d0015fe6f38",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/brown_planks_09/brown_planks_09_diff_2k.png"
+                },
+                "exr": {
+                    "size": 4274502,
+                    "md5": "890fb21ce7cfe7bdfeb61f5176c4fc7c",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/brown_planks_09/brown_planks_09_diff_2k.exr"
+                }
+            },
+            "1k": {
+                "jpg": {
+                    "size": 433291,
+                    "md5": "7033ab41f2fd4042669cb9a570088395",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/brown_planks_09/brown_planks_09_diff_1k.jpg"
+                },
+                "png": {
+                    "size": 6155707,
+                    "md5": "7a1d8f14db34d13bb408d0903fa6b79f",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/brown_planks_09/brown_planks_09_diff_1k.png"
+                },
+                "exr": {
+                    "size": 1067882,
+                    "md5": "d6dabff9eafba32b221a9b7556958cd5",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/1k/brown_planks_09/brown_planks_09_diff_1k.exr"
+                }
+            }
+        },
+        "nor_dx": {
+            "8k": {
+                "jpg": {
+                    "size": 31391269,
+                    "md5": "f3fb5d5f3cb357bd556d7fa62d878a49",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/8k/brown_planks_09/brown_planks_09_nor_dx_8k.jpg"
+                },
+                "png": {
+                    "size": 347971612,
+                    "md5": "46f25c3fa0ea97fc906cf514c1051964",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/8k/brown_planks_09/brown_planks_09_nor_dx_8k.png"
+                },
+                "exr": {
+                    "size": 94626514,
+                    "md5": "256c69f0c0b1caff717ea5d370ee3994",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/8k/brown_planks_09/brown_planks_09_nor_dx_8k.exr"
+                }
+            },
+            "4k": {
+                "jpg": {
+                    "size": 9202171,
+                    "md5": "db811c1f9b5f7c532e2d2f07f1da2668",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/4k/brown_planks_09/brown_planks_09_nor_dx_4k.jpg"
+                },
+                "png": {
+                    "size": 92424384,
+                    "md5": "7fd97291a14c8252f573b4c3a425ad89",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/4k/brown_planks_09/brown_planks_09_nor_dx_4k.png"
+                },
+                "exr": {
+                    "size": 23327489,
+                    "md5": "dbdcea357953ecd60ceabfb898460efb",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/4k/brown_planks_09/brown_planks_09_nor_dx_4k.exr"
+                }
+            },
+            "2k": {
+                "jpg": {
+                    "size": 2813026,
+                    "md5": "74f827796dc8351dd7393972a67c2169",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/brown_planks_09/brown_planks_09_nor_dx_2k.jpg"
+                },
+                "png": {
+                    "size": 23909529,
+                    "md5": "ce36bb36072babe2ddb824b640e7a9e7",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/brown_planks_09/brown_planks_09_nor_dx_2k.png"
+                },
+                "exr": {
+                    "size": 7065707,
+                    "md5": "1d858ac48db609c2b75c155eb175b8a1",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/brown_planks_09/brown_planks_09_nor_dx_2k.exr"
+                }
+            },
+            "1k": {
+                "jpg": {
+                    "size": 686622,
+                    "md5": "098a2adacae7ec14464a8c103fe5e665",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/brown_planks_09/brown_planks_09_nor_dx_1k.jpg"
+                },
+                "png": {
+                    "size": 6009297,
+                    "md5": "81d159addf15b17519658339671ca4e5",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/brown_planks_09/brown_planks_09_nor_dx_1k.png"
+                },
+                "exr": {
+                    "size": 1824016,
+                    "md5": "fe14796a9d851c3071da0977567d2061",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/1k/brown_planks_09/brown_planks_09_nor_dx_1k.exr"
+                }
+            }
+        },
+        "nor_gl": {
+            "8k": {
+                "jpg": {
+                    "size": 33063628,
+                    "md5": "be4a2dcf72e411eac06e992a3340d6e2",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/8k/brown_planks_09/brown_planks_09_nor_gl_8k.jpg"
+                },
+                "png": {
+                    "size": 347833645,
+                    "md5": "5db94d93a13d52280ab39b24e937e170",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/8k/brown_planks_09/brown_planks_09_nor_gl_8k.png"
+                },
+                "exr": {
+                    "size": 97307461,
+                    "md5": "7fc82b94bf27deaadb9f9e9449833739",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/8k/brown_planks_09/brown_planks_09_nor_gl_8k.exr"
+                }
+            },
+            "4k": {
+                "jpg": {
+                    "size": 9561217,
+                    "md5": "d4cc5e174e437bfa8f45a8f6948f2f58",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/4k/brown_planks_09/brown_planks_09_nor_gl_4k.jpg"
+                },
+                "png": {
+                    "size": 92424507,
+                    "md5": "bcade12e5c40e7da0db3f5e2885ceb9e",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/4k/brown_planks_09/brown_planks_09_nor_gl_4k.png"
+                },
+                "exr": {
+                    "size": 23952061,
+                    "md5": "03420afca0c0e72223acd0427889c6fd",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/4k/brown_planks_09/brown_planks_09_nor_gl_4k.exr"
+                }
+            },
+            "2k": {
+                "jpg": {
+                    "size": 2842345,
+                    "md5": "280628b5e73d2515df0e67d50b950256",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/brown_planks_09/brown_planks_09_nor_gl_2k.jpg"
+                },
+                "png": {
+                    "size": 23909684,
+                    "md5": "03d6d5626cd022cb7b37efc5cb41b690",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/brown_planks_09/brown_planks_09_nor_gl_2k.png"
+                },
+                "exr": {
+                    "size": 7213137,
+                    "md5": "95a9366677134bf5a63bdf4f407f896a",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/brown_planks_09/brown_planks_09_nor_gl_2k.exr"
+                }
+            },
+            "1k": {
+                "jpg": {
+                    "size": 687266,
+                    "md5": "66ec50157f3e63748d41600dd9410757",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/brown_planks_09/brown_planks_09_nor_gl_1k.jpg"
+                },
+                "png": {
+                    "size": 6009417,
+                    "md5": "092711e7d8832631331849f090396dc6",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/brown_planks_09/brown_planks_09_nor_gl_1k.png"
+                },
+                "exr": {
+                    "size": 1857109,
+                    "md5": "3da7875e606f1a3a686e4fd374a62042",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/1k/brown_planks_09/brown_planks_09_nor_gl_1k.exr"
+                }
+            }
+        },
+        "blend": {
+            "8k": {
+                "blend": {
+                    "size": 274508,
+                    "md5": "08cf52924e80f89f67023773fb1e59d0",
+                    "include": {
+                        "textures/brown_planks_09_rough_8k.jpg": {
+                            "size": 7726860,
+                            "md5": "64011c081771b34606dc9641b1bdb416",
+                            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/8k/brown_planks_09/brown_planks_09_rough_8k.jpg"
+                        },
+                        "textures/brown_planks_09_diff_8k.jpg": {
+                            "size": 20375775,
+                            "md5": "4b007b17c32ee87294daf9483791384d",
+                            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/8k/brown_planks_09/brown_planks_09_diff_8k.jpg"
+                        },
+                        "textures/brown_planks_09_disp_8k.png": {
+                            "size": 66018578,
+                            "md5": "7afc66d1e898cb93fb9cb50bbd70dc24",
+                            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/8k/brown_planks_09/brown_planks_09_disp_8k.png"
+                        },
+                        "textures/brown_planks_09_nor_gl_8k.exr": {
+                            "size": 97307461,
+                            "md5": "7fc82b94bf27deaadb9f9e9449833739",
+                            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/8k/brown_planks_09/brown_planks_09_nor_gl_8k.exr"
+                        }
+                    },
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/blend/8k/brown_planks_09/brown_planks_09_8k.blend"
+                }
+            },
+            "4k": {
+                "blend": {
+                    "size": 274282,
+                    "md5": "7035f345775a770e5ff4e00658376186",
+                    "include": {
+                        "textures/brown_planks_09_disp_4k.png": {
+                            "size": 25934568,
+                            "md5": "d09e0d4ebf2b93e9347944fd78ab3535",
+                            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/4k/brown_planks_09/brown_planks_09_disp_4k.png"
+                        },
+                        "textures/brown_planks_09_diff_4k.jpg": {
+                            "size": 6395163,
+                            "md5": "6b7c2563f6741448c369ef0edc2853ad",
+                            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/4k/brown_planks_09/brown_planks_09_diff_4k.jpg"
+                        },
+                        "textures/brown_planks_09_rough_4k.jpg": {
+                            "size": 1476478,
+                            "md5": "200fb0aebddbb6673baeff0ead7ed827",
+                            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/4k/brown_planks_09/brown_planks_09_rough_4k.jpg"
+                        },
+                        "textures/brown_planks_09_nor_gl_4k.exr": {
+                            "size": 23952061,
+                            "md5": "03420afca0c0e72223acd0427889c6fd",
+                            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/4k/brown_planks_09/brown_planks_09_nor_gl_4k.exr"
+                        }
+                    },
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/blend/4k/brown_planks_09/brown_planks_09_4k.blend"
+                }
+            },
+            "2k": {
+                "blend": {
+                    "size": 274401,
+                    "md5": "55452e2b1926513120f2ad878c89d083",
+                    "include": {
+                        "textures/brown_planks_09_rough_2k.jpg": {
+                            "size": 416881,
+                            "md5": "63553a420399a1b883fb3a698b91063a",
+                            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/brown_planks_09/brown_planks_09_rough_2k.jpg"
+                        },
+                        "textures/brown_planks_09_nor_gl_2k.exr": {
+                            "size": 7213137,
+                            "md5": "95a9366677134bf5a63bdf4f407f896a",
+                            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/brown_planks_09/brown_planks_09_nor_gl_2k.exr"
+                        },
+                        "textures/brown_planks_09_diff_2k.jpg": {
+                            "size": 1745758,
+                            "md5": "781a68d5242a63eff4217b34f8601714",
+                            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/brown_planks_09/brown_planks_09_diff_2k.jpg"
+                        },
+                        "textures/brown_planks_09_disp_2k.png": {
+                            "size": 7030022,
+                            "md5": "c51884ddc8e5a1964ae7023325679d38",
+                            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/brown_planks_09/brown_planks_09_disp_2k.png"
+                        }
+                    },
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/blend/2k/brown_planks_09/brown_planks_09_2k.blend"
+                }
+            },
+            "1k": {
+                "blend": {
+                    "size": 274371,
+                    "md5": "5854a81729d129e016b7024d0d5e7e20",
+                    "include": {
+                        "textures/brown_planks_09_diff_1k.jpg": {
+                            "size": 433291,
+                            "md5": "7033ab41f2fd4042669cb9a570088395",
+                            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/brown_planks_09/brown_planks_09_diff_1k.jpg"
+                        },
+                        "textures/brown_planks_09_disp_1k.png": {
+                            "size": 1836546,
+                            "md5": "6cf6c70cf6e93452bddb74b85a53e4d7",
+                            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/brown_planks_09/brown_planks_09_disp_1k.png"
+                        },
+                        "textures/brown_planks_09_nor_gl_1k.exr": {
+                            "size": 1857109,
+                            "md5": "3da7875e606f1a3a686e4fd374a62042",
+                            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/1k/brown_planks_09/brown_planks_09_nor_gl_1k.exr"
+                        },
+                        "textures/brown_planks_09_rough_1k.jpg": {
+                            "size": 112924,
+                            "md5": "29057efa2d0e38333a401a50edecb2ce",
+                            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/brown_planks_09/brown_planks_09_rough_1k.jpg"
+                        }
+                    },
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/blend/1k/brown_planks_09/brown_planks_09_1k.blend"
+                }
+            }
+        },
+        "gltf": {
+            "8k": {
+                "gltf": {
+                    "size": 3567,
+                    "md5": "356347786467c743f7781f9d11b800d3",
+                    "include": {
+                        "textures/brown_planks_09_rough_8k.jpg": {
+                            "size": 7726860,
+                            "md5": "64011c081771b34606dc9641b1bdb416",
+                            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/8k/brown_planks_09/brown_planks_09_rough_8k.jpg"
+                        },
+                        "textures/brown_planks_09_diff_8k.jpg": {
+                            "size": 20375775,
+                            "md5": "4b007b17c32ee87294daf9483791384d",
+                            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/8k/brown_planks_09/brown_planks_09_diff_8k.jpg"
+                        },
+                        "brown_planks_09.bin": {
+                            "size": 2368820,
+                            "md5": "c83a423ddcd00347618368855e3c20ee",
+                            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/gltf/8k/brown_planks_09/brown_planks_09.bin"
+                        },
+                        "textures/brown_planks_09_nor_gl_8k.jpg": {
+                            "size": 33063628,
+                            "md5": "be4a2dcf72e411eac06e992a3340d6e2",
+                            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/8k/brown_planks_09/brown_planks_09_nor_gl_8k.jpg"
+                        }
+                    },
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/gltf/8k/brown_planks_09/brown_planks_09_8k.gltf"
+                }
+            },
+            "4k": {
+                "gltf": {
+                    "size": 3567,
+                    "md5": "994d70a192c82a0d1b43f3f04067b445",
+                    "include": {
+                        "textures/brown_planks_09_diff_4k.jpg": {
+                            "size": 6395163,
+                            "md5": "6b7c2563f6741448c369ef0edc2853ad",
+                            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/4k/brown_planks_09/brown_planks_09_diff_4k.jpg"
+                        },
+                        "textures/brown_planks_09_rough_4k.jpg": {
+                            "size": 1476478,
+                            "md5": "200fb0aebddbb6673baeff0ead7ed827",
+                            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/4k/brown_planks_09/brown_planks_09_rough_4k.jpg"
+                        },
+                        "brown_planks_09.bin": {
+                            "size": 2368820,
+                            "md5": "c83a423ddcd00347618368855e3c20ee",
+                            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/gltf/8k/brown_planks_09/brown_planks_09.bin"
+                        },
+                        "textures/brown_planks_09_nor_gl_4k.jpg": {
+                            "size": 9561217,
+                            "md5": "d4cc5e174e437bfa8f45a8f6948f2f58",
+                            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/4k/brown_planks_09/brown_planks_09_nor_gl_4k.jpg"
+                        }
+                    },
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/gltf/4k/brown_planks_09/brown_planks_09_4k.gltf"
+                }
+            },
+            "2k": {
+                "gltf": {
+                    "size": 3567,
+                    "md5": "82a7209824b0ca0d11eedc654bb00d82",
+                    "include": {
+                        "textures/brown_planks_09_rough_2k.jpg": {
+                            "size": 416881,
+                            "md5": "63553a420399a1b883fb3a698b91063a",
+                            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/brown_planks_09/brown_planks_09_rough_2k.jpg"
+                        },
+                        "textures/brown_planks_09_nor_gl_2k.jpg": {
+                            "size": 2842345,
+                            "md5": "280628b5e73d2515df0e67d50b950256",
+                            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/brown_planks_09/brown_planks_09_nor_gl_2k.jpg"
+                        },
+                        "textures/brown_planks_09_diff_2k.jpg": {
+                            "size": 1745758,
+                            "md5": "781a68d5242a63eff4217b34f8601714",
+                            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/brown_planks_09/brown_planks_09_diff_2k.jpg"
+                        },
+                        "brown_planks_09.bin": {
+                            "size": 2368820,
+                            "md5": "c83a423ddcd00347618368855e3c20ee",
+                            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/gltf/8k/brown_planks_09/brown_planks_09.bin"
+                        }
+                    },
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/gltf/2k/brown_planks_09/brown_planks_09_2k.gltf"
+                }
+            },
+            "1k": {
+                "gltf": {
+                    "size": 3567,
+                    "md5": "d2e26007a84fd3d85f2e5cd8c7078f10",
+                    "include": {
+                        "textures/brown_planks_09_diff_1k.jpg": {
+                            "size": 433291,
+                            "md5": "7033ab41f2fd4042669cb9a570088395",
+                            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/brown_planks_09/brown_planks_09_diff_1k.jpg"
+                        },
+                        "textures/brown_planks_09_nor_gl_1k.jpg": {
+                            "size": 687266,
+                            "md5": "66ec50157f3e63748d41600dd9410757",
+                            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/brown_planks_09/brown_planks_09_nor_gl_1k.jpg"
+                        },
+                        "brown_planks_09.bin": {
+                            "size": 2368820,
+                            "md5": "c83a423ddcd00347618368855e3c20ee",
+                            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/gltf/8k/brown_planks_09/brown_planks_09.bin"
+                        },
+                        "textures/brown_planks_09_rough_1k.jpg": {
+                            "size": 112924,
+                            "md5": "29057efa2d0e38333a401a50edecb2ce",
+                            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/brown_planks_09/brown_planks_09_rough_1k.jpg"
+                        }
+                    },
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/gltf/1k/brown_planks_09/brown_planks_09_1k.gltf"
+                }
+            }
+        },
+        "rough_ao": {
+            "8k": {
+                "jpg": {
+                    "size": 32895779,
+                    "md5": "3ff74a688ccf6abc270d7db20a5bb123",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/8k/brown_planks_09/brown_planks_09_rough_ao_8k.jpg"
+                },
+                "png": {
+                    "size": 312635774,
+                    "md5": "e7d7f7132dd75e0778ec2a974c8cfdf4",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/8k/brown_planks_09/brown_planks_09_rough_ao_8k.png"
+                },
+                "exr": {
+                    "size": 98388365,
+                    "md5": "fdeaef3029c17efeac4a3a058a8d2ad2",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/8k/brown_planks_09/brown_planks_09_rough_ao_8k.exr"
+                }
+            },
+            "4k": {
+                "jpg": {
+                    "size": 6192374,
+                    "md5": "4272f5d5c40396e9a5f31806521c388b",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/4k/brown_planks_09/brown_planks_09_rough_ao_4k.jpg"
+                },
+                "png": {
+                    "size": 78759657,
+                    "md5": "a2feca267d501813311bc3d5e7353aba",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/4k/brown_planks_09/brown_planks_09_rough_ao_4k.png"
+                },
+                "exr": {
+                    "size": 21302754,
+                    "md5": "1db9c4efe943368215f4c55962060b1c",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/4k/brown_planks_09/brown_planks_09_rough_ao_4k.exr"
+                }
+            },
+            "2k": {
+                "jpg": {
+                    "size": 1503859,
+                    "md5": "27df228080d457bc0122d47c828ac51f",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/brown_planks_09/brown_planks_09_rough_ao_2k.jpg"
+                },
+                "png": {
+                    "size": 19308647,
+                    "md5": "5222a3b3b02165e1ab0830e1eb4b0a5f",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/brown_planks_09/brown_planks_09_rough_ao_2k.png"
+                },
+                "exr": {
+                    "size": 4595493,
+                    "md5": "ea4713ad039cae844396a22ddc8ba902",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/brown_planks_09/brown_planks_09_rough_ao_2k.exr"
+                }
+            },
+            "1k": {
+                "jpg": {
+                    "size": 392741,
+                    "md5": "45c557cbe624d282e562f650c59f7ec3",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/brown_planks_09/brown_planks_09_rough_ao_1k.jpg"
+                },
+                "png": {
+                    "size": 4852003,
+                    "md5": "db6ab4763607a05935ebfe7a0a04ccf2",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/brown_planks_09/brown_planks_09_rough_ao_1k.png"
+                },
+                "exr": {
+                    "size": 1196470,
+                    "md5": "5c5da62be5e66396004b66b28261e1c8",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/1k/brown_planks_09/brown_planks_09_rough_ao_1k.exr"
+                }
+            }
+        },
+        "arm": {
+            "8k": {
+                "jpg": {
+                    "size": 6243667,
+                    "md5": "9eb93e77f783a7af42b0f9bdf0f5eb41",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/8k/brown_planks_09/brown_planks_09_arm_8k.jpg"
+                },
+                "png": {
+                    "size": 271689828,
+                    "md5": "74c4fdf7b1c5e740fde90f2b0cebc952",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/8k/brown_planks_09/brown_planks_09_arm_8k.png"
+                },
+                "exr": {
+                    "size": 72957220,
+                    "md5": "42cd7b20ec9c3577b60a88c54fdb636d",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/8k/brown_planks_09/brown_planks_09_arm_8k.exr"
+                }
+            },
+            "4k": {
+                "jpg": {
+                    "size": 1746874,
+                    "md5": "bb8a5e6b64dfb1cd4b158cbfa2fcd511",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/4k/brown_planks_09/brown_planks_09_arm_4k.jpg"
+                },
+                "png": {
+                    "size": 64627338,
+                    "md5": "7d91e555769869711a7976055b102ebd",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/4k/brown_planks_09/brown_planks_09_arm_4k.png"
+                },
+                "exr": {
+                    "size": 16816292,
+                    "md5": "a301e5a0c227a2fa8bdf289a7432d08e",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/4k/brown_planks_09/brown_planks_09_arm_4k.exr"
+                }
+            },
+            "2k": {
+                "jpg": {
+                    "size": 441985,
+                    "md5": "8177334c649a6716312467f25cd85126",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/brown_planks_09/brown_planks_09_arm_2k.jpg"
+                },
+                "png": {
+                    "size": 15826468,
+                    "md5": "08b1da18a77b3405440c5ed523f9e7fb",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/brown_planks_09/brown_planks_09_arm_2k.png"
+                },
+                "exr": {
+                    "size": 3746369,
+                    "md5": "8e7adc185699c0f40fb0ee2d038296e8",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/brown_planks_09/brown_planks_09_arm_2k.exr"
+                }
+            },
+            "1k": {
+                "jpg": {
+                    "size": 111602,
+                    "md5": "5a15e9f76153afa6f6c38c2203f0616e",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/brown_planks_09/brown_planks_09_arm_1k.jpg"
+                },
+                "png": {
+                    "size": 3981698,
+                    "md5": "6477a420451a4c11a753b4f2579a4a66",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/brown_planks_09/brown_planks_09_arm_1k.png"
+                },
+                "exr": {
+                    "size": 977990,
+                    "md5": "a90f5db1df94bd830e3a1ffbd7097071",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/1k/brown_planks_09/brown_planks_09_arm_1k.exr"
+                }
+            }
+        },
+        "AO": {
+            "8k": {
+                "jpg": {
+                    "size": 26406921,
+                    "md5": "9484c3c6b209d6834c8ca5837d55c7ef",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/8k/brown_planks_09/brown_planks_09_ao_8k.jpg"
+                },
+                "png": {
+                    "size": 284011485,
+                    "md5": "27ec972dbf62f3bc786a6823772e341f",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/8k/brown_planks_09/brown_planks_09_ao_8k.png"
+                },
+                "exr": {
+                    "size": 42082856,
+                    "md5": "ca6bda642b4bc8d59cac8592cc87c48c",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/8k/brown_planks_09/brown_planks_09_ao_8k.exr"
+                }
+            },
+            "4k": {
+                "jpg": {
+                    "size": 6098778,
+                    "md5": "82c7885fd342e77bdfd0e79ccf5cd6a9",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/4k/brown_planks_09/brown_planks_09_ao_4k.jpg"
+                },
+                "png": {
+                    "size": 35750773,
+                    "md5": "1cd8c9419b91e49d5f4cd506b36cfd71",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/4k/brown_planks_09/brown_planks_09_ao_4k.png"
+                },
+                "exr": {
+                    "size": 10467824,
+                    "md5": "4600a7a5b6ce85d36548a1b77a39a2ed",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/4k/brown_planks_09/brown_planks_09_ao_4k.exr"
+                }
+            },
+            "2k": {
+                "jpg": {
+                    "size": 1306335,
+                    "md5": "477ce9fade9a2038817c64eaa5aa0333",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/brown_planks_09/brown_planks_09_ao_2k.jpg"
+                },
+                "png": {
+                    "size": 8690088,
+                    "md5": "241e4d8f10504232db704c44eeaa772a",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/brown_planks_09/brown_planks_09_ao_2k.png"
+                },
+                "exr": {
+                    "size": 2427635,
+                    "md5": "6dae917e41bc3a9da24d94f43d6c6063",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/brown_planks_09/brown_planks_09_ao_2k.exr"
+                }
+            },
+            "1k": {
+                "jpg": {
+                    "size": 329498,
+                    "md5": "6314bd13c32a60980640b3419001466f",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/brown_planks_09/brown_planks_09_ao_1k.jpg"
+                },
+                "png": {
+                    "size": 2168058,
+                    "md5": "c0efccf0b9fb658a10815ffe685be81d",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/brown_planks_09/brown_planks_09_ao_1k.png"
+                },
+                "exr": {
+                    "size": 622217,
+                    "md5": "376aa14f4ed6e48db7f08cc4988259b1",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/1k/brown_planks_09/brown_planks_09_ao_1k.exr"
+                }
+            }
+        },
+        "Displacement": {
+            "8k": {
+                "jpg": {
+                    "size": 3630743,
+                    "md5": "0bfac0128a8f26bd1ae4455d32ff48f6",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/8k/brown_planks_09/brown_planks_09_disp_8k.jpg"
+                },
+                "png": {
+                    "size": 66018578,
+                    "md5": "7afc66d1e898cb93fb9cb50bbd70dc24",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/8k/brown_planks_09/brown_planks_09_disp_8k.png"
+                },
+                "exr": {
+                    "size": 6496654,
+                    "md5": "f6e62ba5b7bfc80828f5596f7745e813",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/8k/brown_planks_09/brown_planks_09_disp_8k.exr"
+                }
+            },
+            "4k": {
+                "jpg": {
+                    "size": 1269979,
+                    "md5": "03cd4fb57ed7b2f79a673113b670d106",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/4k/brown_planks_09/brown_planks_09_disp_4k.jpg"
+                },
+                "png": {
+                    "size": 25934568,
+                    "md5": "d09e0d4ebf2b93e9347944fd78ab3535",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/4k/brown_planks_09/brown_planks_09_disp_4k.png"
+                },
+                "exr": {
+                    "size": 2540413,
+                    "md5": "105ddef83446f5302e1c535f44a2ed5a",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/4k/brown_planks_09/brown_planks_09_disp_4k.exr"
+                }
+            },
+            "2k": {
+                "jpg": {
+                    "size": 448215,
+                    "md5": "b47e124eb478fd50816b9b976d6cd04e",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/brown_planks_09/brown_planks_09_disp_2k.jpg"
+                },
+                "png": {
+                    "size": 7030022,
+                    "md5": "c51884ddc8e5a1964ae7023325679d38",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/brown_planks_09/brown_planks_09_disp_2k.png"
+                },
+                "exr": {
+                    "size": 947689,
+                    "md5": "bea7e372c6fcd16e5d2c90bdbfc8ee6e",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/brown_planks_09/brown_planks_09_disp_2k.exr"
+                }
+            },
+            "1k": {
+                "jpg": {
+                    "size": 141583,
+                    "md5": "491906e6def121f670750dd481684f83",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/brown_planks_09/brown_planks_09_disp_1k.jpg"
+                },
+                "png": {
+                    "size": 1836546,
+                    "md5": "6cf6c70cf6e93452bddb74b85a53e4d7",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/brown_planks_09/brown_planks_09_disp_1k.png"
+                },
+                "exr": {
+                    "size": 326897,
+                    "md5": "49bdd2f34528b8149256f972e84e6b61",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/1k/brown_planks_09/brown_planks_09_disp_1k.exr"
+                }
+            }
+        },
+        "Rough": {
+            "8k": {
+                "jpg": {
+                    "size": 7726860,
+                    "md5": "64011c081771b34606dc9641b1bdb416",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/8k/brown_planks_09/brown_planks_09_rough_8k.jpg"
+                },
+                "png": {
+                    "size": 107880022,
+                    "md5": "7b1188d5e6bc51ba549c355b5d67b348",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/8k/brown_planks_09/brown_planks_09_rough_8k.png"
+                },
+                "exr": {
+                    "size": 57870989,
+                    "md5": "bd7d85f72844637b47f3c372b36008ba",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/8k/brown_planks_09/brown_planks_09_rough_8k.exr"
+                }
+            },
+            "4k": {
+                "jpg": {
+                    "size": 1476478,
+                    "md5": "200fb0aebddbb6673baeff0ead7ed827",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/4k/brown_planks_09/brown_planks_09_rough_4k.jpg"
+                },
+                "png": {
+                    "size": 27200435,
+                    "md5": "1a371b7874d0c1101fb4a416d306141e",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/4k/brown_planks_09/brown_planks_09_rough_4k.png"
+                },
+                "exr": {
+                    "size": 12481178,
+                    "md5": "306a374701430a109045264b02fb19a8",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/4k/brown_planks_09/brown_planks_09_rough_4k.exr"
+                }
+            },
+            "2k": {
+                "jpg": {
+                    "size": 416881,
+                    "md5": "63553a420399a1b883fb3a698b91063a",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/brown_planks_09/brown_planks_09_rough_2k.jpg"
+                },
+                "png": {
+                    "size": 6777201,
+                    "md5": "57034b1867205fb8b64ef71daaee6e11",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/brown_planks_09/brown_planks_09_rough_2k.png"
+                },
+                "exr": {
+                    "size": 3299528,
+                    "md5": "c5bade1cfe0d907a3b6ad8e7a54423af",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/brown_planks_09/brown_planks_09_rough_2k.exr"
+                }
+            },
+            "1k": {
+                "jpg": {
+                    "size": 112924,
+                    "md5": "29057efa2d0e38333a401a50edecb2ce",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/brown_planks_09/brown_planks_09_rough_1k.jpg"
+                },
+                "png": {
+                    "size": 1678013,
+                    "md5": "fb5ed9914be6f8c0477a92bfeb7ed11f",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/brown_planks_09/brown_planks_09_rough_1k.png"
+                },
+                "exr": {
+                    "size": 862985,
+                    "md5": "8d1586356bd6eae284d2d643361d4f0d",
+                    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/1k/brown_planks_09/brown_planks_09_rough_1k.exr"
+                }
+            }
+        }
+    }
+}
