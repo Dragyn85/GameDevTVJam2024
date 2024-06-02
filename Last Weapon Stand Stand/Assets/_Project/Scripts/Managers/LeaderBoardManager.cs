@@ -34,7 +34,7 @@ public class LeaderBoardManager : MonoBehaviour
     private double currentLocalHighScore;
     private float nextUpdateTime;
     private float refreshMinInterval = 300;
-    private bool isEnabled = true;
+    private bool isUpdatesEnabled = true;
 
     /// <summary>
     /// Adds a score to the leaderboard, if the score is higher than the current local highscore it will update the local highscore.
@@ -59,7 +59,7 @@ public class LeaderBoardManager : MonoBehaviour
 
     public void DisableUpdates(bool disable)
     {
-        isEnabled = !disable;
+        isUpdatesEnabled = !disable;
     }
     
 
@@ -112,7 +112,7 @@ public class LeaderBoardManager : MonoBehaviour
 
     private void Update()
     {
-        if (isEnabled && Time.time > nextUpdateTime)
+        if (isUpdatesEnabled && Time.time > nextUpdateTime)
         {
             UpdateLocalEntries();
         }

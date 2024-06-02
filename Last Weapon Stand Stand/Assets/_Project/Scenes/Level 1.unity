@@ -1625,6 +1625,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -13.300049
       objectReference: {fileID: 0}
+    - target: {fileID: 3406826327564230396, guid: ba242626a0f4f0647a51394f8aec05cd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4020415079627631623, guid: ba242626a0f4f0647a51394f8aec05cd, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 945.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4020415079627631623, guid: ba242626a0f4f0647a51394f8aec05cd, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 195.8
+      objectReference: {fileID: 0}
     - target: {fileID: 5072706513303124635, guid: ba242626a0f4f0647a51394f8aec05cd, type: 3}
       propertyPath: m_Name
       value: Game UI
@@ -5132,27 +5144,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4295041396488251669, guid: 595ce8a5f5a59ff4bbc29d3152f9653f, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4295041396488251669, guid: 595ce8a5f5a59ff4bbc29d3152f9653f, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: -17
       objectReference: {fileID: 0}
     - target: {fileID: 4295041396488251669, guid: 595ce8a5f5a59ff4bbc29d3152f9653f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -256.59
       objectReference: {fileID: 0}
     - target: {fileID: 4295041396488251669, guid: 595ce8a5f5a59ff4bbc29d3152f9653f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -193.85
       objectReference: {fileID: 0}
     - target: {fileID: 4991945941004611389, guid: 595ce8a5f5a59ff4bbc29d3152f9653f, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4991945941004611389, guid: 595ce8a5f5a59ff4bbc29d3152f9653f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6793862173920776465, guid: 595ce8a5f5a59ff4bbc29d3152f9653f, type: 3}
       propertyPath: m_AnchorMax.y
@@ -7204,6 +7216,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Last stand v9_ optimized and improved
       objectReference: {fileID: 0}
+    - target: {fileID: 8311680174065989370, guid: e9e0062f2ec908d4ebdd6ab183a8c6c2, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: a9e9e9813864f9a43bfd21cc6e0f9429, type: 2}
     - target: {fileID: 8904131855347463643, guid: e9e0062f2ec908d4ebdd6ab183a8c6c2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.93
