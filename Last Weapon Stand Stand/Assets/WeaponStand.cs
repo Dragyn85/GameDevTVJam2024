@@ -1,5 +1,6 @@
 using Newtonsoft.Json;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 public class WeaponStand : MonoBehaviour, IUpgrade
@@ -34,6 +35,11 @@ public class WeaponStand : MonoBehaviour, IUpgrade
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKey(KeyCode.Q))
+        {
+            TakeDamage(100);
+        }
+        
         if (damageTimer > 0)
         {
             damageTimer -= Time.deltaTime;
@@ -83,8 +89,14 @@ public class WeaponStand : MonoBehaviour, IUpgrade
 
     private void GameOver()
     {
+        var player = FindFirstObjectByType<PlayerController>();
         GameOverPanel.SetActive(true);
-        
-        
+        LeaderBoardManager.Instance.AddScore(player._score);
+        Invoke(nameof(GotoMainMenu), 4);
+    }
+
+    void GotoMainMenu()
+    {
+        SceneManager.LoadScene("Main Menu");
     }
 }

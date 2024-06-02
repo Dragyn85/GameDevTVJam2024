@@ -25,9 +25,7 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private Transform            eyeCamera;
 	[SerializeField] private LayerMask			  interactionLayer;
 	
-	#if UNITY_WEBGL && !UNITY_EDITOR
 	[SerializeField] private float                webLookSensitivityScale = .5f;
-	#endif
 
 	private DHTLogService _logService;
 	
@@ -36,7 +34,7 @@ public class PlayerController : MonoBehaviour
 	private DHTDebugPanel_1_Service debugPanel;
 	private Vector2                 lookInput;
 	private Rigidbody               _rigidbody;
-	private int                     _score = 0;
+	internal int                     _score = 0;
 	private int					    _creditScore  = 0;
 	TMP_Text                        scoreBoardTMP;
 	TMP_Text                        creditBoardTMP;

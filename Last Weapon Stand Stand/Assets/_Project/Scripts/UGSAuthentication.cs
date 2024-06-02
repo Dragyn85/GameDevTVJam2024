@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Unity.Services.Authentication;
 using UnityEngine;
 
@@ -8,12 +9,14 @@ public class UGSAuthentication
     {
         await SignInAnonymously(playerName);
     }
+    static public event Action OnAuthenticationComplete;
 
     private async Task SignInAnonymously(string playerName)
     {
         AuthenticationService.Instance.SignedIn += () =>
         {
             Debug.Log("Signed in as: " + AuthenticationService.Instance.PlayerId);
+            OnAuthenticationComplete?.Invoke();
         };
         AuthenticationService.Instance.SignInFailed += s =>
         {

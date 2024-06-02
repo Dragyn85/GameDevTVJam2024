@@ -54,7 +54,11 @@ public class AuthenticationManager : MonoBehaviour
         }
 
         Debug.Log("Unity Services Initialized");
+        
         var name = PlayerPrefs.GetString("PlayerName", "Guest");
+
+        name = "";
+        
         TryLogIn(name);
     }
 
@@ -66,7 +70,6 @@ public class AuthenticationManager : MonoBehaviour
     [Tooltip("This will be inactivated in the build")]
     [SerializeField] bool debugMode = true;
 
-    public event Action OnAuthenticationComplete;
     public event Action OnAuthenticationChanged;
     public bool IsDebugModeActive()
     {
@@ -102,7 +105,7 @@ public class AuthenticationManager : MonoBehaviour
 
     public async Task<bool> TryLogIn(string name)
     {
-        if (IsValidName(name))
+        // if (IsValidName(name))
         {
             Debug.Log("TryLogIn");
             if (ugsAuthentication == null)
@@ -110,8 +113,8 @@ public class AuthenticationManager : MonoBehaviour
                 ugsAuthentication = new UGSAuthentication();
             }
             
+            
             await ugsAuthentication.AnonymusSignIn(name);
-            OnAuthenticationComplete?.Invoke();
             return true;
         }
 

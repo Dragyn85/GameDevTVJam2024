@@ -121,11 +121,21 @@ public class LeaderBoardManager : MonoBehaviour
     private void Start()
     {
         Debug.Log("LeaderboardManager: Start");
-        AuthenticationManager.Instance.OnAuthenticationComplete += HandleAutheticationComplete;
-        AuthenticationManager.Instance.OnAuthenticationChanged += HandleAutheticationChanged;
+
+        if (AuthenticationManager.Instance.isActiveAndEnabled)
+        {
+            Debug.Log("LeaderBoardManager.Start()  ----   Already Authenticated");
+            HandleAutheticationComplete();
+        }
+        else
+        {
+            UGSAuthentication.OnAuthenticationComplete += HandleAutheticationComplete;
+        }
+
+        AuthenticationManager.Instance.OnAuthenticationChanged += HandleAuthenticationChanged;
     }
 
-    private void HandleAutheticationChanged()
+    private void HandleAuthenticationChanged()
     {
         RequestUpdate();
     }
