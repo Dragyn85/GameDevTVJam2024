@@ -12,9 +12,9 @@ public class AmmoPickup : MonoBehaviour , IUpgrade, IInteractable
     [SerializeField,Range(0.01f,2f)] private float replenishTimeUpgradeAmount = -0.5f;
     [SerializeField] private int replenishAmountUpgradeAmount = 5;
     [SerializeField] private string interactionText;
-    
-    
-    private float numberOfUpgrades;
+
+
+    private float numberOfUpgrades = 1;
     
     
     public event Action OnPickupChanged = delegate { };

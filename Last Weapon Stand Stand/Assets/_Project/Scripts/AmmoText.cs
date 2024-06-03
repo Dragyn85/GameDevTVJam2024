@@ -7,7 +7,7 @@ public class AmmoText : MonoBehaviour
     [SerializeField] private TMP_Text ammoText;
     [SerializeField] private TMP_Text magazineAmmoText;
     
-    private void Start()
+    private void OnEnable()
     {
         Ammo.OnAmmoChanged += UpdateAmmoText;
     }
