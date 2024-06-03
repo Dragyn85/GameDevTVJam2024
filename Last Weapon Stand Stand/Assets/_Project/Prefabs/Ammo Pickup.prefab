@@ -72,7 +72,7 @@ MonoBehaviour:
   replenishAmount: 10
   replenishTime: 5
   nextReplenishTime: 0
-  replenishTimeUpgradeAmount: -0.5
+  replenishTimeUpgradeAmount: 0.01
   replenishAmountUpgradeAmount: 5
   interactionText: '[ E ] - Pickup ammo'
 --- !u!1 &5423361992110723272
