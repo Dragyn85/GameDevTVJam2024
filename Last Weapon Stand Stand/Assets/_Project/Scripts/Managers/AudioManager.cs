@@ -16,16 +16,21 @@ public class AudioManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            Initialize();
+            
         }
         else
         {
             Destroy(gameObject);
         }
     }
-
-    #endregion
     
+    #endregion
+
+    private void Start()
+    {
+        Initialize();
+    }
+
     [SerializeField] AudioMixer audioMixer;
     [SerializeField] float volumeChangeSpeed;
 
