@@ -5,7 +5,7 @@ public class DissapearAfterSeconds : MonoBehaviour
 {
     private void Start()
     {
-        Invoke("Disable", 3);
+        Invoke(nameof(Disable), 3);
     }
     
     private void Disable()
