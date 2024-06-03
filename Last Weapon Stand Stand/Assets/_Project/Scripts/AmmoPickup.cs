@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class AmmoPickup : MonoBehaviour , IUpgrade, IInteractable
 {
@@ -11,12 +12,21 @@ public class AmmoPickup : MonoBehaviour , IUpgrade, IInteractable
     [SerializeField,Range(0.01f,2f)] private float replenishTimeUpgradeAmount = -0.5f;
     [SerializeField] private int replenishAmountUpgradeAmount = 5;
     [SerializeField] private string interactionText;
-
+    
+    
     private float numberOfUpgrades;
+    
+    
+    public event Action OnPickupChanged = delegate { };
+    public int AmmoAmount => ammoAmount;
+    public int AmmoReplenishAmount => replenishAmount;
+    public float AmmoReplenishTime => replenishTime;
+    
     public void TakeAmmo(Ammo ammoToRefill)
     {Debug.Log("taking ammo");
         ammoToRefill.AddAmmo(ammoAmount);
         ammoAmount = 0;
+        OnPickupChanged?.Invoke();
     }
 
     private void Awake()
@@ -31,15 +41,17 @@ public class AmmoPickup : MonoBehaviour , IUpgrade, IInteractable
             ammoAmount += replenishAmount;
             ammoAmount = Mathf.Clamp(ammoAmount, 0, maxAmmo);
             nextReplenishTime = Time.time + replenishTime;
+            OnPickupChanged?.Invoke();
         }
     }
 
     public void Upgrade()
     {
-        replenishAmount += (int)(replenishAmountUpgradeAmount * (1.0f/numberOfUpgrades));
-        replenishTime -= replenishTimeUpgradeAmount/numberOfUpgrades;
+        replenishAmount += (int)(replenishAmountUpgradeAmount * (10.0f/numberOfUpgrades));
+        //replenishTime -= replenishTimeUpgradeAmount/numberOfUpgrades;
         
         numberOfUpgrades++;
+        OnPickupChanged?.Invoke();
     }
 
     public string GetInteractionText()
