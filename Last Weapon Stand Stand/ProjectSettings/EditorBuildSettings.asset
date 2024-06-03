@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/_Project/Scenes/Main Menu Copy.unity
     guid: a37a8dc9d5ce61e468b8972043a8818a
   - enabled: 1
-    path: Assets/_Project/Scenes/Main Menu.unity
+    path: Assets/_Project/Scenes/Main Menu (Old).unity
     guid: 06bb88e9db8809f4a8e048df19b82fbc
   - enabled: 1
     path: Assets/_Project/Scenes/(Old) Level 1.unity
