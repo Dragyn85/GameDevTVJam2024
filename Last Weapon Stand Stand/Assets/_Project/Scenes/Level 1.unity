@@ -10540,7 +10540,7 @@ MonoBehaviour:
   nextReplenishTime: 0
   replenishTimeUpgradeAmount: 0.7
   replenishAmountUpgradeAmount: 5
-  interactionText: Pickup ammo
+  interactionText: '[E] Pickup ammo'
   arrow: {fileID: 1174186894}
 --- !u!33 &1993844278607286150
 MeshFilter:
@@ -11005,11 +11005,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4295041396488251669, guid: 595ce8a5f5a59ff4bbc29d3152f9653f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -256.59
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4295041396488251669, guid: 595ce8a5f5a59ff4bbc29d3152f9653f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -193.85
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4991945941004611389, guid: 595ce8a5f5a59ff4bbc29d3152f9653f, type: 3}
       propertyPath: m_AnchorMax.x
