@@ -13,8 +13,9 @@ public class LastStandStandEngine : MonoBehaviour
 	[SerializeField] private AudioSource _audioSource;
 	[SerializeField] private WaveEngine  _waveEngine;
 
-	private Rigidbody _standDoorRigidbody;
-	IAlienCounter     _alienCounter;
+	private Rigidbody               _standDoorRigidbody;
+	IAlienCounter                   _alienCounter;
+	private DHTDebugPanel_1_Service debugPanel;
 
 	
 	enum StandState
@@ -41,6 +42,7 @@ public class LastStandStandEngine : MonoBehaviour
 
 	void Start()
 	{
+		debugPanel          = DHTServiceLocator.Get<DHTDebugPanel_1_Service>();
 		_standDoorRigidbody = standDoorTransform.GetComponent<Rigidbody>();
 		_alienCounter       = GameObjectExtensions.FindObjectsOfTypeWithInterface<IAlienCounter>()[0];
 	}
@@ -58,9 +60,16 @@ public class LastStandStandEngine : MonoBehaviour
 				if (standDoorTransform.position.y > standDoorOpenTransform.position.y)
 				{
 					standState                        = StandState.Open;
-					_standDoorRigidbody.linearVelocity = Vector3.zero;
 					_audioSource.Stop();
 					StoreOpenTimer = StoreOpenTime;
+				}
+				else
+				{
+					Vector3 deltaPosition = doorSpeed * Time.deltaTime * Vector3.up;
+					
+					debugPanel.SetElement(0, $"Door position: {standDoorTransform.position}", "");
+					
+					standDoorTransform.position += deltaPosition;
 				}
 
 				
@@ -70,7 +79,6 @@ public class LastStandStandEngine : MonoBehaviour
 				if (StoreOpenTimer < 0)
 				{
 					standState                         = StandState.DoorClosing;
-					_standDoorRigidbody.linearVelocity = doorSpeed * -1 * Vector3.up;
 					_audioSource.Play();
 				}
 
@@ -78,11 +86,14 @@ public class LastStandStandEngine : MonoBehaviour
 			case StandState.DoorClosing:
 				if (standDoorTransform.position.y < standDoorClosedTransform.position.y)
 				{
-					standState                        = StandState.Closed;
-					_standDoorRigidbody.linearVelocity = Vector3.zero;
+					standState = StandState.Closed;
 					_audioSource.Stop();
-					
 					_waveEngine.StartWave();
+				}
+				else
+				{
+					Vector3 velocity = doorSpeed * Vector3.up;
+					standDoorTransform.position += -1 * Time.deltaTime * velocity;
 				}
 				break;
 			default:
@@ -94,7 +105,6 @@ public class LastStandStandEngine : MonoBehaviour
 	public void AlienWaveEnded()
 	{
 		Debug.Log("------  Wave Ended  ------");
-		_standDoorRigidbody.linearVelocity = doorSpeed * Vector3.up;
 		standState                         = StandState.DoorOpening;
 		_audioSource.Play();
 	}
