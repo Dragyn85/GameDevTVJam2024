@@ -2,16 +2,17 @@
 
 public class AmmoPickup : MonoBehaviour , IUpgrade, IInteractable
 {
-    [SerializeField] private int ammoAmount = 10;
+    [SerializeField] private int ammoAmount = 500;
     [SerializeField] int maxAmmo = 1000;
     [SerializeField] int replenishAmount = 10;
-    [SerializeField] float replenishTime = 5.0f;
+    [SerializeField] float replenishTime = 10.0f;
     [SerializeField] float nextReplenishTime = 0.0f;
 
-    [SerializeField,Range(-2,-0.01f)] private float replenishTimeUpgradeAmount = -0.5f;
+    [SerializeField,Range(0.01f,2f)] private float replenishTimeUpgradeAmount = -0.5f;
     [SerializeField] private int replenishAmountUpgradeAmount = 5;
     [SerializeField] private string interactionText;
 
+    private float numberOfUpgrades;
     public void TakeAmmo(Ammo ammoToRefill)
     {Debug.Log("taking ammo");
         ammoToRefill.AddAmmo(ammoAmount);
@@ -35,8 +36,10 @@ public class AmmoPickup : MonoBehaviour , IUpgrade, IInteractable
 
     public void Upgrade()
     {
-        replenishAmount += replenishAmountUpgradeAmount;
-        replenishTime += replenishTimeUpgradeAmount;
+        replenishAmount += (int)(replenishAmountUpgradeAmount * (1.0f/numberOfUpgrades));
+        replenishTime -= replenishTimeUpgradeAmount/numberOfUpgrades;
+        
+        numberOfUpgrades++;
     }
 
     public string GetInteractionText()

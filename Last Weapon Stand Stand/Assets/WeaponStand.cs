@@ -18,11 +18,14 @@ public class WeaponStand : MonoBehaviour, IUpgrade
     private int repairAmount = 1;
 
     [SerializeField] private float repairTime           = 10;
-    [SerializeField] private int   repairAmountIncrease = 1;
+    [SerializeField] private int   repairAmountIncreaseMultiplier = 1;
     [SerializeField] private float repairTimeDecrease   = 0.3f;
     [SerializeField] private GameObject GameOverPanel;
+    [SerializeField] private int maxRepairAmount = 50;
+    [SerializeField] private float minRepairTickRate = 3f;
 
     private float damageTimer;
+    private float numberOfUpgrades;
 
     private                  float  nextRepairTime;
 
@@ -59,8 +62,8 @@ public class WeaponStand : MonoBehaviour, IUpgrade
 
     public void Upgrade()
     {
-        repairAmount += repairAmountIncrease;
-        repairTime   -= repairTimeDecrease;
+        repairAmount += repairAmountIncreaseMultiplier* (int)(1.0f/numberOfUpgrades);
+        repairTime   -= repairTimeDecrease/numberOfUpgrades;
     }
 
     public void TakeDamage(int damage)
