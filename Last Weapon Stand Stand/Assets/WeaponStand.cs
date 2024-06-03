@@ -104,6 +104,6 @@ public class WeaponStand : MonoBehaviour, IUpgrade
     {
         Cursor.lockState = CursorLockMode.None;
 
-        SceneManager.LoadScene("Main Menu");
+        SceneManager.LoadScene("Main Menu Copy");
     }
 }

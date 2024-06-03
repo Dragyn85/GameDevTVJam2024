@@ -1,4 +1,6 @@
 using System;
+using TMPro;
+using Unity.Services.Authentication;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
@@ -23,7 +25,8 @@ public class MainMenuScript : MonoBehaviour
 
     [Header("Leaderboard")]
     [SerializeField] LeaderboardDisplay leaderBoardDisplay;
-    
+    [SerializeField] TMP_InputField NameInputField;
+    [SerializeField] Button UpdatePlayersNameButton;
     
     public void Start()
     {
@@ -32,6 +35,29 @@ public class MainMenuScript : MonoBehaviour
         settingsButton.onClick.AddListener(HandleSettingsButtonClicked);
         exitButton.onClick.AddListener(HandleExitButtonClicked);
         creditsButton.onClick.AddListener(HandleCreditsButtonClicked);
+        UpdatePlayersNameButton.onClick.AddListener(UpdatePlayersNameButtonClicked);
+        
+        if (AuthenticationManager.Instance.IsAuthenticated())
+        {
+            HandleAutheticationComplete();
+        }
+        else
+        {
+            UGSAuthentication.OnAuthenticationComplete += HandleAutheticationComplete;
+        }
+    }
+    
+    public async void UpdatePlayersNameButtonClicked()
+    {
+        var result = await AuthenticationService.Instance.UpdatePlayerNameAsync(NameInputField.text);
+        NameInputField.text = result;
+        LeaderBoardManager.Instance.RequestUpdate();
+    }
+    private void HandleAutheticationComplete()
+    {
+        Debug.Log("Set Name Input Field");
+        var PlayerName = AuthenticationService.Instance.PlayerName;
+        NameInputField.text = PlayerName;
     }
 
     private void HandleExitButtonClicked()

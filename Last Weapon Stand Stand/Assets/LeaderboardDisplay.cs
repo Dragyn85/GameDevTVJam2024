@@ -55,7 +55,7 @@ public class LeaderboardDisplay : MonoBehaviour
         foreach (var entry in entries)
         {
             var leaderboardDisplay = Instantiate(_leaderboardDisplayPrefab, _leaderboardParent);
-            leaderboardDisplay.SetTexts(entry.PlayerName, entry.Score);
+            leaderboardDisplay.SetTexts($"No. {numberOfEntries+1} {entry.PlayerName}", entry.Score);
             numberOfEntries++;
             if (numberOfEntries >= maxEntries)
             {
