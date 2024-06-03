@@ -24,8 +24,10 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private Transform            eyeCamera;
 	[SerializeField] private LayerMask			  interactionLayer;
 	
-	[SerializeField] private float webLookSensitivityScale = .5f;
-	[SerializeField] private bool  _canJump                = false;
+	[SerializeField] private float             webLookSensitivityScale = .5f;
+	[SerializeField] private bool              _canJump                = false;
+	[SerializeField] private MusicManagerLevel _musicManagerLevel;
+	[SerializeField] private WaveEngine        _waveEngine;
 
 	private DHTLogService _logService;
 	
@@ -186,8 +188,8 @@ public class PlayerController : MonoBehaviour
 		debugPanel       = DHTServiceLocator.Get<DHTDebugPanel_1_Service>();
 	
 		Cursor.lockState = CursorLockMode.Locked;
-		/*
-		*/
+
+		firstShotFired = false;
 	}
 
 
@@ -212,13 +214,18 @@ public class PlayerController : MonoBehaviour
 	}
 
 
-	private                  float   shootTimer = 0;
-	[SerializeField] private float   shootRate  = .2f;
+	private                  float shootTimer     = 0;
+	[SerializeField] private float shootRate      = .2f;
+	private                  bool  firstShotFired = false;
 
 	private void HandlePlayerShoot()
 	{
 		if (shootAction.action.ReadValue<float>() > .1)
 		{
+			if (!firstShotFired && !(_waveEngine.waveState == WaveEngine.WaveState.WaitingToStartWave))
+			{
+				_musicManagerLevel.StartTransiton();
+			}
 			shootTimer -= Time.deltaTime;
 			if (shootTimer <= 0)
 			{
