@@ -161,7 +161,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1908441490439714357}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: Quit
+        m_MethodName: OnPause
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

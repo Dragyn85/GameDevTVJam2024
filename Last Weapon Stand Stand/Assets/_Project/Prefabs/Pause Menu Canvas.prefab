@@ -443,7 +443,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _soundParameterName: Music
-  _mixer: {fileID: 24100000, guid: d0903345c50d2a64dad9907e7b99ada5, type: 2}
   _slider: {fileID: 2026081427142683257}
 --- !u!1 &1513900651715585951
 GameObject:
@@ -1050,7 +1049,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _soundParameterName: SFX
-  _mixer: {fileID: 24100000, guid: d0903345c50d2a64dad9907e7b99ada5, type: 2}
   _slider: {fileID: 8720663752664440781}
 --- !u!1 &4986038130422458625
 GameObject:
