@@ -4926,6 +4926,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 100
+  AttackTime: 3
+  markerPrefab: {fileID: 5087864051265826470, guid: 47a048ae311693b42bbc9bc34c19d858, type: 3}
 --- !u!195 &1047267720860968267
 NavMeshAgent:
   m_ObjectHideFlags: 0

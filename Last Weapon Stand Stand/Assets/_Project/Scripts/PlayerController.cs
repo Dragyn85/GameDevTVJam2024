@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
 	private float mouseDeltaMultiplier;
 	private float pauseInteractionTextTimer;
 	
-	RaycastHit[] hits = new RaycastHit[1];
+	RaycastHit[] hits = new RaycastHit[4];
 	float maxDistance = 10;
 
 
@@ -116,11 +116,14 @@ public class PlayerController : MonoBehaviour
 		
 		var ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
 		string text = "";
-		
-		if (Physics.RaycastNonAlloc(ray, hits, maxDistance,interactionLayer) > 0)
-		{
-			var hit = hits[0];
 
+		int numhits;
+		if ((numhits  = Physics.RaycastNonAlloc(ray, hits, maxDistance,interactionLayer))>0)
+		{
+			var hit = hits[numhits-1];
+
+			debugPanel.SetElement(2, $"Num Hits: {numhits}, {hit.transform.name}");
+			
 			if (hit.collider.gameObject.TryGetComponent(out IInteractable interactable))
 			{
 				text = interactable.GetInteractionText();

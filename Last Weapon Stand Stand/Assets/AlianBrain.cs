@@ -1,3 +1,7 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -6,6 +10,7 @@ public class AlianBrain : MonoBehaviour, Damageable
 {
     [SerializeField] private int Health = 100;
     [SerializeField] private float AttackTime  = 3;
+    [SerializeField] private GameObject markerPrefab;
 
     private NavMeshAgent     _navMeshAgent;
     private PlayerController _player;
@@ -17,6 +22,11 @@ public class AlianBrain : MonoBehaviour, Damageable
     private float            attackTimer;
     IAlienCounter _alienCounter;
 
+
+    private WaypointArea[] _waypointAreas;
+
+    private int     currentWaypointIndex = 0;
+    private Vector3 currentDestination;
     
     void Start()
     {
@@ -30,7 +40,12 @@ public class AlianBrain : MonoBehaviour, Damageable
         _weaponStand    = FindFirstObjectByType<WeaponStand>();
         _alienCounter   = GameObjectExtensions.FindObjectsOfTypeWithInterface<IAlienCounter>()[0];
 
-        _navMeshAgent.destination = _weaponStand.transform.position;
+        _waypointAreas = FindObjectsByType<WaypointArea>(FindObjectsSortMode.None);
+        _waypointAreas = _waypointAreas.OrderBy(wp => -wp.transform.position.z).ToArray();
+
+
+           currentDestination = _waypointAreas[currentWaypointIndex].GetRandomWaypointInArea();
+           _navMeshAgent.destination = currentDestination;
     }
 
 
@@ -38,17 +53,29 @@ public class AlianBrain : MonoBehaviour, Damageable
     {
         if (_navMeshAgent.enabled)
         {
-            // _navMeshAgent.destination = _weaponStand.transform.position;
+            // _navMeshAgent.currentDestination = _weaponStand.transform.position;
         }
+        //_navMeshAgent.destination = _weaponStand.transform.position;
 
-        var distance = Vector3.Distance(transform.position, _weaponStand.transform.position);
+        
+        var distance = Vector3.Distance(transform.position, currentDestination);
         if (distance < 2 && isAlive)
         {
-            attackTimer -= Time.deltaTime;
-            if (attackTimer < 0)
+            if (currentWaypointIndex == 0)
             {
-                attackTimer = AttackTime;
-                AttackStand();
+                currentWaypointIndex++;
+                currentDestination = _weaponStand.transform.position;
+                _navMeshAgent.destination = currentDestination;
+            }
+            else
+            {
+
+                attackTimer -= Time.deltaTime;
+                if (attackTimer < 0)
+                {
+                    attackTimer = AttackTime;
+                    AttackStand();
+                }
             }
         }
     }
