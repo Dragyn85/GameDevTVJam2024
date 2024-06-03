@@ -1,16 +1,10 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class HideOnMouseExit : MonoBehaviour
+public class HideOnMouseExit : MonoBehaviour, IPointerExitHandler
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void OnPointerExit(PointerEventData eventData)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        gameObject.SetActive(false);
     }
 }
