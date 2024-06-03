@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
     private float pauseInteractionTextTimer;
 
     RaycastHit[] hits = new RaycastHit[4];
-    float maxDistance = 10;
+    float maxDistance = 5;
 
 
     private void OnEnable()
