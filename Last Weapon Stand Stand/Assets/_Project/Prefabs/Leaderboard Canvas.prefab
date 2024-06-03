@@ -228,6 +228,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _leaderboardDisplayPrefab: {fileID: 1142147082923141250, guid: a3d0ab6493edfb243a9b0c5e6184c5e1, type: 3}
   _leaderboardParent: {fileID: 3272014767012669187}
+  maxEntries: 10
+  canvasGroup: {fileID: 0}
 --- !u!1 &5820495549821533579
 GameObject:
   m_ObjectHideFlags: 0
