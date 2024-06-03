@@ -10533,7 +10533,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ed41b84687d417f94e1f14ed634d5b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoAmount: 10
+  ammoAmount: 500
   maxAmmo: 1000
   replenishAmount: 20
   replenishTime: 7
@@ -10797,6 +10797,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 616599908793901781, guid: bc07d278fdf248c4e8a4b1da7dd33131, type: 3}
+      propertyPath: initialAmmo
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 616599908793901781, guid: bc07d278fdf248c4e8a4b1da7dd33131, type: 3}
+      propertyPath: maxAmmoInClip
+      value: 120
+      objectReference: {fileID: 0}
     - target: {fileID: 1908441490439714357, guid: bc07d278fdf248c4e8a4b1da7dd33131, type: 3}
       propertyPath: pauseMenu
       value: 
@@ -10997,11 +11005,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4295041396488251669, guid: 595ce8a5f5a59ff4bbc29d3152f9653f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -256.59
       objectReference: {fileID: 0}
     - target: {fileID: 4295041396488251669, guid: 595ce8a5f5a59ff4bbc29d3152f9653f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -193.85
       objectReference: {fileID: 0}
     - target: {fileID: 4991945941004611389, guid: 595ce8a5f5a59ff4bbc29d3152f9653f, type: 3}
       propertyPath: m_AnchorMax.x

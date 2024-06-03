@@ -14,6 +14,7 @@ public class Ammo : MonoBehaviour
 
     private TMP_Text interactionText;
     private bool     reloading = false;
+    [SerializeField] private int initialAmmoInClip;
 
     public int CurrentAmmo => currentAmmo;
     public int CurrentAmmoInClip => currentAmmoInClip;
@@ -28,7 +29,7 @@ public class Ammo : MonoBehaviour
     
     private void Awake()
     {
-        currentAmmoInClip = maxAmmoInClip;
+        currentAmmoInClip = initialAmmoInClip;
         currentAmmo = initialAmmo;
     }
 
