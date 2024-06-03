@@ -4,7 +4,6 @@ using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
@@ -25,7 +24,8 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private Transform            eyeCamera;
 	[SerializeField] private LayerMask			  interactionLayer;
 	
-	[SerializeField] private float                webLookSensitivityScale = .5f;
+	[SerializeField] private float webLookSensitivityScale = .5f;
+	[SerializeField] private bool  _canJump                = false;
 
 	private DHTLogService _logService;
 	
@@ -266,7 +266,9 @@ public class PlayerController : MonoBehaviour
 
 	private void PlayerJump(InputAction.CallbackContext obj)
 	{
-		// Debug.Log("Player Jumped");
+		if (!_canJump)
+			return;
+		
 		_rigidbody.linearVelocity += Vector3.up * _jumpVelocity;
 	}
 
