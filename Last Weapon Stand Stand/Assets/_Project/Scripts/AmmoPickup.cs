@@ -12,7 +12,7 @@ public class AmmoPickup : MonoBehaviour , IUpgrade, IInteractable
     [SerializeField,Range(0.01f,2f)] private float replenishTimeUpgradeAmount = -0.5f;
     [SerializeField] private int replenishAmountUpgradeAmount = 5;
     [SerializeField] private string interactionText;
-
+    [SerializeField] private GameObject arrow;
 
     private float numberOfUpgrades = 1;
     
@@ -23,9 +23,10 @@ public class AmmoPickup : MonoBehaviour , IUpgrade, IInteractable
     public float AmmoReplenishTime => replenishTime;
     
     public void TakeAmmo(Ammo ammoToRefill)
-    {Debug.Log("taking ammo");
+    {
         ammoToRefill.AddAmmo(ammoAmount);
         ammoAmount = 0;
+        arrow.SetActive(false);
         OnPickupChanged?.Invoke();
     }
 
@@ -43,6 +44,11 @@ public class AmmoPickup : MonoBehaviour , IUpgrade, IInteractable
             nextReplenishTime = Time.time + replenishTime;
             OnPickupChanged?.Invoke();
         }
+    }
+
+    private void Start()
+    {
+        OnPickupChanged?.Invoke();
     }
 
     public void Upgrade()
