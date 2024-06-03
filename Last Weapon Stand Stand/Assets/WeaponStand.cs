@@ -40,7 +40,7 @@ public class WeaponStand : MonoBehaviour, IUpgrade
     {
         if (Input.GetKey(KeyCode.Q))
         {
-            TakeDamage(100);
+            // TakeDamage(100);
         }
         
         if (damageTimer > 0)
