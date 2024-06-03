@@ -21,6 +21,8 @@ public class WeaponStand : MonoBehaviour, IUpgrade
     [SerializeField] private int   repairAmountIncrease = 1;
     [SerializeField] private float repairTimeDecrease   = 0.3f;
     [SerializeField] private GameObject GameOverPanel;
+    [SerializeField] private int maxRepairAmount = 50;
+    [SerializeField] private float minRepairTickRate = 3f;
 
     private float damageTimer;
 
