@@ -26,7 +26,9 @@ public class Ammo : MonoBehaviour
     {
         get { return reloading; }
     }
-    
+
+    public int TotalAmmoCount => currentAmmo + currentAmmoInClip;
+
     private void Awake()
     {
         currentAmmoInClip = initialAmmoInClip;

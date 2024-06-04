@@ -246,8 +246,16 @@ public class PlayerController : MonoBehaviour
                 {
                     if (!rifle.GetAmmo().Reloading)
                     {
-                        interactionText.text = "[ R ] Reload";
-                        pauseInteractionTextTimer = 1;
+                        if (rifle.GetAmmo().TotalAmmoCount == 0)
+                        {
+                            interactionText.text = "Pickup Ammo";
+                            pauseInteractionTextTimer = 1;
+                        }
+                        else
+                        {
+                            interactionText.text = "[ R ] Reload";
+                            pauseInteractionTextTimer = 1;
+                        }
                     }
                 }
             }

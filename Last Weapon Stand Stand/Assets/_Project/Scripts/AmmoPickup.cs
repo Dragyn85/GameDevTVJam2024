@@ -13,6 +13,7 @@ public class AmmoPickup : MonoBehaviour , IUpgrade, IInteractable
     [SerializeField] private int replenishAmountUpgradeAmount = 5;
     [SerializeField] private string interactionText;
     [SerializeField] private GameObject arrow;
+    [SerializeField] private GameObject pickupAmmoText;
 
     private float numberOfUpgrades = 1;
     
@@ -27,6 +28,7 @@ public class AmmoPickup : MonoBehaviour , IUpgrade, IInteractable
         ammoToRefill.AddAmmo(ammoAmount);
         ammoAmount = 0;
         arrow.SetActive(false);
+        pickupAmmoText.SetActive(false);
         OnPickupChanged?.Invoke();
     }
 
