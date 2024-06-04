@@ -21,7 +21,7 @@ public class UgsLeaderboard : ILeaderboard
 
     public async Task AddScore(double ScoreToAdd)
     {
-        await LeaderboardsService.Instance.AddPlayerScoreAsync(LeaderboardId, ScoreToAdd);
+       var a = await LeaderboardsService.Instance.AddPlayerScoreAsync(LeaderboardId, ScoreToAdd);
     }
 
 

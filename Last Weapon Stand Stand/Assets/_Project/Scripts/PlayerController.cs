@@ -29,10 +29,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool _canJump = false;
     [SerializeField] private MusicManagerLevel _musicManagerLevel;
     [SerializeField] private WaveEngine _waveEngine;
+    [SerializeField] private Vector3 mousePosition;
 
     private DHTLogService _logService;
 
-
+    IAlienCounter                   _alienCounter;
     private RifleWithAmmo rifle;
     private DHTDebugPanel_1_Service debugPanel;
     private Vector2 lookInput;
@@ -43,7 +44,6 @@ public class PlayerController : MonoBehaviour
     TMP_Text creditBoardTMP;
     TMP_Text interactionText;
     private GameObject _weaponStand;
-    private Vector3 mousePosition;
 
     private float mouseDeltaMultiplier;
     private float pauseInteractionTextTimer;
@@ -185,8 +185,9 @@ public class PlayerController : MonoBehaviour
         UpdateCredit(400);
 
         RifleWithAmmo[] rifles = FindObjectsByType<RifleWithAmmo>(FindObjectsSortMode.None);
-        rifle = rifles[0];
-        debugPanel = DHTServiceLocator.Get<DHTDebugPanel_1_Service>();
+        rifle         = rifles[0];
+        debugPanel    = DHTServiceLocator.Get<DHTDebugPanel_1_Service>();
+        _alienCounter = GameObjectExtensions.FindObjectsOfTypeWithInterface<IAlienCounter>()[0];
 
         Cursor.lockState = CursorLockMode.Locked;
 
@@ -229,9 +230,9 @@ public class PlayerController : MonoBehaviour
         
         if (shootAction.action.ReadValue<float>() > .1)
         {
-            if (!firstShotFired && !(_waveEngine.waveState == WaveEngine.WaveState.WaitingToStartWave))
+            if (!firstShotFired && (_waveEngine.waveState != WaveEngine.WaveState.WaitingToStartWave) && _alienCounter.Count != 0)
             {
-                _musicManagerLevel.StartTransiton();
+                _musicManagerLevel.TransitonToTrack(1);
             }
 
             shootTimer -= Time.deltaTime;
@@ -266,11 +267,20 @@ public class PlayerController : MonoBehaviour
 
         UpdateScore(score);
         UpdateCredit(score);
+        if (_alienCounter.Count == 0)
+        {
+            _musicManagerLevel.TransitonToTrack(0);
+        }
     }
 
     public void UpdateScore(int scoreDelta)
     {
         _score += scoreDelta;
+        if (LeaderBoardManager.Instance)
+        {
+            LeaderBoardManager.Instance.AddScore(_score);
+        }
+
         scoreBoardTMP.text = _score.ToString();
     }
 

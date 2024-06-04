@@ -19,10 +19,11 @@ public abstract class ShopUpgrade : MonoBehaviour , IInteractable
     {
         if(currentPoints >= cost)
         {
+            var oldCost = cost;
             cost = (int)(cost * costUpgradeAmount);
             upgradable.Upgrade();
             OnUpgrade(upgradable);
-            return cost;
+            return oldCost;
         }
 
         return 0;

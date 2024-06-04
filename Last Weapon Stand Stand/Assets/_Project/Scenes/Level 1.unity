@@ -324,7 +324,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startMusic: {fileID: 1649429909}
   playingMusic: {fileID: 1928053909}
-  TransitionTime: 3
+  transitionRate: 0.5
 --- !u!4 &47814062
 Transform:
   m_ObjectHideFlags: 0
@@ -10190,7 +10190,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.593
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -10813,6 +10813,14 @@ PrefabInstance:
       propertyPath: _waveEngine
       value: 
       objectReference: {fileID: 4692894352590913337}
+    - target: {fileID: 1908441490439714357, guid: bc07d278fdf248c4e8a4b1da7dd33131, type: 3}
+      propertyPath: mousePosition.x
+      value: 133
+      objectReference: {fileID: 0}
+    - target: {fileID: 1908441490439714357, guid: bc07d278fdf248c4e8a4b1da7dd33131, type: 3}
+      propertyPath: mousePosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1908441490439714357, guid: bc07d278fdf248c4e8a4b1da7dd33131, type: 3}
       propertyPath: _musicManagerLevel
       value: 
@@ -13599,7 +13607,7 @@ PrefabInstance:
       objectReference: {fileID: -4273638657064563403, guid: d0903345c50d2a64dad9907e7b99ada5, type: 2}
     - target: {fileID: 5959488420748440247, guid: 74df7893953754041a2e1f499be505d6, type: 3}
       propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6414268506908683921, guid: 74df7893953754041a2e1f499be505d6, type: 3}
       propertyPath: m_Name

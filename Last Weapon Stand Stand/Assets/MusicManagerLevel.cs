@@ -5,40 +5,61 @@ public class MusicManagerLevel : MonoBehaviour
 {
     [SerializeField] private AudioSource startMusic;
     [SerializeField] private AudioSource playingMusic;
+    [SerializeField] private float       transitionRate = .5f;
 
-    private                  int   musicPlaying = 0;
-    private                  float transitionTimer;
-    [SerializeField] private float TransitionTime = 3;
+    private                  float _trackPlaying = 0;
 
+
+    private int _targetTrack;
+    
     void Start()
     {
         startMusic.volume = 1;
     }
 
-    public void StartTransiton()
+    public void TransitonToTrack(int TargetTrack)
     {
-        if (musicPlaying == 0 && transitionTimer==0)
+        if (_targetTrack != TargetTrack)
         {
-            transitionTimer     = TransitionTime;
-            playingMusic.volume = 0;
-            playingMusic.Play();
+            _targetTrack = TargetTrack;
+
+            if (_targetTrack == 0)
+            {
+                startMusic.Play();
+            }
+            else
+            {
+                playingMusic.Play();
+            }
         }
     }
-    void Update()
+
+
+    void Update() 
     {
-        if (transitionTimer > 0)
+        if (_trackPlaying != (float) _targetTrack)
         {
-            transitionTimer -= Time.deltaTime;
-            if (transitionTimer <= 0)
+            if (_targetTrack == 1)
             {
-                transitionTimer = 0;
-                musicPlaying    = 1;
-                startMusic.Stop();
+                _trackPlaying += Time.deltaTime * transitionRate;
+                if (_trackPlaying >= 1.0)
+                {
+                    _trackPlaying =  1;
+                    startMusic.Stop();
+                }
+            }
+            else
+            {
+                _trackPlaying -= Time.deltaTime * transitionRate;
+                if (_trackPlaying <= 0)
+                {
+                    _trackPlaying =  0;
+                    playingMusic.Stop();
+                }
             }
 
-            var ratio = transitionTimer / TransitionTime;
-            startMusic.volume   = ratio;
-            playingMusic.volume = 1 - ratio;
+            startMusic.volume   = 1-_trackPlaying;
+            playingMusic.volume = _trackPlaying;
         }
     }
 }

@@ -62,6 +62,7 @@ public class WeaponStand : MonoBehaviour, IUpgrade
 
     public void Upgrade()
     {
+        numberOfUpgrades++;
         repairAmount += repairAmountIncreaseMultiplier* (int)(1.0f/numberOfUpgrades);
         repairTime   -= repairTimeDecrease/numberOfUpgrades;
     }

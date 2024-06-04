@@ -8,10 +8,11 @@ using UnityEngine.AI;
 
 public class AlianBrain : MonoBehaviour, Damageable
 {
-    [SerializeField] private int Health = 100;
-    [SerializeField] private float AttackTime  = 3;
+    [SerializeField] private int        Health     = 100;
+    [SerializeField] private float      AttackTime = 3;
     [SerializeField] private GameObject markerPrefab;
-
+    [SerializeField] private float      disappearAfterDeathTime = 1.0f;
+    
     private NavMeshAgent     _navMeshAgent;
     private PlayerController _player;
     private GameObject       _playerGO;
@@ -20,7 +21,7 @@ public class AlianBrain : MonoBehaviour, Damageable
     private ParticleSystem   _particleSystem;
     private WeaponStand      _weaponStand;
     private float            attackTimer;
-    IAlienCounter _alienCounter;
+    private IAlienCounter    _alienCounter;
 
 
     private WaypointArea[] _waypointAreas;
@@ -131,8 +132,15 @@ public class AlianBrain : MonoBehaviour, Damageable
         Debug.Log($"{name} Unalived");
         
         _alienCounter.AdjustCount(-1);
+        
+        DisappearAlien(disappearAfterDeathTime);
     }
 
+
+    void DisappearAlien(float time)
+    {
+        Destroy(this.gameObject, time);
+    }
 
     public bool isAlive
     {

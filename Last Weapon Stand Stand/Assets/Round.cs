@@ -10,6 +10,7 @@ public class Round : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        Destroy(gameObject, 30);
     }
 
     // Update is called once per frame
