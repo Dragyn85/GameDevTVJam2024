@@ -91,7 +91,7 @@ public class WaveEngine : MonoBehaviour
 					}
 
 					unclampedWave++;
-
+					
 					waveState = WaveState.InStore;
 					WaveEndedEvent.Invoke();
 				}

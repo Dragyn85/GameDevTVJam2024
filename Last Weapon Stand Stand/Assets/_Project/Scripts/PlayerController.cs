@@ -84,6 +84,11 @@ public class PlayerController : MonoBehaviour
     }
 
 
+    public void WaveEnded()
+    {
+        UpdateLeaderBoard();
+    }
+    
     private void Interact(InputAction.CallbackContext obj)
     {
         var ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
@@ -300,13 +305,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void UpdateScore(int scoreDelta)
+
+    public void UpdateLeaderBoard()
     {
-        _score += scoreDelta;
         if (LeaderBoardManager.Instance)
         {
             LeaderBoardManager.Instance.AddScore(_score);
         }
+    }
+    
+    
+    public void UpdateScore(int scoreDelta)
+    {
+        _score += scoreDelta;
 
         scoreBoardTMP.text = _score.ToString();
     }
