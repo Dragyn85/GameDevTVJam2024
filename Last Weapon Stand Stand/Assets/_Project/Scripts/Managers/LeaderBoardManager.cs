@@ -46,7 +46,7 @@ public class LeaderBoardManager : MonoBehaviour
         if (score > currentLocalHighScore)
         {
             currentLocalHighScore = score;
-            PlayerPrefs.SetFloat("LocalHighScore", (float) score);
+            PlayerPrefs.SetFloat("NewLocalHighScore", (float) score);
             await leaderboard.AddScore(score);
             UpdateLocalEntries();
         }
@@ -68,7 +68,7 @@ public class LeaderBoardManager : MonoBehaviour
     {
         Debug.Log("LeaderboardManager: HandleAutheticationComplete");
         Initialize();
-        currentLocalHighScore = PlayerPrefs.GetFloat("LocalHighScore", 0);
+        currentLocalHighScore = PlayerPrefs.GetFloat("NewLocalHighScore", 0);
     }
 
     ILeaderboard leaderboard;
