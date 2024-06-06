@@ -50,13 +50,12 @@ public class WeaponStand : MonoBehaviour, IUpgrade
             {
                 _alarm.AlarmOn = false;
             }
-
-            if (Time.time > nextRepairTime)
-            {
-                _health        += repairAmount;
-                _health        =  Mathf.Clamp(_health, 0, maxHealth);
-                nextRepairTime =  Time.time + repairTime;
-            }
+        }
+        if (Time.time > nextRepairTime)
+        {
+            _health        += repairAmount;
+            _health        =  Mathf.Clamp(_health, 0, maxHealth);
+            nextRepairTime =  Time.time + repairTime;
         }
     }
 

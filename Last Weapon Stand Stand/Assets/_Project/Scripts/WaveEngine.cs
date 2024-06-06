@@ -16,6 +16,7 @@ public class WaveEngine : MonoBehaviour
 
 	private AlianSpawner[] _spawners;
 	private int            wave      = 0;
+	private float 		   unclampedWave = 0;
 	private float          waveTimer;
 
 	internal enum WaveState
@@ -46,6 +47,7 @@ public class WaveEngine : MonoBehaviour
 	void Start()
 	{
 		wave          = 0;
+		unclampedWave = 0;
 		_spawners     = FindObjectsByType<AlianSpawner>(FindObjectsSortMode.None);
 		_alienCounter = GameObjectExtensions.FindObjectsOfTypeWithInterface<IAlienCounter>()[0];
 
@@ -88,6 +90,8 @@ public class WaveEngine : MonoBehaviour
 						wave += 1;
 					}
 
+					unclampedWave++;
+
 					waveState = WaveState.InStore;
 					WaveEndedEvent.Invoke();
 				}
@@ -113,10 +117,17 @@ public class WaveEngine : MonoBehaviour
 	{
 		Debug.Log($"Waiting to Start Wave #{wave}");
 		waveTimer        = 0;
+		var nextMinSpawnTime = minSpawnTime[wave];
+		var nextMaxSpawnTime = maxSpawnTime[wave];
+		if (!(wave + 1 < waveLength.Length))
+		{
+			nextMinSpawnTime /= unclampedWave/4;
+			nextMaxSpawnTime /= unclampedWave/4;
+		}
 		foreach (var spawner in _spawners)
 		{
-			spawner.minSpawnRate = minSpawnTime[wave];
-			spawner.maxSpawnRate = maxSpawnTime[wave];
+			spawner.minSpawnRate = nextMinSpawnTime;
+			spawner.maxSpawnRate = nextMaxSpawnTime;
 		}
 		SpawnersEnabled(false);
 		waveState = WaveState.WaitingToStartWave;

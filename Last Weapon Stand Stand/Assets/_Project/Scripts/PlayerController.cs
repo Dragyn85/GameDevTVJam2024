@@ -33,13 +33,13 @@ public class PlayerController : MonoBehaviour
 
     private DHTLogService _logService;
 
-    IAlienCounter                   _alienCounter;
+    IAlienCounter _alienCounter;
     private RifleWithAmmo rifle;
     private DHTDebugPanel_1_Service debugPanel;
     private Vector2 lookInput;
     private Rigidbody _rigidbody;
     internal int _score = 0;
-    private int _creditScore = 0;
+    private int _creditScore = 400;
     TMP_Text scoreBoardTMP;
     TMP_Text creditBoardTMP;
     TMP_Text interactionText;
@@ -185,8 +185,8 @@ public class PlayerController : MonoBehaviour
         UpdateCredit(400);
 
         RifleWithAmmo[] rifles = FindObjectsByType<RifleWithAmmo>(FindObjectsSortMode.None);
-        rifle         = rifles[0];
-        debugPanel    = DHTServiceLocator.Get<DHTDebugPanel_1_Service>();
+        rifle = rifles[0];
+        debugPanel = DHTServiceLocator.Get<DHTDebugPanel_1_Service>();
         _alienCounter = GameObjectExtensions.FindObjectsOfTypeWithInterface<IAlienCounter>()[0];
 
         Cursor.lockState = CursorLockMode.Locked;
@@ -197,10 +197,14 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        
+#if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.Equals))
         {
             UpdateScore(100);
         }
+#endif
+        
 #if UNITY_WEBGL && !UNITY_EDITOR
 		var mouseDeltaMultiplier = lookSensitivity * webLookSensitivityScale;
 #else
@@ -227,10 +231,11 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
-        
+
         if (shootAction.action.ReadValue<float>() > .1)
         {
-            if (!firstShotFired && (_waveEngine.waveState != WaveEngine.WaveState.WaitingToStartWave) && _alienCounter.Count != 0)
+            if (!firstShotFired && (_waveEngine.waveState != WaveEngine.WaveState.WaitingToStartWave) &&
+                _alienCounter.Count != 0)
             {
                 _musicManagerLevel.TransitonToTrack(1);
             }
@@ -309,7 +314,6 @@ public class PlayerController : MonoBehaviour
 
     void HandleMouseLook()
     {
-        
         if (!Cursor.visible || Time.timeScale == 0)
             return;
 
@@ -355,7 +359,7 @@ public class PlayerController : MonoBehaviour
             pauseMenu.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
         }
-            
+
         else
         {
             pauseMenu.SetActive(true);
