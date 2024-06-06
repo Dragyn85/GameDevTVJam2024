@@ -5,6 +5,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -50,6 +51,10 @@ public class PlayerController : MonoBehaviour
 
     RaycastHit[] hits = new RaycastHit[4];
     float maxDistance = 5;
+
+    private float minSensitivity = 0.05f;
+    private float maxSensitivity = 0.7f;
+    [SerializeField] private Slider mouseLookSlider;
 
 
     private void OnEnable()
@@ -192,8 +197,17 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         firstShotFired = false;
+        
+        lookSensitivity = PlayerPrefs.GetFloat("LookSensitivity", lookSensitivity);
+        mouseLookSlider.value = lookSensitivity / (maxSensitivity - minSensitivity);
+        mouseLookSlider.onValueChanged.AddListener(OnMouseLookSliderChanged);
     }
 
+    private void OnMouseLookSliderChanged(float value)
+    {
+        lookSensitivity = value * (maxSensitivity - minSensitivity) + minSensitivity;
+        PlayerPrefs.SetFloat("LookSensitivity", lookSensitivity);
+    }
 
     private void Update()
     {

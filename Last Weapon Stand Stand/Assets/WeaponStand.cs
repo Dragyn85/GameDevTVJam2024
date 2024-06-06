@@ -56,6 +56,7 @@ public class WeaponStand : MonoBehaviour, IUpgrade
             _health        += repairAmount;
             _health        =  Mathf.Clamp(_health, 0, maxHealth);
             nextRepairTime =  Time.time + repairTime;
+            _standHealthBar.Health = _health;
         }
     }
 
