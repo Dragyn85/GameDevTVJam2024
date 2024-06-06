@@ -8,20 +8,20 @@ public class WeaponStand : MonoBehaviour, IUpgrade
     [SerializeField] private int maxHealth = 100;
 
     [FormerlySerializedAs("health")] [SerializeField]
-    private int _health = 100;
+    private float _health = 100;
 
     [SerializeField] private float          _alarmTime = 3.5f;
     [SerializeField] private Alarm          _alarm;
     [SerializeField] private StandHealthBar _standHealthBar;
 
     [Header("Upgrade settings")] [SerializeField]
-    private int repairAmount = 1;
+    private float repairAmount = 1;
 
     [SerializeField] private float repairTime           = 10;
-    [SerializeField] private int   repairAmountIncreaseMultiplier = 1;
+    [SerializeField] private float   repairAmountIncreaseMultiplier = 1;
     [SerializeField] private float repairTimeDecrease   = 0.3f;
     [SerializeField] private GameObject GameOverPanel;
-    [SerializeField] private int maxRepairAmount = 50;
+    [SerializeField] private float maxRepairAmount = 50;
     [SerializeField] private float minRepairTickRate = 3f;
 
     private float damageTimer;
@@ -62,7 +62,7 @@ public class WeaponStand : MonoBehaviour, IUpgrade
     public void Upgrade()
     {
         numberOfUpgrades++;
-        repairAmount += repairAmountIncreaseMultiplier* (int)(1.0f/numberOfUpgrades);
+        repairAmount += repairAmountIncreaseMultiplier* (1.0f/numberOfUpgrades);
         repairTime   -= repairTimeDecrease/numberOfUpgrades;
     }
 
