@@ -83,11 +83,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
-    public void WaveEnded()
-    {
-        UpdateLeaderBoard();
-    }
     
     private void Interact(InputAction.CallbackContext obj)
     {
@@ -302,15 +297,6 @@ public class PlayerController : MonoBehaviour
         if (_alienCounter.Count == 0)
         {
             _musicManagerLevel.TransitonToTrack(0);
-        }
-    }
-
-
-    public void UpdateLeaderBoard()
-    {
-        if (LeaderBoardManager.Instance)
-        {
-            LeaderBoardManager.Instance.AddScore(_score);
         }
     }
     

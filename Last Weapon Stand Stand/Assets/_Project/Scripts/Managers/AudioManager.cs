@@ -6,7 +6,9 @@ using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
-
+    [SerializeField] private float DefaultMusicVolume = 30;
+    [SerializeField] private float DefaultSFXVolume = 30;
+    
     #region  Singelton
 
     public static AudioManager Instance { get; private set; }
@@ -97,11 +99,20 @@ public class AudioManager : MonoBehaviour
 
     private void Initialize()
     {
-        audioMixer.SetFloat(musicVolumeParameter, PlayerPrefs.GetFloat(musicVolumeParameter, 80) - 80);
-        audioMixer.SetFloat(sfxVolumeParameter, PlayerPrefs.GetFloat(sfxVolumeParameter, 80) - 80);
+        var musicVolume = PlayerPrefs.GetFloat(musicVolumeParameter, DefaultMusicVolume);
+        var sfxVolume   = PlayerPrefs.GetFloat(sfxVolumeParameter, DefaultSFXVolume);
+        
+        Debug.Log($"Music Volume Player Pref: {musicVolume}");
+        Debug.Log($"SFX Volume Player Pref: {sfxVolume}");
+        
+        // audioMixer.SetFloat(musicVolumeParameter, DefaultMusicVolume - 80);
+        // audioMixer.SetFloat(sfxVolumeParameter, sfxVolume - 80);
 
         InitializeSoundParameter(musicVolumeParameter);
         InitializeSoundParameter(sfxVolumeParameter);
+        
+        SetVolume(musicVolumeParameter,DefaultMusicVolume);
+        SetVolume(sfxVolumeParameter,DefaultSFXVolume);
 
         MixerParameter.ParameterChanged += HandleSFXVolumeChanged;
     }

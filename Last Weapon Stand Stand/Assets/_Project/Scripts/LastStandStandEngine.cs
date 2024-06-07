@@ -17,6 +17,7 @@ public class LastStandStandEngine : MonoBehaviour
 	IAlienCounter                   _alienCounter;
 	private DHTDebugPanel_1_Service debugPanel;
 
+	private PlayerController _playerController;
 	
 	enum StandState
 	{
@@ -43,6 +44,7 @@ public class LastStandStandEngine : MonoBehaviour
 	void Start()
 	{
 		debugPanel          = DHTServiceLocator.Get<DHTDebugPanel_1_Service>();
+		_playerController   = GameObjectExtensions.FindObjectsOfTypeWithInterface<PlayerController>()[0];
 		_standDoorRigidbody = standDoorTransform.GetComponent<Rigidbody>();
 		_alienCounter       = GameObjectExtensions.FindObjectsOfTypeWithInterface<IAlienCounter>()[0];
 	}
@@ -101,10 +103,21 @@ public class LastStandStandEngine : MonoBehaviour
 		}
 	}
 
+
+	public void UpdateLeaderBoard()
+	{
+		Debug.Log("Update Leader Board");
+		if (LeaderBoardManager.Instance)
+		{
+			LeaderBoardManager.Instance.AddScore(_playerController._score);
+		}
+	}
+
 	
 	public void AlienWaveEnded()
 	{
 		Debug.Log("------  Wave Ended  ------");
+		UpdateLeaderBoard();
 		standState                         = StandState.DoorOpening;
 		_audioSource.Play();
 	}
