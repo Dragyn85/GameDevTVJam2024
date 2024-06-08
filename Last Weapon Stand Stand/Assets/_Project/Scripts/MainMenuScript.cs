@@ -1,4 +1,4 @@
-using System;
+    using System;
 using TMPro;
 using Unity.Services.Authentication;
 using UnityEngine;
@@ -13,14 +13,14 @@ public class MainMenuScript : MonoBehaviour
     [SerializeField] string SceneToLoad;
     
     [Header("Start")]
-    [SerializeField] Button startButton;
+    [SerializeField] ImageAlphaButton startButton;
     [Header("Settings")]
-    [SerializeField] Button settingsButton;
+    [SerializeField] ImageAlphaButton settingsButton;
     [SerializeField] GameObject settingsDisplay;
     [Header("Exit")]
-    [SerializeField] Button exitButton;
+    [SerializeField] ImageAlphaButton exitButton;
     [Header("Credits")]
-    [SerializeField] Button creditsButton;
+    [SerializeField] ImageAlphaButton creditsButton;
     [SerializeField] GameObject creditsDisplay;
 
     [Header("Leaderboard")]
@@ -30,7 +30,6 @@ public class MainMenuScript : MonoBehaviour
     
     public void Start()
     {
-        Invoke(nameof(DisableLoadScene),1f);
         startButton.onClick.AddListener(HandleStartButtonClicked);
         settingsButton.onClick.AddListener(HandleSettingsButtonClicked);
         exitButton.onClick.AddListener(HandleExitButtonClicked);
@@ -88,10 +87,5 @@ public class MainMenuScript : MonoBehaviour
     {
         LeaderBoardManager.Instance.DisableUpdates(true);
         SceneManager.LoadScene(SceneToLoad);
-    }
-
-    void DisableLoadScene()
-    {
-        mainMenuLoadingScreen.SetActive(false);
     }
 }
